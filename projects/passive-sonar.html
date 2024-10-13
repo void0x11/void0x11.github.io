@@ -35,18 +35,17 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="../assets/img/icon.png" alt="">
         <h1 class="sitename">Ahmed Portfolio</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="projects.html">Projects</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../projects.html">Projects</a></li>
           <li class="dropdown"><a href="#"><span>Mini Projects</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">FPGA Projects</a></li>
@@ -56,8 +55,8 @@
               <li><a href="#">PCB Design & Prototyping</a></li>
             </ul>
           </li>
-          <li><a href="achievements.html">Achievements</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="../achievements.html">Achievements</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -120,7 +119,7 @@
 
                 <div class="swiper-slide">
                   <video width="920" height="620" controls muted autoplay loop>
-                    <source src="../assets/img/portfolio/Passive-Sonar.mp4" type="video/mp4">
+                    <source src="../assets/img/portfolio/Passive-Sonar/Passive-Sonar.mp4" type="video/mp4">
                 </video>
                 </div>
 
@@ -136,7 +135,7 @@
                 <li><strong>Category</strong>: Hybrid Systems</li>
                 <li><strong>Purpose</strong>: Graduation Project (HTI)</li>
                 <li><strong>Project date</strong>: 01 Sep, 2022</li>
-                <li><strong>Project Team</strong>: <a href="https://www.linkedin.com/in/void0x11/">Ahmed Amin</a>, <a href="https://www.linkedin.com/in/youssefgoher/">Youssef Goher</a></li>
+                <li><strong>Project Team</strong>: <br> <a href="https://www.linkedin.com/in/void0x11/">Ahmed Amin</a>, <a href="https://www.linkedin.com/in/youssefgoher/">Youssef Goher</a>, <a href="#">Mazen Mohamed</a></li>
               </ul>
                 
             </div>
@@ -144,8 +143,6 @@
               <h2>Introduction: Redefining Security with Passive Detection</h2>
               <p>
                 This project introduces a proprietary ultrasonic passive radar system designed to detect adversary radars without transmitting signals. The system ensures stealth operation, making it ideal for secure environments. Passive radar leverages the ultrasonic signals transmitted by other devices, processing them to determine the location, behavior, and characteristics of adversary systems.
-              <p>
-                This radar system offers a cutting-edge solution for military, industrial, and environmental applications, focusing on security through invisibility. Its proprietary design ensures the technology remains protected from public use.
               </p>
             </div>
           </div>
@@ -162,145 +159,164 @@
           </ul>
         </div>
 
+      <section>
         <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
           <h2>System Architecture and Methodology</h2>
         
-          <section>
             <h4>1. Ultrasonic Wave Detection Technology</h4>
             <ul>
               <li>
                 <strong>400SR160 Ultrasonic Receiver:</strong> A highly sensitive receiver capturing ultrasonic signals at 40 kHz.
-                <div class="image-placeholder">(Insert Image: 400SR160 Ultrasonic Receiver)</div>
+                <br>
+                <br>
+                  <img width="400" height="150" src="../assets/img/portfolio/Passive-Sonar/Ultrasonic-R.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>
                 <p class="description">Description: The 400SR160 receiver with labeled components, highlighting the sensitivity and frequency range.</p>
               </li>
         
               <li>
                 <strong>Proprietary Transducer Circuit:</strong> Converts ultrasonic vibrations into electrical signals using piezoelectric crystals for efficient detection.
-                <div class="image-placeholder">(Insert Image: Piezoelectric Circuit Overview)</div>
+                <br>
+                <br>
+                <img width="400" height="150" src="../assets/img/portfolio/Passive-Sonar/Piezoelectric.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>
                 <p class="description">Description: Schematic of the piezoelectric transducer circuit, illustrating signal conversion.</p>
               </li>
             </ul>
-          </section>
         
-          <section>
+            <br>
             <h4>2. Amplification and Filtering Circuits</h4>
             <ul>
               <li>
                 <strong>LM324 Operational Amplifier:</strong> Used to boost weak signals, achieving a 10:1 gain ratio through precise resistor selection.
-                <div class="image-placeholder">(Insert Image: Amplified Signal on Oscilloscope)</div>
-                <p class="description">Description: Oscilloscope output showing amplified signals with reduced noise interference.</p>
+                <br>
+                <br>
+                <img width="400" height="150" src="../assets/img/portfolio/Passive-Sonar/Ultrasonic-Before.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>
+                <p class="description">Description: Oscilloscope output showing amplified signals with noise interference.</p>
               </li>
         
               <li>
                 <strong>RC Envelope Detection Circuit:</strong> Extends signal duration and smooths out noise for accurate ADC sampling.
-                <div class="image-placeholder">(Insert Image: RC Envelope Detector Circuit)</div>
-                <p class="description">Description: Diagram of the RC envelope detector circuit showing capacitor and resistor values.</p>
+                <br>
+                <br>
+                <img width="400" height="150" src="../assets/img/portfolio/Passive-Sonar/RC Envelope.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>
+                <p class="description">Description: Oscilloscope output showing amplified signals extended time duration</p>
               </li>
             </ul>
-          </section>
         
-          <section>
+            <br>
             <h4>3. Analog-to-Digital Conversion and Data Transmission</h4>
             <ul>
               <li>
                 <strong>Arduino Nano with ATmega328p:</strong> Digitizes ultrasonic signals through successive approximation ADC and sends them for further processing.
-                <div class="image-placeholder">(Insert Image: Arduino Nano Connected to Sensors)</div>
-                <p class="description">Description: Hardware setup showing Arduino Nano integrated with ultrasonic sensors.</p>
               </li>
         
               <li>
                 <strong>Proprietary Processing Interface:</strong> Transmits digital data to a secure Java application for real-time display.
-                <div class="image-placeholder">(Insert Image: Signal Flow Diagram)</div>
+                <br>
+                <br>
+                <img width="600" height="300" src="../assets/img/portfolio/Passive-Sonar/Signal Flow.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>                
                 <p class="description">Description: Flowchart showing data transfer from the sensors to the computer interface.</p>
               </li>
             </ul>
-          </section>
         
-          <section>
+            <br>
             <h4>4. Visualization and User Interface</h4>
             <ul>
               <li>
                 <strong>Java-Based Monitoring Application:</strong> Provides real-time visualization of signal strength, angle, and distance.
-                <div class="image-placeholder">(Insert Image: Java Application Display Example)</div>
+                <br>
+                <br>
+                <img width="720" height="300" src="../assets/img/portfolio/Passive-Sonar/R2.PNG" class="img-fluid" alt=""/>
+                <br>
+                <br>
                 <p class="description">Description: Screenshot of the Java interface showing radar signal tracking in real-time.</p>
               </li>
             </ul>
-          </section>
         </div>
 
-
+      
         <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-          <h2>Development Process and Implementation</h2>
-        
           <section>
-            <h3>Step 1: Circuit Prototyping and Testing</h3>
+            <h2>Development Process and Implementation</h2>
+        
+          
+            <h4>Step 1: Circuit Prototyping and Testing</h4>
             <ul>
               <li>
                 <strong>Prototype Setup:</strong> Prototyped circuits using voltage dividers, amplifiers, and filters to ensure minimal noise interference.
-                <div class="image-placeholder">(Insert Image: Circuit Prototype on Breadboard)</div>
+                <br>
+                <br>
+                <img width="720" height="300" src="../assets/img/portfolio/Passive-Sonar/Final Design.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>
                 <p class="description">Description: Prototype setup showing key circuit components connected on a breadboard.</p>
               </li>
         
               <li>
                 <strong>Noise Reduction:</strong> Final design uses 1MΩ input resistors and 10MΩ feedback resistors for optimal performance.
-                <div class="image-placeholder">(Insert Image: Oscilloscope Output Showing Noise-Free Signal)</div>
-                <p class="description">Description: Oscilloscope trace comparing original and filtered signals.</p>
               </li>
             </ul>
-          </section>
+
         
-          <section>
-            <h3>Step 2: PCB Design and Assembly</h3>
+            <br>
+            <h4>Step 2: PCB Design and Assembly</h4>
             <ul>
               <li>
                 <strong>PCB Layout:</strong> A custom PCB layout was designed to ensure efficient circuit assembly and signal routing.
-                <div class="image-placeholder">(Insert Image: PCB Layout Design)</div>
+                <img width="720" height="300" src="../assets/img/portfolio/Passive-Sonar/PCB Layout.png" class="img-fluid" alt=""/>
                 <p class="description">Description: Screenshot of the PCB layout in Proteus software with labeled components.</p>
               </li>
-        
               <li>
                 <strong>Assembly:</strong> The PCB was assembled and soldered by hand, and the ultrasonic sensors were securely mounted.
-                <div class="image-placeholder">(Insert Image: Assembled PCB with Sensors)</div>
-                <p class="description">Description: Fully assembled PCB showing ultrasonic receivers in place.</p>
+                <br>
+                <br>
+                <img width="720" height="300" src="../assets/img/portfolio/Passive-Sonar/Overall PCB.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>
+                <p class="description">Description: Fully Printed PCB with It's Traces</p>
               </li>
             </ul>
-          </section>
+
         
-          <section>
-            <h3>Step 3: Secure Data Transmission and Processing</h3>
+            <br>
+
+            <h4>Step 3: Secure Data Transmission and Processing</h4>
             <ul>
               <li>
-                <strong>Data Transmission:</strong> Arduino Nano processed the signal data and transmitted it securely to the Java interface.
-                <div class="image-placeholder">(Insert Image: Data Flow Through Arduino Nano to Java Interface)</div>
-                <p class="description">Description: Diagram showing data flow from Arduino to the monitoring interface.</p>
+                <strong>Data Transmission:</strong> Arduino Nano processed the signal data and transmitted it securely to the Java interface using UART serial.
               </li>
         
               <li>
                 <strong>AI-Powered Algorithm:</strong> An AI-powered curve fitting algorithm enhanced the accuracy of distance measurements.
-                <div class="image-placeholder">(Insert Image: Curve Fitting Graph of Signal vs Distance)</div>
-                <p class="description">Description: Graph showing curve fitting results for signal power against distance.</p>
+                <br>
+                <br>
+                <img width="720" height="300" src="../assets/img/portfolio/Passive-Sonar/Curve Fitting.jpg" class="img-fluid" alt=""/>
+                <br>
+                <br>                
+                <p class="description">Description: Graph showing curve fitting results for signal power against distance (Receiver no.1)</p>
               </li>
             </ul>
-          </section>
-        
+
+          <br>
           <h2>Performance Results and Technical Validation</h2>
-          <section>
-            <h3>Accurate Signal Reception</h3>
-            <p>Ultrasonic signals were detected over a range of 5 cm to 20 cm with high precision.</p>
-            <div class="image-placeholder">(Insert Image: Signal Detection Range Graph)</div>
-            <p class="description">Description: Graph of signal strength versus distance for multiple tests.</p>
-        
-            <h3>Real-Time Data Visualization</h3>
-            <p>The Java application displayed real-time data, tracking multiple radar signals.</p>
-            <div class="image-placeholder">(Insert Image: Real-Time Data Visualization)</div>
-            <p class="description">Description: Java interface showing real-time tracking of multiple radar sources.</p>
-        
-            <h3>AI-Enhanced Curve Fitting</h3>
-            <p>Curve fitting successfully mapped signal power to distance, improving detection accuracy.</p>
-            <div class="image-placeholder">(Insert Image: Fitted Curve with Signal Power Data Points)</div>
-            <p class="description">Description: Curve fit overlay showing measured data points and the generated curve.</p>
-          </section>
-        
+            <ui>
+              <li><strong>Accurate Signal Reception:</strong> Ultrasonic signals were detected over a range of 5 cm to 20 cm with high precision.</li>
+     
+              <li><strong>Real-Time Data Visualization:</strong> Java application displayed real-time data, tracking multiple radar signals.</li>
+          
+              <li><strong>AI-Enhanced Curve Fitting:</strong> fitting successfully mapped signal power to distance, improving detection accuracy.</li>
+            </ui>
+
+        <section>
           <h2>Applications and Proprietary Advantages</h2>
           <ul>
             <li><strong>Military Surveillance:</strong> Stealth tracking of adversary radars without active signal transmission.</li>
@@ -308,6 +324,7 @@
             <li><strong>Underwater Exploration:</strong> Suitable for detecting acoustic signals in marine applications.</li>
           </ul>
         
+          <br>
           <h2>Proprietary Challenges and Solutions</h2>
           <ul>
             <li><strong>Noise Interference:</strong> Implemented custom filtering using 1MΩ resistors and envelope detection.</li>
@@ -315,6 +332,7 @@
             <li><strong>Short Signal Duration:</strong> Extended signal duration using RC circuits for reliable ADC sampling.</li>
           </ul>
         
+          <br>
           <h2>Technical Specifications</h2>
           <ul>
             <li><strong>Receiver:</strong> 400SR160 Ultrasonic Receiver</li>
@@ -325,17 +343,18 @@
             <li><strong>Detection Range:</strong> 5 cm – 20 cm</li>
           </ul>
         
+          <br>
           <h2>Project Team</h2>
           <ul>
-            <li><strong>Mazen Mohamed Osman:</strong> Lead Circuit Designer</li>
-            <li><strong>Youssef Atef Abdalziz:</strong> Signal Processing Specialist</li>
+            <li><strong><a href="https://www.linkedin.com/in/void0x11/">Ahmed Amin</a> :</strong> Signal Processing Specialist & Ai Algorithms</li>
+            <li><strong><a href="https://www.linkedin.com/in/youssefgoher/">Youssef Atef</a> :</strong> Lead Circuit Designer</li>
+            <li><strong><a href="#">Mazen Mohamed</a> :</strong> Circuit Designer</li>
           </ul>
-          <p><strong>Supervised by:</strong> Dr. Mohamed A. Torad, Assistant Professor of Wireless Communications</p>
+          <p><strong>Supervised by: <a href="https://www.linkedin.com/in/associate-professor-mohamed-a-torad-137b1a62/">Dr. Mohamed A. Torad</a></strong> Assistant Professor of Wireless Communications</p>
         </div>
 
       </div>
     </section>
-      
   </main>
 
   <footer id="footer" class="footer dark-background">
