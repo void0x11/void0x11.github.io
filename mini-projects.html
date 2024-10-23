@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Achievements - Ahmed</title>
+  <title>Projects - Ahmed</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -26,14 +26,16 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
 </head>
 
-<body class="starter-page-page">
+<body class="portfolio-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="assets/img/icon.png" alt="">
         <h1 class="sitename">Ahmed Portfolio</h1>
       </a>
@@ -45,8 +47,8 @@
           <li><a href="resume.html">Resume</a></li>
           <li><a href="research.html">Research</a></li>
           <li><a href="projects.html">Projects</a></li>
-          <li><a href="mini-projects.html">Mini Projects</a></li>
-          <li><a href="achievements.html" class="active">Achievements</a></li>
+          <li><a href="mini-projects.html" class="active">Mini Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -63,8 +65,8 @@
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
-              <h1>Achievements</h1>
-              <p class="mb-0">"Formal education will make you a living; self-education will make you a fortune." – Jim Rohn</p>
+              <h1>Mini Projects</h1>
+              <p class="mb-0">"The only source of knowledge is experience." — Albert Einstein</p>
             </div>
           </div>
         </div>
@@ -73,74 +75,50 @@
         <div class="container">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Achievements</li>
+            <li class="current">Mini Projects</li>
           </ol>
         </div>
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Achievements</h2>
-        <div><span>Check my</span> <span class="description-title">Honors & Awards</span></div>
-        
-      </div><!-- End Section Title -->
+      <div class="container">
 
-      <div class="container" data-aos="fade-up">
-        <div class="achievement-post">
-          <h2>Dean’s List Honors</h2>
-          <p>
-            <strong>Achievement:</strong> Recognized for outstanding academic performance across multiple semesters.
-          </p>
-          <p>
-            <strong>Details:</strong><br>
-            Achieved a semester GPA of <strong>3.7 or higher</strong> while completing a full-time course load without any failing grades.<br>
-            Consistently demonstrated dedication, discipline, and excellence in all subjects.<br>
-            Earned <strong>Dean’s List Honors</strong> for the following semesters:
-          </p>
-          <ul>
-            <li>Fall 2023</li>
-            <li>Spring 2024</li>
-            <li>Summer 2024</li>
-          </ul>
-          <p>
-            <strong>Impact:</strong> This prestigious honor is a significant academic achievement, valued by employers, graduate programs, and scholarship committees, 
-            reflecting my commitment to maintaining academic excellence. <a href="https://www.linkedin.com/in/void0x11/">Check it here</a>
-          </p>
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-rf">Analog</li>
+            <li data-filter=".filter-hybrid">FPGA & Digital</li>
+            <li data-filter=".filter-rf">PCB Design</li>
+            <li data-filter=".filter-electronics">Signal Processing</li>
+            <li data-filter=".filter-embedded">Other</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-hybrid">
+              <div class="portfolio-content h-100">
+                <img width="1640" height="1080" src="assets/img/portfolio/Passive-Sonar/temp.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Passive Sonar Detection</h4>
+                  <p>"Passive sound-based object detection."</p>
+                  <a href="assets/img/portfolio/Passive-Sonar/temp.jpg" title="Passive Sonar Detection" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="projects/passive-sonar.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+          </div><!-- End Portfolio Container -->
+
         </div>
-        
-        <style>
-          .achievement-post {
-            background-color: #000000;
-            padding: 20px;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(206, 203, 203, 0.1);
-            max-width: 600px;
-            font-family: Arial, sans-serif;
-          }
-        
-          h2 {
-            color: #ffffff;
-          }
-        
-          ul {
-            list-style-type: disc;
-            margin-left: 20px;
-          }
-        
-          p {
-            line-height: 1.6;
-          }
-        </style>
-        
-      </div>
+
       </div>
 
-    </section><!-- /Starter Section Section -->
+    </section><!-- /Portfolio Section -->
 
   </main>
 
