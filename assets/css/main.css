@@ -1461,3 +1461,78 @@ section,
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+
+/* General styling for the card */
+.card {
+  background-color: #1c1c1c; /* Darker background for the card */
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #f0f0f0; /* Light text color for readability */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Category styling */
+.card-category {
+  color: #ffde59; /* Green accent for the category title */
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Card content layout */
+.card-content {
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Slightly lighter background for content */
+  padding: 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.card-content:hover {
+  background-color: #444; /* Hover effect with a subtle color change */
+}
+
+/* Thumbnail styling */
+.card-thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+/* Text content styling */
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: #18d26e; /* Green accent for the title */
+  font-size: 1.1em;
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-description {
+  color: #cccccc; /* Light gray for the description */
+  font-size: 0.95em;
+  margin: 8px 0;
+}
+
+/* Link styling */
+.card-link {
+  color: #18d26e; /* Soft blue color for links */
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.card-link i {
+  margin-right: 5px;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
