@@ -1475,7 +1475,7 @@ section,
 
 /* Category styling */
 .card-category {
-  color: #18d26e; /* Green accent for the category title */
+  color: #ffffff; /* Green accent for the category title */
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 10px;
@@ -1510,7 +1510,7 @@ section,
 }
 
 .card-title {
-  color: #ffde59; /* Green accent for the title */
+  color: #18d26e; /* Green accent for the title */
   font-size: 1.1em;
   margin: 0;
   font-weight: bold;
