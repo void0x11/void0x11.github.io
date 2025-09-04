@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Void Labs — RF & SDR ✦</title>
+  <meta name="description" content="RF & SDR portfolio: FMCW, Doppler, GNU Radio, antennas, link budgets, and signal intelligence labs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05070b;           /* deep navy */
+      --surface: #0b1118;      /* card surface */
+      --card: #0a0f15;
+      --border: #15202b;
+      --text: #e6f6ff;         /* very light cyan */
+      --muted: #8fb3c4;        /* desaturated cyan */
+      --cyan: #00e5ff;         /* primary cyan */
+      --blue: #2563eb;         /* secondary */
+      --magenta: #d946ef;      /* accent highlight */
+      --ring: rgba(0,229,255,0.22);
+    }
+    :root.light {
+      --bg: #f7fbff;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --border: #e5f0f6;
+      --text: #0b1220;
+      --muted: #4e6a79;
+      --cyan: #04c2d8;
+      --blue: #1d4ed8;
+      --magenta: #c026d3;
+      --ring: rgba(4,194,216,0.22);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Fira Code', ui-monospace, Menlo, Consolas, monospace;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(0,229,255,.08), transparent),
+        var(--bg);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:#9be8ff; text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* NAVBAR */
+    .navbar{position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; background:linear-gradient(180deg, rgba(5,7,11,.92), rgba(5,7,11,.6)); border-bottom:1px solid var(--border);
+      backdrop-filter: blur(6px)}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:600}
+    .logo{width:28px; height:28px; border:1px solid var(--cyan); display:grid; place-items:center; border-radius:6px; color:var(--cyan); box-shadow:0 0 0 3px var(--ring)}
+    .actions{display:flex; gap:8px; align-items:center}
+    .btn{cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text); padding:8px 12px; border-radius:10px; font-size:13px; line-height:1; transition:.2s ease; box-shadow:inset 0 -1px 0 rgba(255,255,255,.04)}
+    .btn:hover{transform:translateY(-1px); border-color:var(--cyan)}
+    .btn-primary{border-color:var(--cyan); background:var(--cyan); color:#001217}
+
+    .container{max-width:1100px; margin:0 auto; padding:24px 16px}
+
+    /* HERO with animated waveform */
+    .hero{position:relative; overflow:hidden; display:grid; gap:14px; padding:28px; border:1px solid var(--border); border-radius:16px;
+      background:linear-gradient(180deg, rgba(0,229,255,0.07), transparent)}
+    .hero h1{margin:0; font-size:28px}
+    .hero p{margin:0; color:var(--muted); line-height:1.7}
+    .hero code{background:var(--card); padding:2px 6px; border:1px solid var(--border); border-radius:6px; color:var(--magenta)}
+
+    /* Animated waveform layer */
+    .wavewrap{position:absolute; inset:0; pointer-events:none; opacity:.7}
+    svg.wave{position:absolute; left:0; right:0}
+    .wave.top{top:6px}
+    .wave.mid{top:36px; opacity:.65}
+    .wave.bot{top:66px; opacity:.45}
+
+    /* CONTROLS */
+    .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:18px}
+    .input{flex:1 1 260px; display:flex; align-items:center; gap:8px; padding:10px 12px; border-radius:10px; background:var(--card); border:1px solid var(--border); color:var(--text)}
+    .input svg{opacity:.85}
+    .input input{border:0; outline:none; flex:1; background:transparent; color:inherit; font-family:inherit}
+    .chip{border:1px dashed var(--border); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted); cursor:pointer; background:rgba(255,255,255,.03)}
+    .chip.active{border-color:var(--cyan); color:var(--cyan)}
+
+    /* GRID */
+    .grid{display:grid; gap:12px; grid-template-columns:repeat(1, minmax(0, 1fr)); margin-top:16px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+    @media(min-width:980px){.grid{grid-template-columns:repeat(3, minmax(0, 1fr))}}
+
+    .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; display:grid; gap:10px; transition:.15s}
+    .card:hover{transform:translateY(-2px); border-color:var(--cyan)}
+    .row{display:flex; align-items:center; justify-content:space-between}
+    .title{font-weight:600; letter-spacing:.2px}
+    .desc{color:var(--muted); font-size:13px; line-height:1.6}
+    .meta{display:flex; gap:8px; align-items:center; color:var(--muted); font-size:12px}
+    .dot{width:6px; height:6px; border-radius:999px; background:var(--cyan)}
+    .badge{font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
+
+    .pagination{display:flex; justify-content:center; gap:8px; margin-top:16px}
+    footer{border-top:1px dashed var(--border); margin-top:26px; padding-top:18px; color:var(--muted); font-size:13px}
+
+    /* cyan scanlines */
+    .scanline{position:fixed; inset:0; pointer-events:none; background:repeating-linear-gradient(to bottom, rgba(0,229,255,0.035), rgba(0,229,255,0.035) 1px, transparent 1px, transparent 3px); opacity:.35}
+  </style>
+</head>
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+  <nav class="navbar">
+    <div class="brand">
+      <div class="logo">RF</div>
+      <div>Void Labs <small>// RF & SDR</small></div>
+    </div>
+    <div class="actions">
+      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
+      <a class="btn" href="index.html">Home</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="wavewrap" aria-hidden="true">
+        <!-- three animated sinusoids with cyan/blue gradient stroke -->
+        <svg class="wave top" viewBox="0 0 1200 120" height="56" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#00e5ff"/>
+              <stop offset="100%" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <path id="p1" d="M0 60 Q 150 20 300 60 T 600 60 T 900 60 T 1200 60" fill="none" stroke="url(#g1)" stroke-width="2"/>
+          <animate xlink:href="#p1" attributeName="d" dur="6s" repeatCount="indefinite"
+            values="M0 60 Q 150 20 300 60 T 600 60 T 900 60 T 1200 60;
+                    M0 60 Q 150 100 300 60 T 600 60 T 900 60 T 1200 60;
+                    M0 60 Q 150 20 300 60 T 600 60 T 900 60 T 1200 60" />
+        </svg>
+        <svg class="wave mid" viewBox="0 0 1200 120" height="56" preserveAspectRatio="none">
+          <path id="p2" d="M0 60 Q 120 30 240 60 T 480 60 T 720 60 T 960 60 T 1200 60" fill="none" stroke="#00d2ff" stroke-opacity=".7" stroke-width="2"/>
+          <animate xlink:href="#p2" attributeName="d" dur="8s" repeatCount="indefinite"
+            values="M0 60 Q 120 30 240 60 T 480 60 T 720 60 T 960 60 T 1200 60;
+                    M0 60 Q 120 90 240 60 T 480 60 T 720 60 T 960 60 T 1200 60;
+                    M0 60 Q 120 30 240 60 T 480 60 T 720 60 T 960 60 T 1200 60" />
+        </svg>
+        <svg class="wave bot" viewBox="0 0 1200 120" height="56" preserveAspectRatio="none">
+          <path id="p3" d="M0 60 Q 180 50 360 60 T 720 60 T 1080 60 T 1200 60" fill="none" stroke="#7cd3ff" stroke-opacity=".45" stroke-width="2"/>
+          <animate xlink:href="#p3" attributeName="d" dur="10s" repeatCount="indefinite"
+            values="M0 60 Q 180 50 360 60 T 720 60 T 1080 60 T 1200 60;
+                    M0 60 Q 180 70 360 60 T 720 60 T 1080 60 T 1200 60;
+                    M0 60 Q 180 50 360 60 T 720 60 T 1080 60 T 1200 60" />
+        </svg>
+      </div>
+      <h1>RF & SDR ✦</h1>
+      <p>Waveform‑driven experiments: <strong>FMCW</strong>, <strong>Doppler</strong>, <strong>GNU Radio</strong>, <strong>antennas</strong>, and <strong>link budgets</strong>. Built to feel like a spectrum analyzer.</p>
+      <p><code>git clone</code> → edit the data below → deploy (Pages/Netlify).</p>
+      <div class="controls">
+        <label class="input" title="Search by title or description">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
+          <input id="search" placeholder="Search… (e.g., FMCW, GNU Radio, 2.4 GHz)" />
+        </label>
+        <button class="chip active" data-tag="all">All</button>
+        <button class="chip" data-tag="fmcw">FMCW</button>
+        <button class="chip" data-tag="doppler">Doppler</button>
+        <button class="chip" data-tag="gnuradio">GNU Radio</button>
+        <button class="chip" data-tag="antenna">Antenna</button>
+        <button class="chip" data-tag="link">Link Budget</button>
+      </div>
+    </section>
+
+    <section id="list" class="grid" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden style="text-align:center; color:var(--muted); padding:24px">No results… try a different keyword or filter.</div>
+
+    <div class="pagination">
+      <button class="btn" id="prevBtn">‹ Prev</button>
+      <span class="btn" id="pageInfo" aria-live="polite">Page 1</span>
+      <button class="btn" id="nextBtn">Next ›</button>
+    </div>
+
+    <footer>
+      Built with nerdy minimalism. © 2025 Void Labs.
+    </footer>
+  </main>
+
+  <script>
+    // Theme toggle
+    const root = document.documentElement; const themeBtn = document.getElementById('themeBtn');
+    try { const saved = localStorage.getItem('theme'); if (saved==='light') root.classList.add('light');
+      themeBtn.addEventListener('click',()=>{root.classList.toggle('light'); localStorage.setItem('theme', root.classList.contains('light')?'light':'dark');});
+    } catch(e){}
+
+    // RF data
+    const DATA = [
+      { id: 1, title: 'FMCW Range Profiling @ 24 GHz', tag: 'fmcw', cf: '24.125 GHz', bw: '200 MHz', updated: '2025-07-12', level: 'lab', desc: 'Sweep chirps, windowing, range FFT, CFAR on targets at 5–20 m.' },
+      { id: 2, title: 'Doppler Velocity Estimation', tag: 'doppler', cf: '5.8 GHz', bw: 'N/A', updated: '2025-06-30', level: 'guide', desc: 'Continuous‑wave Doppler with SDR; extract v_r from tone offset.' },
+      { id: 3, title: 'GNU Radio Flowgraph — BPSK RX', tag: 'gnuradio', cf: '915 MHz', bw: '1 MHz', updated: '2025-06-02', level: 'tutorial', desc: 'Carrier recovery, timing sync, and bit slicing for BPSK.' },
+      { id: 4, title: 'Yagi‑Uda Antenna Notes', tag: 'antenna', cf: '144 MHz', bw: 'Narrow', updated: '2025-05-19', level: 'notes', desc: 'Element spacing, gain vs. boom length, and matching tricks.' },
+      { id: 5, title: 'LoRa Link Budget @ 868 MHz', tag: 'link', cf: '868 MHz', bw: '125 kHz', updated: '2025-05-03', level: 'calc', desc: 'FSPL + margins; SF/BW tradeoffs and RSSI expectations.' },
+      { id: 6, title: 'FMCW Micro‑Doppler Demo', tag: 'fmcw', cf: '24 GHz', bw: '100 MHz', updated: '2025-04-11', level: 'demo', desc: 'STFT spectrograms of walking vs. UAV rotor blades.' },
+    ];
+
+    const listEl = document.getElementById('list');
+    const emptyEl = document.getElementById('empty');
+    const searchEl = document.getElementById('search');
+    const pageInfo = document.getElementById('pageInfo');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const chips = Array.from(document.querySelectorAll('.chip'));
+
+    let activeTag = 'all'; let page = 1; const perPage = 6;
+
+    function formatDate(iso){ const d = new Date(iso); return d.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}); }
+
+    function cardHTML(item){
+      return `
+        <article class="card">
+          <div class="row">
+            <div class="title">${item.title}</div>
+            <span class="badge">${item.level}</span>
+          </div>
+          <p class="desc">${item.desc}</p>
+          <div class="meta">
+            <span class="dot"></span>
+            <span>${item.cf}</span>
+            <span>•</span>
+            <span>${item.bw}</span>
+            <span>•</span>
+            <span>${item.tag}</span>
+            <span>•</span>
+            <span>Updated: ${formatDate(item.updated)}</span>
+          </div>
+          <div class="row">
+            <a class="btn" href="#">Details</a>
+            <a class="btn btn-primary" href="#">Open</a>
+          </div>
+        </article>`;
+    }
+
+    function apply(){
+      const q = (searchEl.value||'').toLowerCase().trim();
+      let filtered = DATA.filter(i => activeTag==='all' ? true : i.tag===activeTag);
+      if (q) filtered = filtered.filter(i => (i.title+i.desc+i.tag+i.cf+i.bw).toLowerCase().includes(q));
+
+      const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
+      if (page > totalPages) page = totalPages;
+      const start = (page-1)*perPage; const items = filtered.slice(start, start+perPage);
+
+      listEl.innerHTML = items.map(cardHTML).join('');
+      emptyEl.hidden = items.length>0;
+      pageInfo.textContent = `Page ${page} / ${totalPages}`;
+      prevBtn.disabled = page<=1; nextBtn.disabled = page>=totalPages;
+    }
+
+    chips.forEach(c => c.addEventListener('click', () => {
+      chips.forEach(x=>x.classList.remove('active')); c.classList.add('active'); activeTag=c.dataset.tag; page=1; apply();
+    }));
+    searchEl.addEventListener('input', () => { page=1; apply(); });
+    prevBtn.addEventListener('click', ()=>{ if(page>1){page--; apply();} });
+    nextBtn.addEventListener('click', ()=>{ page++; apply(); });
+
+    apply();
+  </script>
+</body>
+</html>
