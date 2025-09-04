@@ -1,3 +1,7 @@
+<!-- =====================
+File: index.html (Home)
+OG/Twitter + JSON-LD Schema (WebSite + Organization)
+===================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +9,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Void Labs — Home</title>
   <meta name="description" content="Homepage for Void Labs portfolio: Electronics, Security, Research" />
+  <meta name="theme-color" content="#0a0b0e" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/logos/favicon.png" sizes="32x32">
+  <link rel="canonical" href="https://YOUR-DOMAIN-HERE/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Void Labs" />
+  <meta property="og:title" content="Void Labs — Electronics • Security • Research" />
+  <meta property="og:description" content="Minimal, fast, and nerdy portfolio for RF electronics, security, and research projects." />
+  <meta property="og:url" content="https://YOUR-DOMAIN-HERE/" />
+  <meta property="og:image" content="https://YOUR-DOMAIN-HERE/assets/og/og-image.png" />
+  <meta property="og:image:alt" content="Void Labs mark and avatar." />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Void Labs — Electronics • Security • Research" />
+  <meta name="twitter:description" content="Minimal, fast, and nerdy portfolio for RF electronics, security, and research projects." />
+  <meta name="twitter:image" content="https://YOUR-DOMAIN-HERE/assets/og/og-image.png" />
+
+  <!-- JSON-LD: WebSite + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Void Labs",
+    "url": "https://YOUR-DOMAIN-HERE/",
+    "description": "Void Labs portfolio for Electronics, Security, and Research.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Void Labs",
+      "url": "https://YOUR-DOMAIN-HERE/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://YOUR-DOMAIN-HERE/assets/logos/logo-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://github.com/void0x11",
+        "https://www.linkedin.com/in/void0x11/"
+      ]
+    }
+  }
+  </script>
+
   <style>
     :root {
       --bg: #0a0b0e;
@@ -16,10 +66,12 @@
       --text: #e6e8ef;
       --border: #1b1f2a;
       --ring: rgba(90, 186, 255, 0.22);
-      --elec: #ff8c42;
-      --sec: #22c55e;
-      --res: #7c3aed;
-      --cyan: #5ad1fc;
+      --elec: #ff8c42; /* Electronics: orange */
+      --sec: #22c55e;  /* Security: green */
+      --res: #7c3aed;  /* Research: purple */
+      --cyan: #5ad1fc; /* existing cyan */
+      --rf: #5ad1fc;   /* RF & SDR: blue (labni) */
+      --emb: #ef4444;  /* Embedded: red */
     }
     :root.light {
       --bg: #f8fafc;
@@ -78,12 +130,13 @@
     .card:hover { transform: translateY(-6px) }
     .card:hover::after { transform: rotate(40deg) }
 
-    .electronics { color: var(--elec) }
-    .electronics:hover { border-color: var(--elec) }
-    .security { color: var(--sec) }
-    .security:hover { border-color: var(--sec) }
-    .research { color: var(--res) }
-    .research:hover { border-color: var(--res) }
+    .electronics:hover { border-color: #d65f00 }
+    .security:hover { border-color: #117a37 }
+    .rf:hover { border-color: #38bdf8 }
+    .embedded:hover { border-color: #cf1515 }
+    .research:hover { border-color: #7c3aed }
+    .about { color: #ffffff }
+    .about:hover { border-color: #ffffff }
 
     .hint { text-align: center; color: var(--muted); font-size: 12px; margin-top: 6px }
 
@@ -94,8 +147,8 @@
   <div class="scanline" aria-hidden="true"></div>
   <nav class="navbar">
     <div class="brand">
-      <div class="logo">>_</div>
-      <div>Void Labs</div>
+      <div class="logo">&gt;_</div>
+      <div>Void Labs </div>
     </div>
     <div class="actions">
       <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
@@ -111,27 +164,50 @@
     <p class="sub">Electronics • Security • Research — minimal, fast, and nerdy</p>
   </header>
 
+  <nav class="navbar">
+    <div class="brand">
+      <div class="logo">&gt;_</div>
+      <div>Void Labs </div>
+    </div>
+    <div class="actions">
+      <a class="btn" href="/">Home</a>
+      <a class="btn" href="electronics.html">Electronics</a>
+      <a class="btn" href="security.html">Security</a>
+      <a class="btn" href="research.html">Research</a>
+      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
+    </div>
+  </nav>
+
   <main class="hub">
     <section class="grid">
-      <a class="card electronics" href="electronics.html" aria-label="Void Electronics Labs">
+      <a class="card electronics" href="electronics.html" aria-label="Electronics (Mixed Signals)">
         <span class="icon">⚡</span>
-        <span>Electronics & RF Labs</span>
+        <span>Electronics</span>
       </a>
-      <a class="card security" href="security.html" aria-label="Void Security Labs">
+      <a class="card embedded" href="embedded.html" aria-label="Embedded Systems">
+        <span class="icon">🔧</span>
+        <span>Embedded Systems</span>
+      </a>
+      <a class="card rf" href="research.html" aria-label="RF &amp; SDR">
+        <span class="icon">📡</span>
+        <span>RF &amp; SDR</span>
+      </a>
+      <a class="card security" href="security.html" aria-label="Security &amp; Malware">
         <span class="icon">🛡️</span>
-        <span>Security & Malware Labs</span>
+        <span>Security &amp; Malware</span>
       </a>
-      <a class="card research" href="research.html" aria-label="Void Research">
+      <a class="card research" href="research.html" aria-label="Research">
         <span class="icon">📚</span>
-        <span>Research Labs</span>
+        <span>Research</span>
+      </a>
+      <a class="card about" href="about.html" aria-label="About">
+        <span class="icon">⚔️</span>
+        <span>Challenges</span>
       </a>
     </section>
-    <p class="hint">Tip: you can map these to subfolders or separate repos (Pages/Netlify).</p>
   </main>
 
-  <footer>
-    Built with nerdy minimalism. © 2025 Void Labs.
-  </footer>
+  
 
   <script>
     const root = document.documentElement;
@@ -142,6 +218,153 @@
       root.classList.toggle('light');
       localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
     });
+    document.getElementById('year')?.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+<!-- =====================
+File: about.html (About)
+Includes OG/Twitter + JSON-LD (AboutPage)
+===================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Void Labs</title>
+  <meta name="description" content="About Void Labs: RF electronics, SDR/radar research, embedded systems, and hardware security." />
+  <meta name="theme-color" content="#0a0b0e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/logos/favicon.png" sizes="32x32">
+  <link rel="canonical" href="https://YOUR-DOMAIN-HERE/about.html" />
+
+  <!-- OG/Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Void Labs" />
+  <meta property="og:title" content="About — Void Labs" />
+  <meta property="og:description" content="RF & embedded engineering labs, SDR/radar research, and hardware security projects." />
+  <meta property="og:url" content="https://YOUR-DOMAIN-HERE/about.html" />
+  <meta property="og:image" content="https://YOUR-DOMAIN-HERE/assets/og/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About — Void Labs" />
+  <meta name="twitter:description" content="RF & embedded engineering labs, SDR/radar research, and hardware security projects." />
+  <meta name="twitter:image" content="https://YOUR-DOMAIN-HERE/assets/og/og-image.png" />
+
+  <!-- JSON-LD: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About — Void Labs",
+    "url": "https://YOUR-DOMAIN-HERE/about.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Void Labs",
+      "url": "https://YOUR-DOMAIN-HERE/",
+      "sameAs": [
+        "https://github.com/void0x11",
+        "https://www.linkedin.com/in/void0x11/"
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    :root { --bg:#0a0b0e; --surface:#111319; --muted:#7b8195; --text:#e6e8ef; --border:#1b1f2a; --ring:rgba(90,186,255,.22); --cyan:#5ad1fc }
+    :root.light { --bg:#f8fafc; --surface:#ffffff; --muted:#5b667a; --text:#0f172a; --border:#e5e7eb; --ring:rgba(90,186,255,.18) }
+    *{ box-sizing:border-box }
+    body{ margin:0; font-family:'Fira Code',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; background:radial-gradient(1200px 600px at 50% -10%, rgba(90,209,252,.08), transparent), var(--bg); color:var(--text) }
+    a{ text-decoration:none; color:inherit }
+    .navbar{ position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:14px 20px; background:linear-gradient(180deg, rgba(16,18,24,.85), rgba(16,18,24,.55)); border-bottom:1px solid var(--border); backdrop-filter:blur(6px) }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:600 }
+    .logo{ width:28px; height:28px; border:1px solid var(--cyan); display:grid; place-items:center; border-radius:6px; color:var(--cyan); box-shadow:0 0 0 3px var(--ring) }
+    .actions{ display:flex; align-items:center; gap:8px }
+    .btn{ cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text); padding:8px 12px; border-radius:10px; font-size:13px; line-height:1; transition:.2s ease; box-shadow:inset 0 -1px 0 rgba(255,255,255,.04) }
+    .btn:hover{ transform:translateY(-1px) }
+    .wrap{ max-width:860px; margin:28px auto; padding:0 18px }
+    h1{ margin:0 0 8px; font-size:28px }
+    p{ line-height:1.6; color:var(--text) }
+    .muted{ color:var(--muted) }
+    .cards{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:16px }
+    @media (max-width:900px){ .cards{ grid-template-columns:1fr } }
+    .card{ border:1px solid var(--border); border-radius:14px; padding:16px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)) }
+    footer{ border-top:1px dashed var(--border); margin-top:22px; padding:18px; color:var(--muted); font-size:13px; text-align:center }
+  </style>
+</head>
+<body>
+
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') root.classList.add('light');
+    themeBtn?.addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+<!-- =====================
+File: 404.html (Not Found)
+Noindex; helpful links; keeps theme & style
+===================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Not Found | Void Labs</title>
+  <meta name="description" content="Page not found." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="theme-color" content="#0a0b0e" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/logos/favicon.png" sizes="32x32">
+
+  <!-- Basic OG to look decent when shared -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="404 — Void Labs" />
+  <meta property="og:description" content="The page you’re looking for doesn’t exist." />
+  <meta property="og:image" content="https://YOUR-DOMAIN-HERE/assets/og/og-image.png" />
+
+  <style>
+    :root { --bg:#0a0b0e; --surface:#111319; --muted:#7b8195; --text:#e6e8ef; --border:#1b1f2a; --ring:rgba(90,186,255,.22); --cyan:#5ad1fc }
+    :root.light { --bg:#f8fafc; --surface:#ffffff; --muted:#5b667a; --text:#0f172a; --border:#e5e7eb; --ring:rgba(90,186,255,.18) }
+    *{ box-sizing:border-box }
+    body{ margin:0; min-height:100dvh; display:grid; place-items:center; font-family:'Fira Code',ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; background:radial-gradient(1200px 600px at 50% -10%, rgba(90,209,252,.08), transparent), var(--bg); color:var(--text) }
+    a{ text-decoration:none; color:inherit }
+    .shell{ max-width:820px; width:100%; padding:24px }
+    .box{ border:1px dashed var(--border); border-radius:16px; padding:28px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)) }
+    h1{ margin:0 0 10px; font-size:32px }
+    p{ margin:8px 0; color:var(--muted) }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px }
+    .btn{ cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--text); padding:10px 14px; border-radius:10px; font-size:14px; line-height:1; transition:.2s ease }
+    .btn:hover{ transform:translateY(-1px); border-color:var(--cyan) }
+    footer{ text-align:center; margin-top:16px; color:var(--muted); font-size:13px }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="box" role="alert" aria-live="polite"></div>
+    </div>
+    <footer>© <span id="year"></span> Void Labs. Built with nerdy minimalism.</footer>
+  </div>
+
+  <script>
+    // Keep theme consistent with user preference
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') root.classList.add('light');
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
