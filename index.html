@@ -210,13 +210,13 @@ OG/Twitter + JSON-LD Schema (WebSite + Organization)
   
 
   <script>
-    const root = document.documentElement;
+    const rootIndex = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') root.classList.add('light');
+    const savedThemeIndex = localStorage.getItem('theme');
+    if (savedThemeIndex === 'light') rootIndex.classList.add('light');
     themeBtn.addEventListener('click', () => {
-      root.classList.toggle('light');
-      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      rootIndex.classList.toggle('light');
+      localStorage.setItem('theme', rootIndex.classList.contains('light') ? 'light' : 'dark');
     });
     document.getElementById('year')?.textContent = new Date().getFullYear();
   </script>
@@ -298,13 +298,13 @@ Includes OG/Twitter + JSON-LD (AboutPage)
 <body>
 
   <script>
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') root.classList.add('light');
-    themeBtn?.addEventListener('click', () => {
-      root.classList.toggle('light');
-      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    const rootAbout = document.documentElement;
+    const themeBtnAbout = document.getElementById('themeBtn');
+    const savedThemeAbout = localStorage.getItem('theme');
+    if (savedThemeAbout === 'light') rootAbout.classList.add('light');
+    themeBtnAbout?.addEventListener('click', () => {
+      rootAbout.classList.toggle('light');
+      localStorage.setItem('theme', rootAbout.classList.contains('light') ? 'light' : 'dark');
     });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
@@ -361,9 +361,9 @@ Noindex; helpful links; keeps theme & style
 
   <script>
     // Keep theme consistent with user preference
-    const root = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') root.classList.add('light');
+    const root404 = document.documentElement;
+    const savedTheme404 = localStorage.getItem('theme');
+    if (savedTheme404 === 'light') root404.classList.add('light');
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
