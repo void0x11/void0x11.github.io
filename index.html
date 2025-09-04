@@ -1,121 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ahmed's Portfolio</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Void Labs — Home</title>
+  <meta name="description" content="Homepage for Void Labs portfolio: Electronics, Security, Research" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0b0e;
+      --surface: #111319;
+      --muted: #7b8195;
+      --text: #e6e8ef;
+      --border: #1b1f2a;
+      --ring: rgba(90, 186, 255, 0.22);
+      --elec: #ff8c42;
+      --sec: #22c55e;
+      --res: #7c3aed;
+      --cyan: #5ad1fc;
+    }
+    :root.light {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --muted: #5b667a;
+      --text: #0f172a;
+      --border: #e5e7eb;
+      --ring: rgba(90, 186, 255, 0.18);
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(90,209,252,.08), transparent), var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { text-decoration: none; }
 
-  <!-- icons -->
-  <link href="assets/img/icon.ico" rel="icon">
-  <link href="assets/img/letter.png" rel="apple-touch-icon">
+    .scanline { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(90,209,252,0.03), rgba(90,209,252,0.03) 1px, transparent 1px, transparent 3px); opacity: .35 }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    .navbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; background: linear-gradient(180deg, rgba(16,18,24,.85), rgba(16,18,24,.55));
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(6px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600 }
+    .logo { width: 28px; height: 28px; border: 1px solid var(--cyan); display: grid; place-items: center; border-radius: 6px; color: var(--cyan); box-shadow: 0 0 0 3px var(--ring) }
+    .actions { display: flex; align-items: center; gap: 8px }
+    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: 10px; font-size: 13px; line-height: 1; transition: .2s ease; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) }
+    .btn:hover { transform: translateY(-1px); border-color: var(--cyan) }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    .hero { max-width: 980px; margin: 28px auto 8px; padding: 0 16px; display: grid; gap: 14px; justify-items: center }
+    .avatar-wrap { position: relative; width: 112px; height: 112px }
+    .avatar { width: 112px; height: 112px; border-radius: 50%; border: 2px solid var(--border); display: block }
+    .ring { position: absolute; inset: -6px; border-radius: 999px; background: radial-gradient(closest-side, rgba(90,209,252,.25), transparent); filter: blur(12px); pointer-events: none }
+    h1 { margin: 6px 0 0; font-size: 28px; text-align: center }
+    .sub { margin: 6px 0 0; color: var(--muted); text-align: center; font-size: 14px }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+    .hub { max-width: 980px; margin: 24px auto; padding: 16px }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr } }
+
+    .card {
+      position: relative; overflow: hidden; border-radius: 16px; padding: 34px 20px; text-align: center; font-weight: 600; font-size: 18px;
+      border: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      transition: transform .25s, border-color .2s;
+      text-decoration: none;
+    }
+    .card .icon { font-size: 26px; display: block; margin-bottom: 8px; opacity: .9 }
+    .card::after { content: ""; position: absolute; inset: -40%; background: conic-gradient(from 0deg, transparent, rgba(255,255,255,.04), transparent 60%); filter: blur(10px); transform: rotate(0deg); transition: transform .6s ease }
+    .card:hover { transform: translateY(-6px) }
+    .card:hover::after { transform: rotate(40deg) }
+
+    .electronics { color: var(--elec) }
+    .electronics:hover { border-color: var(--elec) }
+    .security { color: var(--sec) }
+    .security:hover { border-color: var(--sec) }
+    .research { color: var(--res) }
+    .research:hover { border-color: var(--res) }
+
+    .hint { text-align: center; color: var(--muted); font-size: 12px; margin-top: 6px }
+
+    footer { border-top: 1px dashed var(--border); margin-top: 22px; padding: 18px; color: var(--muted); font-size: 13px; text-align: center }
+  </style>
 </head>
-
-<body class="index-page">
-
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">Ahmed Portfolio</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="mini-projects.html">Mini Projects</a></li>
-              <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="achievements.html">Achievements</a></li>
-                  <li><a href="offtrack.html">Off-track</a></li>
-                </ul>
-              </li>
-          </ul>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+  <nav class="navbar">
+    <div class="brand">
+      <div class="logo">>_</div>
+      <div>Void Labs</div>
     </div>
+    <div class="actions">
+      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="avatar-wrap">
+      <img class="avatar" src="assets/logos/avatar.jpg" alt="Anime Avatar" />
+      <div class="ring" aria-hidden="true"></div>
+    </div>
+    <h1>Pick a Lab</h1>
+    <p class="sub">Electronics • Security • Research — minimal, fast, and nerdy</p>
   </header>
 
-  <main class="main">
-
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg5.png" alt="" data-aos="fade-in">
-
-      <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h2>Ahmed Amin</h2>
-        <p>I'm <span class="typed" data-typed-items="Electronics Engineer, RF Engineer, Tech Geek, Wireless Security Expert, Innovation Enthusiast"></span><span class="typed-cursor typed-cursor--blink"></span></p>
-        <div class="social-links">
-          <a href="https://github.com/void0x11"><i class="bi bi-github"></i></a>
-          <a href="https://www.linkedin.com/in/void0x11/"><i class="bi bi-linkedin"></i></a>
-          <a href="https://x.com/void0x11"><i class="bi bi-twitter-x"></i></a>
-        </div>
-      </div>
-
+  <main class="hub">
+    <section class="grid">
+      <a class="card electronics" href="electronics.html" aria-label="Void Electronics Labs">
+        <span class="icon">⚡</span>
+        <span>Electronics & RF Labs</span>
+      </a>
+      <a class="card security" href="security.html" aria-label="Void Security Labs">
+        <span class="icon">🛡️</span>
+        <span>Security & Malware Labs</span>
+      </a>
+      <a class="card research" href="research.html" aria-label="Void Research">
+        <span class="icon">📚</span>
+        <span>Research Labs</span>
+      </a>
     </section>
-
+    <p class="hint">Tip: you can map these to subfolders or separate repos (Pages/Netlify).</p>
   </main>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <h3 class="sitename">All Links</h3>
-      <p>Explore all my technical writeups, projects, researches, and social profiles through the links below</p>
-      <div class="social-links d-flex justify-content-center">
-        <a href="https://github.com/void0x11"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/void0x11/"><i class="bi bi-linkedin"></i></a>
-        <a href="https://x.com/void0x11"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.researchgate.net/profile/Ahmed-Amin-97"><img src="assets/img/researchgate.ico" alt="ResearchGate" style="width:20px;height:20px;"></a>
-        <a href="https://hackaday.io/void0x11"><img src="assets/img/hackaday-icon.ico" alt="Hackaday" style="width:20px;height:20px;"></a>
-        <a href="https://youtube.com/@void0x11"><i class="bi bi-youtube"></i></a>
-        <a href="https://medium.com/@void0x11"><i class="bi bi-medium"></i></a>
-        <a href="https://www.reddit.com/user/void0x11/"><i class="bi bi-reddit"></i></a>
-      </div>
-    </div>
+  <footer>
+    Built with nerdy minimalism. © 2025 Void Labs.
   </footer>
 
-
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script>
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') root.classList.add('light');
+    themeBtn.addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>

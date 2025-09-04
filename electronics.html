@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Void Lab — Research</title>
-  <meta name="description" content="Showcasing research papers, posters, talks, and datasets" />
+  <title>Void Lab — PCB & Electronics Template</title>
+  <meta name="description" content="A nerdy template for PCB design, electronics projects, and hardware builds" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,47 +14,72 @@
       --surface: #111319;
       --muted: #7b8195;
       --text: #e6e8ef;
-      --accent: #7c3aed; /* purple */
-      --accent-2: #38bdf8; /* cyan */
-      --ring: rgba(124,58,237,0.25);
+      --accent: #ff8c42; /* orange for hardware */
+      --accent-2: #42aaff; /* blue secondary */
+      --ring: rgba(255,140,66,0.25);
       --card: #0e1116;
       --border: #1b1f2a;
     }
     :root.light {
-      --bg: #f8fafc; --surface: #fff; --muted: #5b667a; --text: #0f172a;
-      --accent: #5b21b6; --accent-2: #0ea5e9; --ring: rgba(91,33,182,0.25);
-      --card: #ffffff; --border: #e5e7eb;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --muted: #5b667a;
+      --text: #0f172a;
+      --accent: #d65f00;
+      --accent-2: #005f99;
+      --ring: rgba(214,95,0,0.25);
+      --card: #ffffff;
+      --border: #e5e7eb;
     }
     * { box-sizing: border-box }
     html, body { height: 100% }
     body {
-      margin: 0; font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     a { color: var(--accent-2); text-decoration: none }
     a:hover { text-decoration: underline }
 
-    .navbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between;
+    .navbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 14px 20px; background: linear-gradient(180deg, rgba(16,18,24,.9), rgba(16,18,24,.6));
-      border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(6px);
+    }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: .5px }
-    .logo { width: 28px; height: 28px; border: 1px solid var(--accent); display: grid; place-items: center; border-radius: 4px; color: var(--accent); box-shadow: 0 0 0 3px var(--ring) }
+    .logo {
+      width: 28px; height: 28px; border: 1px solid var(--accent);
+      display: grid; place-items: center; border-radius: 4px; color: var(--accent);
+      box-shadow: 0 0 0 3px var(--ring);
+    }
     .brand small { color: var(--muted); font-weight: 400 }
 
     .actions { display: flex; align-items: center; gap: 8px }
-    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: 10px; font-size: 13px; line-height: 1; transition: .2s ease; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) }
+    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      padding: 8px 12px; border-radius: 10px; font-size: 13px; line-height: 1; transition: .2s ease;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04);
+    }
     .btn:hover { transform: translateY(-1px); border-color: var(--accent-2) }
     .btn-primary { border-color: var(--accent); color: var(--bg); background: var(--accent) }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px }
 
-    .hero { display: grid; gap: 14px; padding: 26px; background: linear-gradient(180deg, rgba(124,58,237,0.06), transparent); border: 1px solid var(--border); border-radius: 16px }
+    .hero { display: grid; gap: 14px; padding: 26px; background: linear-gradient(180deg, rgba(255,140,66,0.06), transparent);
+      border: 1px solid var(--border); border-radius: 16px }
     .hero h1 { margin: 0; font-size: 26px }
     .hero p { margin: 0; color: var(--muted); line-height: 1.7 }
     .hero code { background: var(--card); padding: 2px 6px; border: 1px solid var(--border); border-radius: 6px; color: var(--accent) }
 
     .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px }
-    .input { flex: 1 1 260px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--border); color: var(--text) }
+    .input {
+      flex: 1 1 260px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px;
+      background: var(--card); border: 1px solid var(--border); color: var(--text);
+    }
     .input input { border: 0; outline: none; flex: 1; background: transparent; color: inherit; font-family: inherit }
     .tag { border: 1px dashed var(--border); padding: 6px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); cursor: pointer }
     .tag.active { border-color: var(--accent); color: var(--accent) }
@@ -74,42 +99,45 @@
     .row { display: flex; align-items: center; justify-content: space-between }
 
     .empty { padding: 30px; text-align: center; color: var(--muted) }
+
     .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 16px }
 
     footer { border-top: 1px dashed var(--border); margin-top: 26px; padding-top: 18px; color: var(--muted); font-size: 13px }
 
-    .scanline { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(124,58,237,0.03), rgba(124,58,237,0.03) 1px, transparent 1px, transparent 3px); opacity: .35 }
+    .scanline { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(
+      to bottom, rgba(255,140,66,0.03), rgba(255,140,66,0.03) 1px, transparent 1px, transparent 3px
+    ); opacity: .35 }
   </style>
 </head>
 <body>
   <div class="scanline" aria-hidden="true"></div>
   <nav class="navbar">
     <div class="brand">
-      <div class="logo">✦</div>
-      <div>Void Lab <small>// Research</small></div>
+      <div class="logo">⚡</div>
+      <div>Void Lab <small>// PCB & Electronics</small></div>
     </div>
     <div class="actions">
       <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
       <a class="btn" href="#about">About</a>
-      <a class="btn btn-primary" href="#submit">+ Add Publication</a>
+      <a class="btn btn-primary" href="#submit">+ Add Project</a>
     </div>
   </nav>
 
   <main class="container">
     <section class="hero">
-      <h1>Research Portfolio ✦</h1>
-      <p>Highlight your academic output: papers, posters, talks, and datasets. Clean, static, and easy to expand.</p>
+      <h1>PCB & Electronics Projects ✦</h1>
+      <p>Use this layout to showcase hardware builds, PCB designs, electronics tutorials, or component challenges. Clean, static, and easy to expand for your hardware portfolio.</p>
       <p><code>git clone</code> then edit the data below ↑… and deploy it on GitHub Pages / Netlify easily.</p>
       <div class="controls">
         <label class="input" title="Search by title or description">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
-          <input id="search" placeholder="Search… (e.g., radar, AI, electronics)" />
+          <input id="search" placeholder="Search… (e.g., pcb, circuits, soldering)" />
         </label>
         <button class="tag active" data-tag="all">All</button>
-        <button class="tag" data-tag="papers">Papers</button>
-        <button class="tag" data-tag="posters">Posters</button>
-        <button class="tag" data-tag="talks">Talks</button>
-        <button class="tag" data-tag="datasets">Datasets</button>
+        <button class="tag" data-tag="pcb">PCB</button>
+        <button class="tag" data-tag="circuits">Circuits</button>
+        <button class="tag" data-tag="hardware">Hardware</button>
+        <button class="tag" data-tag="tutorial">Tutorials</button>
       </div>
     </section>
 
@@ -123,32 +151,30 @@
     </div>
 
     <footer>
-      Built with love and simplicity. Adapt it for your research portfolio. Clean code without heavy frameworks.
+      Built with love and simplicity. Adapt it for your electronics projects. Clean code without heavy frameworks.
       <div id="about" style="margin-top:8px">License: MIT. Font: Fira Code. Dark/Light mode available.</div>
     </footer>
   </main>
 
   <script>
-    // Safe theme toggle
     const root = document.documentElement;
     const themeBtn = document.getElementById('themeBtn');
-    try {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') root.classList.add('light');
-      themeBtn && themeBtn.addEventListener('click', () => {
-        root.classList.toggle('light');
-        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-      });
-    } catch (e) {
-      console.warn('Theme toggle storage unavailable', e);
-    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') root.classList.add('light');
+    themeBtn.addEventListener('click', () => {
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    });
 
-    // Data & rendering
     const DATA = [
-      { id: 1, title: 'Paper: SDR-Based FMCW Radar', tag: 'papers', level: 'peer-reviewed', year: 2025, updated: '2025-08-20', desc: 'Published in Sensors Journal. 3D target localization using SDR-based bistatic radar.' },
-      { id: 2, title: 'Poster: Utah Academy 2025', tag: 'posters', level: 'conference', year: 2025, updated: '2025-03-22', desc: 'Poster on low-cost SDR radar prototypes for UAV detection.' },
-      { id: 3, title: 'Talk: Radar Signal Processing', tag: 'talks', level: 'invited', year: 2024, updated: '2024-11-15', desc: 'Guest lecture on FMCW and Doppler radar techniques.' },
-      { id: 4, title: 'Dataset: Drone FMCW Samples', tag: 'datasets', level: 'open', year: 2025, updated: '2025-07-01', desc: 'Public dataset of FMCW drone reflections with Pluto SDR and 24 GHz module.' }
+      { id: 1, title: '2-Layer PCB Demo', tag: 'pcb', level: 'easy', points: 50, updated: '2025-08-15', desc: 'Design a simple 2-layer PCB in KiCad and fabricate it.' },
+      { id: 2, title: 'Op-Amp Circuits Lab', tag: 'circuits', level: 'medium', points: 100, updated: '2025-08-10', desc: 'Experiment with op-amp configurations and measure outputs.' },
+      { id: 3, title: 'Soldering Challenge', tag: 'hardware', level: 'easy', points: 40, updated: '2025-07-25', desc: 'Test your soldering skills with fine-pitch components.' },
+      { id: 4, title: 'Microcontroller Breakout', tag: 'hardware', level: 'medium', points: 120, updated: '2025-07-01', desc: 'Build a breakout board for an STM32 microcontroller.' },
+      { id: 5, title: 'Power Supply Design', tag: 'circuits', level: 'hard', points: 200, updated: '2025-06-15', desc: 'Design and simulate a regulated DC power supply with protection features.' },
+      { id: 6, title: 'High-Speed PCB Routing', tag: 'pcb', level: 'hard', points: 250, updated: '2025-05-20', desc: 'Practice differential pair routing and impedance matching.' },
+      { id: 7, title: 'Oscilloscope Tutorial', tag: 'tutorial', level: 'easy', points: 30, updated: '2025-05-01', desc: 'Learn how to use an oscilloscope for debugging circuits.' },
+      { id: 8, title: 'Embedded Hardware Project', tag: 'hardware', level: 'medium', points: 150, updated: '2025-04-10', desc: 'Combine sensors and microcontrollers in a real-world build.' },
     ];
 
     const listEl = document.getElementById('list');
@@ -157,15 +183,15 @@
     const pageInfo = document.getElementById('pageInfo');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    const tags = Array.from(document.querySelectorAll('.tag'));
 
+    const tags = Array.from(document.querySelectorAll('.tag'));
     let activeTag = 'all';
     let page = 1;
     const perPage = 6;
 
     function formatDate(iso){
       const d = new Date(iso);
-      return isNaN(d) ? iso : d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
     }
 
     function cardHTML(item){
@@ -178,7 +204,7 @@
           <p class="desc">${item.desc}</p>
           <div class="meta">
             <span class="dot"></span>
-            <span>${item.year}</span>
+            <span>${item.points} pts</span>
             <span>•</span>
             <span>${item.tag}</span>
             <span>•</span>
@@ -186,7 +212,7 @@
           </div>
           <div class="row">
             <a class="btn" href="#">Details</a>
-            <a class="btn btn-primary" href="#">View</a>
+            <a class="btn btn-primary" href="#">Start</a>
           </div>
         </article>`;
     }
@@ -208,7 +234,6 @@
       nextBtn.disabled = page >= totalPages;
     }
 
-    // Bind events safely
     tags.forEach(t => t.addEventListener('click', () => {
       tags.forEach(x => x.classList.remove('active'));
       t.classList.add('active');
@@ -220,7 +245,6 @@
     prevBtn.addEventListener('click', () => { if (page > 1) { page--; applyFilters(); } });
     nextBtn.addEventListener('click', () => { page++; applyFilters(); });
 
-    // Initial render
     applyFilters();
   </script>
 </body>
