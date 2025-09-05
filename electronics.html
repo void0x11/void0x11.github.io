@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Void Labs — Electronics ✦</title>
-  <meta name="description" content="Electronics & PCB portfolio: power, analog, RF front‑ends, and MCU boards — with a PCB‑trace aesthetic." />
+  <meta name="description" content="Electronics & PCB portfolio: power, analog, RF front-ends, and MCU boards — with a PCB-trace aesthetic." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -69,15 +69,15 @@
 
     .card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:grid;gap:10px;transition:.15s}
     .card:hover{transform:translateY(-2px);border-color:var(--orange)}
-    .row{display:flex;align-items:center;justify-content:space-between}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .title{font-weight:600;letter-spacing:.2px}
     .desc{color:var(--muted);font-size:13px;line-height:1.6}
-    .meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}
+    .meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px;flex-wrap:wrap}
     .dot{width:6px;height:6px;border-radius:999px;background:var(--orange)}
-    .badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--muted)}
+    .badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--muted);background:rgba(255,255,255,.03)}
 
     /* Component head (IC / R / C) */
-    .comp{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#ffdeb5}
+    .comp{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#ffdeb5;pointer-events:none;z-index:2}
     .chip-ic{padding:2px 6px;border:1px solid rgba(255,140,66,.45);border-radius:6px;background:linear-gradient(180deg,rgba(255,140,66,.08),rgba(255,140,66,.02));box-shadow:inset 0 -1px 0 rgba(255,255,255,.04)}
     .led{width:6px;height:6px;border-radius:999px;background:var(--green);box-shadow:0 0 8px rgba(34,197,94,.6)}
 
@@ -96,8 +96,8 @@
       <div>Void Labs <small>// Electronics</small></div>
     </div>
     <div class="actions">
+      <a class="btn btn-primary" href="index.html">Home</a>
       <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
-      <a class="btn" href="index.html">Home</a>
     </div>
   </nav>
 
@@ -122,12 +122,12 @@
         </svg>
       </div>
       <h1>Electronics & PCB ✦</h1>
-      <p>Hands‑on builds: power converters, analog front‑ends, RF filters, and microcontroller boards. Orange‑tinted, PCB‑trace vibe.</p>
+      <p>Hands-on builds: power converters, analog front-ends, RF filters, and microcontroller boards. Orange-tinted, PCB-trace vibe.</p>
       <p><code>git clone</code> → edit the data below → deploy.</p>
       <div class="controls">
         <label class="input" title="Search by title or description">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
-          <input id="search" placeholder="Search… (e.g., buck, op‑amp, RP2040)" />
+          <input id="search" placeholder="Search… (e.g., buck, op-amp, RP2040)" />
         </label>
         <button class="chip active" data-tag="all">All</button>
         <button class="chip" data-tag="power">Power</button>
@@ -162,11 +162,11 @@
     // Electronics data
     const DATA=[
       {id:1,title:'Buck Converter 12V→5V @2A',tag:'power',level:'project',updated:'2025-07-21',desc:'Synchronous buck; conduction/switching losses, layout tips, thermal notes.'},
-      {id:2,title:'Op‑Amp Sensor Front‑End',tag:'analog',level:'guide',updated:'2025-06-30',desc:'Low‑noise gain stages, biasing, filtering, and stability tricks.'},
-      {id:3,title:'RP2040 Dev Board Bring‑Up',tag:'mcu',level:'lab',updated:'2025-06-10',desc:'Boot config, UF2, clock tree, and GPIO test firmware.'},
-      {id:4,title:'Pi‑Network RF Filter',tag:'rf',level:'project',updated:'2025-05-29',desc:'Simple LC Pi for harmonic suppression; Q and insertion loss.'},
-      {id:5,title:'4‑Layer PCB Checklist',tag:'pcb',level:'notes',updated:'2025-05-12',desc:'Stackup, return paths, decoupling, and EMI tips.'},
-      {id:6,title:'Li‑ion Charger + Protection',tag:'power',level:'guide',updated:'2025-04-26',desc:'CC/CV profile, thermistor, and safety considerations.'}
+      {id:2,title:'Op-Amp Sensor Front-End',tag:'analog',level:'guide',updated:'2025-06-30',desc:'Low-noise gain stages, biasing, filtering, and stability tricks.'},
+      {id:3,title:'RP2040 Dev Board Bring-Up',tag:'mcu',level:'lab',updated:'2025-06-10',desc:'Boot config, UF2, clock tree, and GPIO test firmware.'},
+      {id:4,title:'Pi-Network RF Filter',tag:'rf',level:'project',updated:'2025-05-29',desc:'Simple LC Pi for harmonic suppression; Q and insertion loss.'},
+      {id:5,title:'4-Layer PCB Checklist',tag:'pcb',level:'notes',updated:'2025-05-12',desc:'Stackup, return paths, decoupling, and EMI tips.'},
+      {id:6,title:'Li-ion Charger + Protection',tag:'power',level:'guide',updated:'2025-04-26',desc:'CC/CV profile, thermistor, and safety considerations.'}
     ];
 
     const listEl=document.getElementById('list');
@@ -181,17 +181,6 @@
 
     function formatDate(iso){const d=new Date(iso);return d.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});}
 
-    function cardHTML(item){
-      return `
-        <article class="card">
-          <div class="comp"><span class="chip-ic">${iconFor(item.tag)} ${item.tag.toUpperCase()}</span><span class="led" aria-hidden="true"></span></div>
-          <div class="row"><div class="title">${item.title}</div><span class="badge">${item.level}</span></div>
-          <p class="desc">${item.desc}</p>
-          <div class="meta"><span class="dot"></span><span>${item.tag}</span><span>•</span><span>Updated: ${formatDate(item.updated)}</span></div>
-          <div class="row"><a class="btn" href="#">Details</a><a class="btn btn-primary" href="#">Open</a></div>
-        </article>`;
-    }
-
     function iconFor(tag){
       switch(tag){
         case 'power': return '⚡';
@@ -201,6 +190,26 @@
         case 'pcb': return '🛠️';
         default: return '🔧';
       }
+    }
+
+    // type moved next to category in meta; removed from header row
+    function cardHTML(item){
+      return `
+        <article class="card">
+          <!--
+          <div class="comp"><span class="chip-ic">${iconFor(item.tag)} ${item.tag.toUpperCase()}</span><span class="led" aria-hidden="true"></span></div>
+          -->
+          <div class="row"><div class="title">${item.title}</div></div>
+          <p class="desc">${item.desc}</p>
+          <div class="meta">
+            <span class="dot"></span>
+            <span class="badge">${item.tag}</span>
+            <span class="badge">${item.level}</span>
+            <span>•</span>
+            <span>Updated: ${formatDate(item.updated)}</span>
+          </div>
+          <div class="row"><a class="btn" href="#">Details</a><a class="btn btn-primary" href="#">Open</a></div>
+        </article>`;
     }
 
     function apply(){
