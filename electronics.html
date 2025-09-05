@@ -3,146 +3,143 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Void Lab — PCB & Electronics Template</title>
-  <meta name="description" content="A nerdy template for PCB design, electronics projects, and hardware builds" />
+  <title>Void Labs — Electronics ✦</title>
+  <meta name="description" content="Electronics & PCB portfolio: power, analog, RF front‑ends, and MCU boards — with a PCB‑trace aesthetic." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0a0b0e;
-      --surface: #111319;
-      --muted: #7b8195;
-      --text: #e6e8ef;
-      --accent: #ff8c42; /* orange for hardware */
-      --accent-2: #42aaff; /* blue secondary */
-      --ring: rgba(255,140,66,0.25);
-      --card: #0e1116;
-      --border: #1b1f2a;
+    :root{
+      --bg:#0a0b0e;          /* dark base */
+      --surface:#111319;     /* surfaces */
+      --card:#0e1116;        /* cards */
+      --border:#1b1f2a;      /* borders */
+      --text:#e6e8ef;        /* text */
+      --muted:#7b8195;       /* secondary */
+      --orange:#ff8c42;      /* primary accent */
+      --orange-2:#cf5c00;    /* deeper accent */
+      --green:#22c55e;       /* success tint */
+      --ring:rgba(255,140,66,.22);
     }
-    :root.light {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --muted: #5b667a;
-      --text: #0f172a;
-      --accent: #d65f00;
-      --accent-2: #005f99;
-      --ring: rgba(214,95,0,0.25);
-      --card: #ffffff;
-      --border: #e5e7eb;
+    :root.light{
+      --bg:#fafbfc; --surface:#ffffff; --card:#ffffff; --border:#e5e7eb; --text:#0f172a; --muted:#5b667a; --orange:#ea7a2f; --orange-2:#c94e00; --ring:rgba(234,122,47,.22);
     }
-    * { box-sizing: border-box }
-    html, body { height: 100% }
-    body {
-      margin: 0;
-      font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a { color: var(--accent-2); text-decoration: none }
-    a:hover { text-decoration: underline }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Fira Code',ui-monospace,Menlo,Consolas,monospace;background:
+      radial-gradient(1100px 520px at 50% -10%, rgba(255,140,66,.08), transparent), var(--bg);color:var(--text)}
+    a{color:#ffd2b7;text-decoration:none} a:hover{text-decoration:underline}
 
-    .navbar {
-      position: sticky; top: 0; z-index: 50;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 20px; background: linear-gradient(180deg, rgba(16,18,24,.9), rgba(16,18,24,.6));
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(6px);
-    }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: .5px }
-    .logo {
-      width: 28px; height: 28px; border: 1px solid var(--accent);
-      display: grid; place-items: center; border-radius: 4px; color: var(--accent);
-      box-shadow: 0 0 0 3px var(--ring);
-    }
-    .brand small { color: var(--muted); font-weight: 400 }
+    /* NAVBAR */
+    .navbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(180deg,rgba(16,18,24,.9),rgba(16,18,24,.6));border-bottom:1px solid var(--border);backdrop-filter:blur(6px)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:600}
+    .logo{width:28px;height:28px;border:1px solid var(--orange);display:grid;place-items:center;border-radius:6px;color:var(--orange);box-shadow:0 0 0 3px var(--ring)}
+    .actions{display:flex;gap:8px;align-items:center}
+    .btn{cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:8px 12px;border-radius:10px;font-size:13px;line-height:1;transition:.2s ease;box-shadow:inset 0 -1px 0 rgba(255,255,255,.04)}
+    .btn:hover{transform:translateY(-1px);border-color:var(--orange)}
+    .btn-primary{border-color:var(--orange);background:var(--orange);color:#0f0b08}
 
-    .actions { display: flex; align-items: center; gap: 8px }
-    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text);
-      padding: 8px 12px; border-radius: 10px; font-size: 13px; line-height: 1; transition: .2s ease;
-      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04);
-    }
-    .btn:hover { transform: translateY(-1px); border-color: var(--accent-2) }
-    .btn-primary { border-color: var(--accent); color: var(--bg); background: var(--accent) }
+    .container{max-width:1100px;margin:0 auto;padding:24px 16px}
 
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px }
+    /* HERO */
+    .hero{position:relative;overflow:hidden;display:grid;gap:14px;padding:28px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(180deg,rgba(255,140,66,.07),transparent)}
+    .hero h1{margin:0;font-size:28px}
+    .hero p{margin:0;color:var(--muted);line-height:1.7}
+    .hero code{background:var(--card);padding:2px 6px;border:1px solid var(--border);border-radius:6px;color:var(--orange-2)}
 
-    .hero { display: grid; gap: 14px; padding: 26px; background: linear-gradient(180deg, rgba(255,140,66,0.06), transparent);
-      border: 1px solid var(--border); border-radius: 16px }
-    .hero h1 { margin: 0; font-size: 26px }
-    .hero p { margin: 0; color: var(--muted); line-height: 1.7 }
-    .hero code { background: var(--card); padding: 2px 6px; border: 1px solid var(--border); border-radius: 6px; color: var(--accent) }
+    /* PCB trace background (SVG) */
+    .pcb{position:absolute;inset:0;pointer-events:none;opacity:.55}
+    .pcb svg{position:absolute;width:140%;left:-20%;top:-10%}
+    .trace{fill:none;stroke:rgba(255,140,66,.25);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:6 10;animation:flow 8s linear infinite}
+    .via{fill:rgba(255,140,66,.18)}
+    @keyframes flow{to{stroke-dashoffset:-400}}
 
-    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px }
-    .input {
-      flex: 1 1 260px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px;
-      background: var(--card); border: 1px solid var(--border); color: var(--text);
-    }
-    .input input { border: 0; outline: none; flex: 1; background: transparent; color: inherit; font-family: inherit }
-    .tag { border: 1px dashed var(--border); padding: 6px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); cursor: pointer }
-    .tag.active { border-color: var(--accent); color: var(--accent) }
+    /* CONTROLS */
+    .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+    .input{flex:1 1 260px;display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text)}
+    .input svg{opacity:.85}
+    .input input{border:0;outline:none;flex:1;background:transparent;color:inherit;font-family:inherit}
+    .chip{border:1px dashed var(--border);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted);cursor:pointer;background:rgba(255,255,255,.03)}
+    .chip.active{border-color:var(--orange);color:var(--orange)}
 
-    .grid { display: grid; gap: 12px; grid-template-columns: repeat(1, minmax(0, 1fr)); margin-top: 16px }
-    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
-    @media (min-width: 980px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)) } }
+    /* GRID */
+    .grid{display:grid;gap:12px;grid-template-columns:repeat(1,minmax(0,1fr));margin-top:16px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; display: grid; gap: 10px; transition: .15s }
-    .card:hover { transform: translateY(-2px); border-color: var(--accent-2) }
-    .meta { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 12px }
-    .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent) }
-    .title { font-weight: 600; letter-spacing:.2px }
-    .desc { color: var(--muted); font-size: 13px; line-height: 1.6 }
+    .card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;display:grid;gap:10px;transition:.15s}
+    .card:hover{transform:translateY(-2px);border-color:var(--orange)}
+    .row{display:flex;align-items:center;justify-content:space-between}
+    .title{font-weight:600;letter-spacing:.2px}
+    .desc{color:var(--muted);font-size:13px;line-height:1.6}
+    .meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px}
+    .dot{width:6px;height:6px;border-radius:999px;background:var(--orange)}
+    .badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--muted)}
 
-    .badge { font-size: 11px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted) }
-    .row { display: flex; align-items: center; justify-content: space-between }
+    /* Component head (IC / R / C) */
+    .comp{position:absolute;right:10px;top:10px;display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#ffdeb5}
+    .chip-ic{padding:2px 6px;border:1px solid rgba(255,140,66,.45);border-radius:6px;background:linear-gradient(180deg,rgba(255,140,66,.08),rgba(255,140,66,.02));box-shadow:inset 0 -1px 0 rgba(255,255,255,.04)}
+    .led{width:6px;height:6px;border-radius:999px;background:var(--green);box-shadow:0 0 8px rgba(34,197,94,.6)}
 
-    .empty { padding: 30px; text-align: center; color: var(--muted) }
+    .pagination{display:flex;justify-content:center;gap:8px;margin-top:16px}
+    footer{border-top:1px dashed var(--border);margin-top:26px;padding-top:18px;color:var(--muted);font-size:13px}
 
-    .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 16px }
-
-    footer { border-top: 1px dashed var(--border); margin-top: 26px; padding-top: 18px; color: var(--muted); font-size: 13px }
-
-    .scanline { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(
-      to bottom, rgba(255,140,66,0.03), rgba(255,140,66,0.03) 1px, transparent 1px, transparent 3px
-    ); opacity: .35 }
+    /* subtle scanline */
+    .scanline{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom, rgba(255,140,66,.035), rgba(255,140,66,.035) 1px, transparent 1px, transparent 3px);opacity:.33}
   </style>
 </head>
 <body>
   <div class="scanline" aria-hidden="true"></div>
   <nav class="navbar">
     <div class="brand">
-      <div class="logo">⚡</div>
-      <div>Void Lab <small>// PCB & Electronics</small></div>
+      <div class="logo">PCB</div>
+      <div>Void Labs <small>// Electronics</small></div>
     </div>
     <div class="actions">
       <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
-      <a class="btn" href="#about">About</a>
-      <a class="btn btn-primary" href="#submit">+ Add Project</a>
+      <a class="btn" href="index.html">Home</a>
     </div>
   </nav>
 
   <main class="container">
     <section class="hero">
-      <h1>PCB & Electronics Projects ✦</h1>
-      <p>Use this layout to showcase hardware builds, PCB designs, electronics tutorials, or component challenges. Clean, static, and easy to expand for your hardware portfolio.</p>
-      <p><code>git clone</code> then edit the data below ↑… and deploy it on GitHub Pages / Netlify easily.</p>
+      <div class="pcb" aria-hidden="true">
+        <svg viewBox="0 0 1200 600">
+          <!-- traces -->
+          <path class="trace" d="M20 40 H240 V120 H420 V60 H760 V200 H1080"/>
+          <path class="trace" d="M40 300 H260 V240 H520 V340 H820 V260 H1180"/>
+          <path class="trace" d="M80 520 H320 V420 H540 V520 H940 V380 H1160"/>
+          <!-- vias -->
+          <circle class="via" cx="240" cy="120" r="4"/>
+          <circle class="via" cx="420" cy="60" r="4"/>
+          <circle class="via" cx="760" cy="200" r="4"/>
+          <circle class="via" cx="260" cy="240" r="4"/>
+          <circle class="via" cx="520" cy="340" r="4"/>
+          <circle class="via" cx="820" cy="260" r="4"/>
+          <circle class="via" cx="320" cy="420" r="4"/>
+          <circle class="via" cx="540" cy="520" r="4"/>
+          <circle class="via" cx="940" cy="380" r="4"/>
+        </svg>
+      </div>
+      <h1>Electronics & PCB ✦</h1>
+      <p>Hands‑on builds: power converters, analog front‑ends, RF filters, and microcontroller boards. Orange‑tinted, PCB‑trace vibe.</p>
+      <p><code>git clone</code> → edit the data below → deploy.</p>
       <div class="controls">
         <label class="input" title="Search by title or description">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
-          <input id="search" placeholder="Search… (e.g., pcb, circuits, soldering)" />
+          <input id="search" placeholder="Search… (e.g., buck, op‑amp, RP2040)" />
         </label>
-        <button class="tag active" data-tag="all">All</button>
-        <button class="tag" data-tag="pcb">PCB</button>
-        <button class="tag" data-tag="circuits">Circuits</button>
-        <button class="tag" data-tag="hardware">Hardware</button>
-        <button class="tag" data-tag="tutorial">Tutorials</button>
+        <button class="chip active" data-tag="all">All</button>
+        <button class="chip" data-tag="power">Power</button>
+        <button class="chip" data-tag="analog">Analog</button>
+        <button class="chip" data-tag="rf">RF</button>
+        <button class="chip" data-tag="mcu">MCU</button>
+        <button class="chip" data-tag="pcb">PCB</button>
       </div>
     </section>
 
     <section id="list" class="grid" aria-live="polite"></section>
-    <div id="empty" class="empty" hidden>No results… try a different keyword or filter.</div>
+    <div id="empty" class="empty" hidden style="text-align:center;color:var(--muted);padding:24px">No results… try a different keyword or filter.</div>
 
     <div class="pagination">
       <button class="btn" id="prevBtn">‹ Prev</button>
@@ -151,101 +148,78 @@
     </div>
 
     <footer>
-      Built with love and simplicity. Adapt it for your electronics projects. Clean code without heavy frameworks.
-      <div id="about" style="margin-top:8px">License: MIT. Font: Fira Code. Dark/Light mode available.</div>
+      Built with nerdy minimalism. © 2025 Void Labs.
     </footer>
   </main>
 
   <script>
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') root.classList.add('light');
-    themeBtn.addEventListener('click', () => {
-      root.classList.toggle('light');
-      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-    });
+    // Theme toggle
+    const root=document.documentElement; const themeBtn=document.getElementById('themeBtn');
+    try{const t=localStorage.getItem('theme'); if(t==='light') root.classList.add('light');
+      themeBtn.addEventListener('click',()=>{root.classList.toggle('light');localStorage.setItem('theme',root.classList.contains('light')?'light':'dark')});
+    }catch(e){}
 
-    const DATA = [
-      { id: 1, title: '2-Layer PCB Demo', tag: 'pcb', level: 'easy', points: 50, updated: '2025-08-15', desc: 'Design a simple 2-layer PCB in KiCad and fabricate it.' },
-      { id: 2, title: 'Op-Amp Circuits Lab', tag: 'circuits', level: 'medium', points: 100, updated: '2025-08-10', desc: 'Experiment with op-amp configurations and measure outputs.' },
-      { id: 3, title: 'Soldering Challenge', tag: 'hardware', level: 'easy', points: 40, updated: '2025-07-25', desc: 'Test your soldering skills with fine-pitch components.' },
-      { id: 4, title: 'Microcontroller Breakout', tag: 'hardware', level: 'medium', points: 120, updated: '2025-07-01', desc: 'Build a breakout board for an STM32 microcontroller.' },
-      { id: 5, title: 'Power Supply Design', tag: 'circuits', level: 'hard', points: 200, updated: '2025-06-15', desc: 'Design and simulate a regulated DC power supply with protection features.' },
-      { id: 6, title: 'High-Speed PCB Routing', tag: 'pcb', level: 'hard', points: 250, updated: '2025-05-20', desc: 'Practice differential pair routing and impedance matching.' },
-      { id: 7, title: 'Oscilloscope Tutorial', tag: 'tutorial', level: 'easy', points: 30, updated: '2025-05-01', desc: 'Learn how to use an oscilloscope for debugging circuits.' },
-      { id: 8, title: 'Embedded Hardware Project', tag: 'hardware', level: 'medium', points: 150, updated: '2025-04-10', desc: 'Combine sensors and microcontrollers in a real-world build.' },
+    // Electronics data
+    const DATA=[
+      {id:1,title:'Buck Converter 12V→5V @2A',tag:'power',level:'project',updated:'2025-07-21',desc:'Synchronous buck; conduction/switching losses, layout tips, thermal notes.'},
+      {id:2,title:'Op‑Amp Sensor Front‑End',tag:'analog',level:'guide',updated:'2025-06-30',desc:'Low‑noise gain stages, biasing, filtering, and stability tricks.'},
+      {id:3,title:'RP2040 Dev Board Bring‑Up',tag:'mcu',level:'lab',updated:'2025-06-10',desc:'Boot config, UF2, clock tree, and GPIO test firmware.'},
+      {id:4,title:'Pi‑Network RF Filter',tag:'rf',level:'project',updated:'2025-05-29',desc:'Simple LC Pi for harmonic suppression; Q and insertion loss.'},
+      {id:5,title:'4‑Layer PCB Checklist',tag:'pcb',level:'notes',updated:'2025-05-12',desc:'Stackup, return paths, decoupling, and EMI tips.'},
+      {id:6,title:'Li‑ion Charger + Protection',tag:'power',level:'guide',updated:'2025-04-26',desc:'CC/CV profile, thermistor, and safety considerations.'}
     ];
 
-    const listEl = document.getElementById('list');
-    const emptyEl = document.getElementById('empty');
-    const searchEl = document.getElementById('search');
-    const pageInfo = document.getElementById('pageInfo');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const listEl=document.getElementById('list');
+    const emptyEl=document.getElementById('empty');
+    const searchEl=document.getElementById('search');
+    const pageInfo=document.getElementById('pageInfo');
+    const prevBtn=document.getElementById('prevBtn');
+    const nextBtn=document.getElementById('nextBtn');
+    const chips=Array.from(document.querySelectorAll('.chip'));
 
-    const tags = Array.from(document.querySelectorAll('.tag'));
-    let activeTag = 'all';
-    let page = 1;
-    const perPage = 6;
+    let activeTag='all'; let page=1; const perPage=6;
 
-    function formatDate(iso){
-      const d = new Date(iso);
-      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    }
+    function formatDate(iso){const d=new Date(iso);return d.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});}
 
     function cardHTML(item){
       return `
         <article class="card">
-          <div class="row">
-            <div class="title">${item.title}</div>
-            <span class="badge">${item.level}</span>
-          </div>
+          <div class="comp"><span class="chip-ic">${iconFor(item.tag)} ${item.tag.toUpperCase()}</span><span class="led" aria-hidden="true"></span></div>
+          <div class="row"><div class="title">${item.title}</div><span class="badge">${item.level}</span></div>
           <p class="desc">${item.desc}</p>
-          <div class="meta">
-            <span class="dot"></span>
-            <span>${item.points} pts</span>
-            <span>•</span>
-            <span>${item.tag}</span>
-            <span>•</span>
-            <span>Last update: ${formatDate(item.updated)}</span>
-          </div>
-          <div class="row">
-            <a class="btn" href="#">Details</a>
-            <a class="btn btn-primary" href="#">Start</a>
-          </div>
+          <div class="meta"><span class="dot"></span><span>${item.tag}</span><span>•</span><span>Updated: ${formatDate(item.updated)}</span></div>
+          <div class="row"><a class="btn" href="#">Details</a><a class="btn btn-primary" href="#">Open</a></div>
         </article>`;
     }
 
-    function applyFilters(){
-      const q = (searchEl.value || '').toLowerCase().trim();
-      let filtered = DATA.filter(i => activeTag === 'all' ? true : i.tag === activeTag);
-      if (q) filtered = filtered.filter(i => (i.title + i.desc + i.tag).toLowerCase().includes(q));
-
-      const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
-      if (page > totalPages) page = totalPages;
-      const start = (page - 1) * perPage;
-      const pageItems = filtered.slice(start, start + perPage);
-
-      listEl.innerHTML = pageItems.map(cardHTML).join('');
-      emptyEl.hidden = pageItems.length > 0;
-      pageInfo.textContent = `Page ${page} / ${totalPages}`;
-      prevBtn.disabled = page <= 1;
-      nextBtn.disabled = page >= totalPages;
+    function iconFor(tag){
+      switch(tag){
+        case 'power': return '⚡';
+        case 'analog': return '🎚️';
+        case 'rf': return '📡';
+        case 'mcu': return '🧠';
+        case 'pcb': return '🛠️';
+        default: return '🔧';
+      }
     }
 
-    tags.forEach(t => t.addEventListener('click', () => {
-      tags.forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      activeTag = t.dataset.tag;
-      page = 1;
-      applyFilters();
-    }));
-    searchEl.addEventListener('input', () => { page = 1; applyFilters(); });
-    prevBtn.addEventListener('click', () => { if (page > 1) { page--; applyFilters(); } });
-    nextBtn.addEventListener('click', () => { page++; applyFilters(); });
+    function apply(){
+      const q=(searchEl.value||'').toLowerCase().trim();
+      let filtered=DATA.filter(i=> activeTag==='all' ? true : i.tag===activeTag);
+      if(q) filtered=filtered.filter(i=> (i.title+i.desc+i.tag).toLowerCase().includes(q));
+      const totalPages=Math.max(1,Math.ceil(filtered.length/perPage));
+      if(page>totalPages) page=totalPages; const start=(page-1)*perPage; const items=filtered.slice(start,start+perPage);
+      listEl.innerHTML=items.map(cardHTML).join('');
+      emptyEl.hidden=items.length>0; pageInfo.textContent=`Page ${page} / ${totalPages}`;
+      prevBtn.disabled=page<=1; nextBtn.disabled=page>=totalPages;
+    }
 
-    applyFilters();
+    chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('active'));c.classList.add('active');activeTag=c.dataset.tag;page=1;apply();}));
+    searchEl.addEventListener('input',()=>{page=1;apply();});
+    prevBtn.addEventListener('click',()=>{if(page>1){page--;apply();}});
+    nextBtn.addEventListener('click',()=>{page++;apply();});
+
+    apply();
   </script>
 </body>
 </html>
