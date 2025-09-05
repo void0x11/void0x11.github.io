@@ -44,7 +44,7 @@
     a { color: var(--accent-2); text-decoration: none }
     a:hover { text-decoration: underline }
 
-    /* Shell header */
+    /* Navbar (unified) */
     .navbar {
       position: sticky; top: 0; z-index: 50;
       display: flex; align-items: center; justify-content: space-between;
@@ -55,7 +55,7 @@
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: .5px }
     .logo {
       width: 28px; height: 28px; border: 1px solid var(--accent);
-      display: grid; place-items: center; border-radius: 4px; color: var(--accent);
+      display: grid; place-items: center; border-radius: 6px; color: var(--accent);
       box-shadow: 0 0 0 3px var(--ring);
     }
     .brand small { color: var(--muted); font-weight: 400 }
@@ -66,7 +66,7 @@
       box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04);
     }
     .btn:hover { transform: translateY(-1px); border-color: var(--accent-2) }
-    .btn-primary { border-color: var(--accent); color: var(--bg); background: var(--accent) }
+    .btn-primary { border-color: var(--accent); background: var(--accent); color: #0a0b0e } /* يمكن تغييره لأبيض لو حبيت */
 
     .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px }
 
@@ -117,15 +117,18 @@
 </head>
 <body>
   <div class="scanline" aria-hidden="true"></div>
+
+  <!-- Navbar unified -->
   <nav class="navbar">
     <div class="brand">
       <div class="logo">>_</div>
       <div>Void Lab <small>// nerdy minimal</small></div>
     </div>
     <div class="actions">
-      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
+      <a class="btn" href="index.html">Home</a>
       <a class="btn" href="#about">About</a>
       <a class="btn btn-primary" href="#submit">+ Add Item</a>
+      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
     </div>
   </nav>
 
@@ -173,16 +176,16 @@
       localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
     });
 
-    // --- Sample data (replace with your content or fetch JSON) ---
+    // --- Data (no points, add 'type') ---
     const DATA = [
-      { id: 1, title: 'Warmup: x86 Crackme', tag: 'reversing', level: 'easy', points: 50, updated: '2025-08-01', desc: 'Start by reversing a simple program—look for the password inside main.' },
-      { id: 2, title: 'STM32 UART Flag Hunt', tag: 'embedded', level: 'medium', points: 120, updated: '2025-07-22', desc: 'Trace the registers in UART TX/RX and reveal the hidden flag.' },
-      { id: 3, title: 'Classical Crypto: Vigenère', tag: 'crypto', level: 'easy', points: 40, updated: '2025-07-10', desc: 'Decrypt a ciphertext using frequency analysis and basic techniques.' },
-      { id: 4, title: 'Memory Forensics Mini', tag: 'forensics', level: 'hard', points: 200, updated: '2025-06-29', desc: 'Analyze a memory image—extract the C2 domain and the key.' },
-      { id: 5, title: 'ARM Thumb Patch', tag: 'reversing', level: 'medium', points: 90, updated: '2025-06-11', desc: 'Patch a conditional branch in Thumb to bypass checks.' },
-      { id: 6, title: 'AES Side-Channel Toy', tag: 'crypto', level: 'hard', points: 220, updated: '2025-05-08', desc: 'Tiny timing leaks may reveal bytes—measure and analyze.' },
-      { id: 7, title: 'ELF Strings Trail', tag: 'forensics', level: 'easy', points: 30, updated: '2025-04-21', desc: 'Trace embedded strings in ELF—follow the trail to the goal.' },
-      { id: 8, title: 'Bootloader Lockpick', tag: 'embedded', level: 'hard', points: 250, updated: '2025-03-17', desc: 'Crack the bootloader lock by reading flash and analyzing tables.' },
+      { id: 1, title: 'Warmup: x86 Crackme',      tag: 'reversing', type: 'lab',   level: 'easy',   updated: '2025-08-01', desc: 'Start by reversing a simple program—look for the password inside main.' },
+      { id: 2, title: 'STM32 UART Flag Hunt',     tag: 'embedded',  type: 'lab',   level: 'medium', updated: '2025-07-22', desc: 'Trace the registers in UART TX/RX and reveal the hidden flag.' },
+      { id: 3, title: 'Classical Crypto: Vigenère',tag: 'crypto',    type: 'notes', level: 'easy',   updated: '2025-07-10', desc: 'Decrypt a ciphertext using frequency analysis and basic techniques.' },
+      { id: 4, title: 'Memory Forensics Mini',    tag: 'forensics', type: 'lab',   level: 'hard',   updated: '2025-06-29', desc: 'Analyze a memory image—extract the C2 domain and the key.' },
+      { id: 5, title: 'ARM Thumb Patch',          tag: 'reversing', type: 'notes', level: 'medium', updated: '2025-06-11', desc: 'Patch a conditional branch in Thumb to bypass checks.' },
+      { id: 6, title: 'AES Side-Channel Toy',     tag: 'crypto',    type: 'lab',   level: 'hard',   updated: '2025-05-08', desc: 'Tiny timing leaks may reveal bytes—measure and analyze.' },
+      { id: 7, title: 'ELF Strings Trail',        tag: 'forensics', type: 'notes', level: 'easy',   updated: '2025-04-21', desc: 'Trace embedded strings in ELF—follow the trail to the goal.' },
+      { id: 8, title: 'Bootloader Lockpick',      tag: 'embedded',  type: 'lab',   level: 'hard',   updated: '2025-03-17', desc: 'Crack the bootloader lock by reading flash and analyzing tables.' },
     ];
 
     // --- Render helpers ---
@@ -208,13 +211,14 @@
         <article class="card">
           <div class="row">
             <div class="title">${item.title}</div>
-            <span class="badge">${item.level}</span>
+            <div style="display:flex; gap:6px; align-items:center">
+              <span class="badge">${item.type}</span>
+              <span class="badge">${item.level}</span>
+            </div>
           </div>
           <p class="desc">${item.desc}</p>
           <div class="meta">
             <span class="dot"></span>
-            <span>${item.points} pts</span>
-            <span>•</span>
             <span>${item.tag}</span>
             <span>•</span>
             <span>Last update: ${formatDate(item.updated)}</span>
@@ -229,7 +233,7 @@
     function applyFilters(){
       const q = (searchEl.value || '').toLowerCase().trim();
       let filtered = DATA.filter(i => activeTag === 'all' ? true : i.tag === activeTag);
-      if (q) filtered = filtered.filter(i => (i.title + i.desc + i.tag).toLowerCase().includes(q));
+      if (q) filtered = filtered.filter(i => (i.title + i.desc + i.tag + i.type).toLowerCase().includes(q));
 
       const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
       if (page > totalPages) page = totalPages;
