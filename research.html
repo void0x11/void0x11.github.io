@@ -28,23 +28,38 @@
     * { box-sizing: border-box }
     html, body { height: 100% }
     body {
-      margin: 0; font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      margin: 0; font-family: 'Fira Code', ui-monospace, Menlo, Consolas, monospace;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
     a { color: var(--accent-2); text-decoration: none }
     a:hover { text-decoration: underline }
 
+    /* Navbar */
     .navbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between;
       padding: 14px 20px; background: linear-gradient(180deg, rgba(16,18,24,.9), rgba(16,18,24,.6));
-      border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+      border-bottom: 1px solid var(--border); backdrop-filter: blur(6px); }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: .5px }
-    .logo { width: 28px; height: 28px; border: 1px solid var(--accent); display: grid; place-items: center; border-radius: 4px; color: var(--accent); box-shadow: 0 0 0 3px var(--ring) }
+    .logo { width: 28px; height: 28px; border: 1px solid var(--accent); display: grid; place-items: center; border-radius: 6px; color: var(--accent); box-shadow: 0 0 0 3px var(--ring) }
     .brand small { color: var(--muted); font-weight: 400 }
-
     .actions { display: flex; align-items: center; gap: 8px }
-    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: 10px; font-size: 13px; line-height: 1; transition: .2s ease; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) }
+    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      padding: 8px 12px; border-radius: 10px; font-size: 13px; line-height: 1; transition: .2s ease; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) }
     .btn:hover { transform: translateY(-1px); border-color: var(--accent-2) }
-    .btn-primary { border-color: var(--accent); color: var(--bg); background: var(--accent) }
+    .btn-primary { border-color: var(--accent); background: var(--accent); color: #f3f4f7 }
+
+    /* New style for View button */
+    .btn-view {
+      background: var(--accent-2);
+      color: #0a0b0e;
+      border: 1px solid var(--accent-2);
+      font-weight: 600;
+    }
+    .btn-view:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px }
 
@@ -53,10 +68,10 @@
     .hero p { margin: 0; color: var(--muted); line-height: 1.7 }
     .hero code { background: var(--card); padding: 2px 6px; border: 1px solid var(--border); border-radius: 6px; color: var(--accent) }
 
-    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px }
     .input { flex: 1 1 260px; display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 10px; background: var(--card); border: 1px solid var(--border); color: var(--text) }
     .input input { border: 0; outline: none; flex: 1; background: transparent; color: inherit; font-family: inherit }
-    .tag { border: 1px dashed var(--border); padding: 6px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); cursor: pointer }
+    .tag { border: 1px dashed var(--border); padding: 6px 10px; border-radius: 999px; font-size: 12px; color: var(--muted); cursor: pointer; background: rgba(255,255,255,.02) }
     .tag.active { border-color: var(--accent); color: var(--accent) }
 
     .grid { display: grid; gap: 12px; grid-template-columns: repeat(1, minmax(0, 1fr)); margin-top: 16px }
@@ -65,19 +80,14 @@
 
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; display: grid; gap: 10px; transition: .15s }
     .card:hover { transform: translateY(-2px); border-color: var(--accent-2) }
-    .meta { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 12px }
-    .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent) }
+    .row { display: flex; align-items: center; justify-content: space-between }
     .title { font-weight: 600; letter-spacing:.2px }
     .desc { color: var(--muted); font-size: 13px; line-height: 1.6 }
-
     .badge { font-size: 11px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted) }
-    .row { display: flex; align-items: center; justify-content: space-between }
-
-    .empty { padding: 30px; text-align: center; color: var(--muted) }
-    .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 16px }
+    .meta { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 12px }
+    .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent) }
 
     footer { border-top: 1px dashed var(--border); margin-top: 26px; padding-top: 18px; color: var(--muted); font-size: 13px }
-
     .scanline { position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(124,58,237,0.03), rgba(124,58,237,0.03) 1px, transparent 1px, transparent 3px); opacity: .35 }
   </style>
 </head>
@@ -89,20 +99,18 @@
       <div>Void Lab <small>// Research</small></div>
     </div>
     <div class="actions">
+      <a class="btn btn-primary" href="index.html">Home</a>
       <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
-      <a class="btn" href="#about">About</a>
-      <a class="btn btn-primary" href="#submit">+ Add Publication</a>
     </div>
   </nav>
 
   <main class="container">
     <section class="hero">
       <h1>Research Portfolio ✦</h1>
-      <p>Highlight your academic output: papers, posters, talks, and datasets. Clean, static, and easy to expand.</p>
+      <p>Highlight your academic output: papers, posters, talks, and datasets.</p>
       <p><code>git clone</code> then edit the data below ↑… and deploy it on GitHub Pages / Netlify easily.</p>
       <div class="controls">
         <label class="input" title="Search by title or description">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/></svg>
           <input id="search" placeholder="Search… (e.g., radar, AI, electronics)" />
         </label>
         <button class="tag active" data-tag="all">All</button>
@@ -116,111 +124,63 @@
     <section id="list" class="grid" aria-live="polite"></section>
     <div id="empty" class="empty" hidden>No results… try a different keyword or filter.</div>
 
-    <div class="pagination">
-      <button class="btn" id="prevBtn">‹ Prev</button>
-      <span class="btn" id="pageInfo" aria-live="polite">Page 1</span>
-      <button class="btn" id="nextBtn">Next ›</button>
-    </div>
-
     <footer>
-      Built with love and simplicity. Adapt it for your research portfolio. Clean code without heavy frameworks.
-      <div id="about" style="margin-top:8px">License: MIT. Font: Fira Code. Dark/Light mode available.</div>
+      Built with nerdy minimalism. © 2025 Void Labs.
     </footer>
   </main>
 
   <script>
-    // Safe theme toggle
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    try {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') root.classList.add('light');
-      themeBtn && themeBtn.addEventListener('click', () => {
-        root.classList.toggle('light');
-        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-      });
-    } catch (e) {
-      console.warn('Theme toggle storage unavailable', e);
-    }
+    const root=document.documentElement;
+    const themeBtn=document.getElementById('themeBtn');
+    if(localStorage.getItem('theme')==='light') root.classList.add('light');
+    themeBtn.addEventListener('click',()=>{root.classList.toggle('light');localStorage.setItem('theme',root.classList.contains('light')?'light':'dark')});
 
-    // Data & rendering
-    const DATA = [
-      { id: 1, title: 'Paper: SDR-Based FMCW Radar', tag: 'papers', level: 'peer-reviewed', year: 2025, updated: '2025-08-20', desc: 'Published in Sensors Journal. 3D target localization using SDR-based bistatic radar.' },
-      { id: 2, title: 'Poster: Utah Academy 2025', tag: 'posters', level: 'conference', year: 2025, updated: '2025-03-22', desc: 'Poster on low-cost SDR radar prototypes for UAV detection.' },
-      { id: 3, title: 'Talk: Radar Signal Processing', tag: 'talks', level: 'invited', year: 2024, updated: '2024-11-15', desc: 'Guest lecture on FMCW and Doppler radar techniques.' },
-      { id: 4, title: 'Dataset: Drone FMCW Samples', tag: 'datasets', level: 'open', year: 2025, updated: '2025-07-01', desc: 'Public dataset of FMCW drone reflections with Pluto SDR and 24 GHz module.' }
+    const DATA=[
+      {id:1,title:'SDR-Based FMCW Radar',tag:'papers',level:'peer-reviewed',year:2025,updated:'2025-08-20',doi:'10.0000/sensors.fmcw.2025',url:'#',desc:'3D target localization using SDR-based bistatic radar.'},
+      {id:2,title:'Utah Academy Poster',tag:'posters',level:'conference',year:2025,updated:'2025-03-22',url:'#',desc:'Low-cost SDR radar prototypes for UAV detection.'},
+      {id:3,title:'Radar Signal Processing',tag:'talks',level:'invited',year:2024,updated:'2024-11-15',url:'#',desc:'Guest lecture on FMCW and Doppler radar techniques.'},
+      {id:4,title:'Drone FMCW Samples',tag:'datasets',level:'open',year:2025,updated:'2025-07-01',url:'#',desc:'Public dataset of FMCW drone reflections with Pluto SDR and 24 GHz module.'}
     ];
 
-    const listEl = document.getElementById('list');
-    const emptyEl = document.getElementById('empty');
-    const searchEl = document.getElementById('search');
-    const pageInfo = document.getElementById('pageInfo');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const tags = Array.from(document.querySelectorAll('.tag'));
+    const listEl=document.getElementById('list');
+    const emptyEl=document.getElementById('empty');
+    const searchEl=document.getElementById('search');
+    const tags=Array.from(document.querySelectorAll('.tag'));
 
-    let activeTag = 'all';
-    let page = 1;
-    const perPage = 6;
-
-    function formatDate(iso){
-      const d = new Date(iso);
-      return isNaN(d) ? iso : d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    }
-
+    let activeTag='all';
+    function formatDate(iso){const d=new Date(iso);return isNaN(d)?iso:d.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});}
     function cardHTML(item){
       return `
         <article class="card">
           <div class="row">
             <div class="title">${item.title}</div>
-            <span class="badge">${item.level}</span>
+            <div style="display:flex;gap:6px">
+              <span class="badge">${item.level}</span>
+              <span class="badge">${item.tag}</span>
+            </div>
           </div>
           <p class="desc">${item.desc}</p>
           <div class="meta">
-            <span class="dot"></span>
-            <span>${item.year}</span>
-            <span>•</span>
-            <span>${item.tag}</span>
-            <span>•</span>
-            <span>Last update: ${formatDate(item.updated)}</span>
+            <span class="dot"></span><span>${item.year}</span>
+            <span>•</span><span>Last update: ${formatDate(item.updated)}</span>
           </div>
           <div class="row">
-            <a class="btn" href="#">Details</a>
-            <a class="btn btn-primary" href="#">View</a>
+            <div style="display:flex;gap:8px">
+              ${item.doi?`<a class="btn" href="https://doi.org/${item.doi}" target="_blank">DOI</a>`:''}
+              ${item.url?`<a class="btn btn-view" href="${item.url}" target="_blank">View</a>`:''}
+            </div>
           </div>
         </article>`;
     }
-
     function applyFilters(){
-      const q = (searchEl.value || '').toLowerCase().trim();
-      let filtered = DATA.filter(i => activeTag === 'all' ? true : i.tag === activeTag);
-      if (q) filtered = filtered.filter(i => (i.title + i.desc + i.tag).toLowerCase().includes(q));
-
-      const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
-      if (page > totalPages) page = totalPages;
-      const start = (page - 1) * perPage;
-      const pageItems = filtered.slice(start, start + perPage);
-
-      listEl.innerHTML = pageItems.map(cardHTML).join('');
-      emptyEl.hidden = pageItems.length > 0;
-      pageInfo.textContent = `Page ${page} / ${totalPages}`;
-      prevBtn.disabled = page <= 1;
-      nextBtn.disabled = page >= totalPages;
+      const q=(searchEl.value||'').toLowerCase().trim();
+      let filtered=DATA.filter(i=>activeTag==='all'?true:i.tag===activeTag);
+      if(q) filtered=filtered.filter(i=>(i.title+i.desc+i.tag).toLowerCase().includes(q));
+      listEl.innerHTML=filtered.map(cardHTML).join('');
+      emptyEl.hidden=filtered.length>0;
     }
-
-    // Bind events safely
-    tags.forEach(t => t.addEventListener('click', () => {
-      tags.forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      activeTag = t.dataset.tag;
-      page = 1;
-      applyFilters();
-    }));
-    searchEl.addEventListener('input', () => { page = 1; applyFilters(); });
-    prevBtn.addEventListener('click', () => { if (page > 1) { page--; applyFilters(); } });
-    nextBtn.addEventListener('click', () => { page++; applyFilters(); });
-
-    // Initial render
+    tags.forEach(t=>t.addEventListener('click',()=>{tags.forEach(x=>x.classList.remove('active'));t.classList.add('active');activeTag=t.dataset.tag;applyFilters();}));
+    searchEl.addEventListener('input',applyFilters);
     applyFilters();
   </script>
 </body>
