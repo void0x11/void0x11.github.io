@@ -109,9 +109,23 @@ OG/Twitter + JSON-LD Schema (WebSite + Organization)
     .btn:hover { transform: translateY(-1px); border-color: var(--cyan) }
 
     .hero { max-width: 980px; margin: 28px auto 8px; padding: 0 16px; display: grid; gap: 14px; justify-items: center }
+
+    /* Avatar block — only change made: link + hover/focus effects */
     .avatar-wrap { position: relative; width: 112px; height: 112px }
-    .avatar { width: 112px; height: 112px; border-radius: 50%; border: 2px solid var(--border); display: block }
-    .ring { position: absolute; inset: -6px; border-radius: 999px; background: radial-gradient(closest-side, rgba(90,209,252,.25), transparent); filter: blur(12px); pointer-events: none }
+    .avatar-link { position: relative; display: block; width: 100%; height: 100%; border-radius: 999px; outline: none; cursor: pointer }
+    .avatar { width: 112px; height: 112px; border-radius: 50%; border: 2px solid var(--border); display: block; transition: transform .25s ease, border-color .2s ease, box-shadow .25s ease }
+    .ring { position: absolute; inset: -6px; border-radius: 999px; background: radial-gradient(closest-side, rgba(90,209,252,.25), transparent); filter: blur(12px); pointer-events: none; transition: transform .25s ease, opacity .25s ease; opacity: .75 }
+    .avatar-link:hover .avatar,
+    .avatar-link:focus-visible .avatar { transform: scale(1.08); border-color: var(--cyan); box-shadow: 0 0 0 4px var(--ring) }
+    .avatar-link:hover .ring,
+    .avatar-link:focus-visible .ring { opacity: 1; transform: scale(1.05) }
+    .avatar-link:focus-visible { box-shadow: 0 0 0 3px var(--ring), 0 0 0 1px var(--cyan) inset; border-radius: 999px }
+
+    @media (prefers-reduced-motion: reduce) {
+      .avatar { transition: border-color .2s ease }
+      .ring { transition: opacity .2s ease }
+    }
+
     h1 { margin: 6px 0 0; font-size: 28px; text-align: center }
     .sub { margin: 6px 0 0; color: var(--muted); text-align: center; font-size: 14px }
 
@@ -150,15 +164,15 @@ OG/Twitter + JSON-LD Schema (WebSite + Organization)
       <div class="logo">&gt;_</div>
       <div>Void Labs </div>
     </div>
-    <div class="actions">
-      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
-    </div>
   </nav>
 
   <header class="hero">
     <div class="avatar-wrap">
-      <img class="avatar" src="assets/logos/avatar.jpg" alt="Anime Avatar" />
-      <div class="ring" aria-hidden="true"></div>
+      <!-- Clickable avatar to About page -->
+      <a class="avatar-link" href="about.html" aria-label="Go to About page">
+        <img class="avatar" src="assets/logos/avatar.jpg" alt="Anime Avatar" />
+        <div class="ring" aria-hidden="true"></div>
+      </a>
     </div>
     <h1>Pick a Lab</h1>
     <p class="sub">Electronics • Security • Research — minimal, fast, and nerdy</p>
@@ -170,11 +184,11 @@ OG/Twitter + JSON-LD Schema (WebSite + Organization)
       <div>Void Labs </div>
     </div>
     <div class="actions">
-      <a class="btn" href="/">Home</a>
+      <span></span>
+      <a class="btn" href="/">About</a>
       <a class="btn" href="electronics.html">Electronics</a>
-      <a class="btn" href="security.html">Security</a>
-      <a class="btn" href="research.html">Research</a>
-      <button class="btn" id="themeBtn" title="Toggle theme">☾/☀</button>
+      <a class="btn" href="embedded.html">Embedded</a>
+      <a class="btn" href="rf.html">RF & SDR</a>
     </div>
   </nav>
 
@@ -194,7 +208,7 @@ OG/Twitter + JSON-LD Schema (WebSite + Organization)
       </a>
       <a class="card security" href="security.html" aria-label="Security &amp; Malware">
         <span class="icon">🐞</span>
-        <span>Security &amp; Malware</span>
+        <span>Security</span>
       </a>
       <a class="card research" href="research.html" aria-label="Research">
         <span class="icon">🔍</span>
@@ -206,8 +220,6 @@ OG/Twitter + JSON-LD Schema (WebSite + Organization)
       </a>
     </section>
   </main>
-
-  
 
   <script>
     const rootIndex = document.documentElement;
@@ -306,7 +318,7 @@ Includes OG/Twitter + JSON-LD (AboutPage)
       rootAbout.classList.toggle('light');
       localStorage.setItem('theme', rootAbout.classList.contains('light') ? 'light' : 'dark');
     });
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year')?.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
@@ -360,7 +372,6 @@ Noindex; helpful links; keeps theme & style
   </div>
 
   <script>
-    // Keep theme consistent with user preference
     const root404 = document.documentElement;
     const savedTheme404 = localStorage.getItem('theme');
     if (savedTheme404 === 'light') root404.classList.add('light');
