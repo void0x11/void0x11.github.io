@@ -36,11 +36,11 @@
     </script>
 </head>
 
-<body class="min-h-screen tech-grid pt-16 pb-12">
+<body class="min-h-screen tech-grid pt-16">
     <custom-navbar></custom-navbar>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <main id="main-content" class="container mx-auto px-6 pt-24 pb-24 max-w-6xl">
+    <main id="main-content" class="container mx-auto px-6 pt-24 pb-32 max-w-6xl">
 
         <!-- Academic Header -->
         <header class="mb-20">
@@ -66,7 +66,88 @@
             </div>
         </header>
 
-        <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Research Overview (Consolidated Section) -->
+        <section class="mb-20">
+            <!-- Metrics Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="glass p-5 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-primary-500 mb-1">2</div>
+                    <div class="text-xs text-slate-400 font-mono">Active Projects</div>
+                </div>
+                <div class="glass p-5 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-secondary-500 mb-1">2</div>
+                    <div class="text-xs text-slate-400 font-mono">Presentations</div>
+                </div>
+                <div class="glass p-5 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-amber-500 mb-1">4</div>
+                    <div class="text-xs text-slate-400 font-mono">Research Areas</div>
+                </div>
+                <div class="glass p-5 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-white mb-1">2023+</div>
+                    <div class="text-xs text-slate-400 font-mono">Years Active</div>
+                </div>
+            </div>
+
+            <!-- Profile & Keywords Combined -->
+            <div class="glass p-8 rounded-xl">
+                <!-- Profile Info -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8 pb-8 border-b border-gray-800">
+                    <div>
+                        <h3 class="text-xs font-mono text-primary-500 uppercase tracking-wider mb-3">Institution</h3>
+                        <p class="text-white font-semibold text-lg">Southern Utah University</p>
+                        <p class="text-slate-400 text-sm">Department of Engineering</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xs font-mono text-primary-500 uppercase tracking-wider mb-3">Contact</h3>
+                        <a href="mailto:ahmedamin@suumail.net"
+                            class="text-white hover:text-primary-500 text-sm flex items-center gap-2 mb-2 transition-colors">
+                            <i data-feather="mail" class="w-4 h-4"></i>
+                            ahmedamin@suumail.net
+                        </a>
+                        <a href="https://github.com/void0x11" target="_blank"
+                            class="text-slate-400 hover:text-primary-500 text-sm flex items-center gap-2 transition-colors">
+                            <i data-feather="github" class="w-4 h-4"></i>
+                            GitHub Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Keywords -->
+                <div>
+                    <h3 class="text-xs font-mono text-secondary-500 uppercase tracking-wider mb-4">Research Keywords
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1.5 bg-primary-500/10 border border-primary-500/30 rounded text-primary-400 font-mono text-xs">Computer
+                            Vision</span>
+                        <span
+                            class="px-3 py-1.5 bg-primary-500/10 border border-primary-500/30 rounded text-primary-400 font-mono text-xs">Swarm
+                            Robotics</span>
+                        <span
+                            class="px-3 py-1.5 bg-secondary-500/10 border border-secondary-500/30 rounded text-secondary-400 font-mono text-xs">Edge
+                            AI/ML</span>
+                        <span
+                            class="px-3 py-1.5 bg-secondary-500/10 border border-secondary-500/30 rounded text-secondary-400 font-mono text-xs">Embedded
+                            Systems</span>
+                        <span
+                            class="px-3 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 font-mono text-xs">PCB
+                            Design</span>
+                        <span
+                            class="px-3 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded text-amber-400 font-mono text-xs">Signal
+                            Processing</span>
+                        <span
+                            class="px-3 py-1.5 bg-teal-500/10 border border-teal-500/30 rounded text-teal-400 font-mono text-xs">FMCW
+                            Radar</span>
+                        <span
+                            class="px-3 py-1.5 bg-teal-500/10 border border-teal-500/30 rounded text-teal-400 font-mono text-xs">SDR
+                            Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="grid lg:grid-cols-3 gap-12 items-start">
 
             <!-- Main Content Column (Left) -->
             <div class="lg:col-span-2 space-y-16">
@@ -197,54 +278,158 @@
                     </div>
                 </section>
 
-                <!-- Publications Section -->
+                <!-- Conference & Technical Presentations -->
                 <section>
                     <h2
                         class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
-                        <i data-feather="book-open" class="text-secondary-500 w-6 h-6"></i>
-                        Publications & Presentations
+                        <i data-feather="mic" class="text-secondary-500 w-6 h-6"></i>
+                        Conference & Technical Presentations
                     </h2>
 
-                    <div class="space-y-4">
-                        <!-- Pub 1 -->
+                    <div class="space-y-6">
+                        <!-- Presentation 1 -->
                         <div
                             class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
-                            <h3 class="text-white font-semibold text-lg mb-2">
-                                SmartBot Core V1.1: A Modular PCB Platform for Educational Robotics
-                            </h3>
-                            <div class="flex flex-wrap gap-3 mb-3 text-sm">
-                                <span
-                                    class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">Conference
-                                    Presentation</span>
-                                <span class="text-slate-400">SUU Research Symposium</span>
-                                <span class="text-slate-500 font-mono">• May 2025</span>
+                            <div class="flex items-start justify-between gap-4 mb-3">
+                                <span class="text-secondary-500 font-mono text-sm">[C1]</span>
+                                <div class="flex-1">
+                                    <h3 class="text-white font-semibold text-lg mb-2">
+                                        SmartBot Core V1.1: A Modular PCB Platform for Educational Robotics
+                                    </h3>
+                                    <p class="text-slate-300 text-sm mb-2 font-mono">
+                                        A. M. Amin, "SmartBot Core V1.1: A Modular PCB Platform for Educational
+                                        Robotics,"
+                                        presented at SUU Research Symposium, Cedar City, UT, May 2025.
+                                    </p>
+                                    <div class="flex flex-wrap gap-3 mb-3 text-sm">
+                                        <span
+                                            class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">Conference
+                                            Presentation</span>
+                                        <span class="text-slate-400">SUU Research Symposium</span>
+                                        <span class="text-slate-500 font-mono">• May 2025</span>
+                                    </div>
+                                    <p class="text-slate-400 text-sm mb-4">
+                                        Presented the design methodology and pedagogical impact of a custom robotics
+                                        control
+                                        board compared to COTS solutions.
+                                        Highlighted improved signal integrity and student power-budgeting capabilities.
+                                    </p>
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-slate-400 hover:text-primary-500 hover:border-primary-500 transition-colors">
+                                            <i data-feather="download" class="w-3 h-3 inline mr-1"></i>
+                                            BibTeX
+                                        </button>
+                                        <button
+                                            class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-slate-400 hover:text-primary-500 hover:border-primary-500 transition-colors">
+                                            <i data-feather="file-text" class="w-3 h-3 inline mr-1"></i>
+                                            Abstract
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="text-slate-400 text-sm">
-                                Presented the design methodology and pedagogical impact of a custom robotics control
-                                board compared to COTS solutions.
-                                Highlighted improved signal integrity and student power-budgeting capabilities.
-                            </p>
                         </div>
 
-                        <!-- Pub 2 -->
+                        <!-- Presentation 2 -->
                         <div
                             class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
-                            <h3 class="text-white font-semibold text-lg mb-2">
-                                Low-Power SDR Radar for Automotive Applications
-                            </h3>
-                            <div class="flex flex-wrap gap-3 mb-3 text-sm">
-                                <span
-                                    class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">Technical
-                                    Presentation</span>
-                                <span class="text-slate-400">Industry Challenge Lab</span>
-                                <span class="text-slate-500 font-mono">• March 2025</span>
+                            <div class="flex items-start justify-between gap-4 mb-3">
+                                <span class="text-secondary-500 font-mono text-sm">[C2]</span>
+                                <div class="flex-1">
+                                    <h3 class="text-white font-semibold text-lg mb-2">
+                                        Low-Power SDR Radar for Automotive Applications
+                                    </h3>
+                                    <p class="text-slate-300 text-sm mb-2 font-mono">
+                                        A. M. Amin, "Low-Power SDR Radar for Automotive Applications,"
+                                        presented at Industry Challenge Lab, Cedar City, UT, March 2025.
+                                    </p>
+                                    <div class="flex flex-wrap gap-3 mb-3 text-sm">
+                                        <span
+                                            class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">Technical
+                                            Presentation</span>
+                                        <span class="text-slate-400">Industry Challenge Lab</span>
+                                        <span class="text-slate-500 font-mono">• March 2025</span>
+                                    </div>
+                                    <p class="text-slate-400 text-sm mb-4">
+                                        Demonstrated a complete FMCW radar signal processing chain (Range-Doppler Maps,
+                                        CFAR)
+                                        using software-defined radio,
+                                        focusing on automotive constraints.
+                                    </p>
+                                    <div class="flex gap-2">
+                                        <button
+                                            class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-slate-400 hover:text-primary-500 hover:border-primary-500 transition-colors">
+                                            <i data-feather="download" class="w-3 h-3 inline mr-1"></i>
+                                            BibTeX
+                                        </button>
+                                        <button
+                                            class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700 rounded text-slate-400 hover:text-primary-500 hover:border-primary-500 transition-colors">
+                                            <i data-feather="file-text" class="w-3 h-3 inline mr-1"></i>
+                                            Slides
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="text-slate-400 text-sm">
-                                Demonstrated a complete FMCW radar signal processing chain (Range-Doppler Maps, CFAR)
-                                using software-defined radio,
-                                focusing on automotive constraints.
-                            </p>
                         </div>
+                    </div>
+                </section>
+
+                <!-- Peer-Reviewed Publications -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
+                        <i data-feather="book-open" class="text-primary-500 w-6 h-6"></i>
+                        Peer-Reviewed Publications
+                    </h2>
+
+                    <div class="glass p-8 rounded-xl bg-blue-500/5 border border-blue-500/20">
+                        <div class="flex items-start gap-4">
+                            <i data-feather="edit-3" class="text-blue-500 w-6 h-6 mt-1"></i>
+                            <div>
+                                <h3 class="text-blue-400 font-bold mb-2">Manuscripts in Preparation</h3>
+                                <p class="text-slate-300 text-sm mb-4">
+                                    Currently preparing manuscripts for submission to peer-reviewed journals and
+                                    conferences.
+                                    See "Expected Publications" below for details on upcoming work.
+                                </p>
+                                <p class="text-slate-400 text-xs">
+                                    This section will be updated as papers progress through peer review.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Expected Publications -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
+                        <i data-feather="clock" class="text-amber-500 w-6 h-6"></i>
+                        Expected Publications
+                    </h2>
+
+                    <div class="bg-amber-500/5 border border-amber-500/20 rounded-lg p-6">
+                        <h4 class="text-amber-500 font-bold mb-4">Manuscripts Under Preparation</h4>
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-start gap-3">
+                                <span class="text-amber-500 mt-1 font-mono">[P1]</span>
+                                <div>
+                                    <p class="font-semibold text-white mb-1">"Decentralized Visual Localization for
+                                        Swarm Robotics Using Lightweight CNNs"</p>
+                                    <p class="text-slate-400">Target: IEEE ICRA 2026 or IEEE/RSJ IROS 2026</p>
+                                    <p class="text-slate-500 text-xs mt-1">Status: Data collection & analysis phase</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-amber-500 mt-1 font-mono">[P2]</span>
+                                <div>
+                                    <p class="font-semibold text-white mb-1">"Mixed-Signal PCB Design for Educational
+                                        Robotics: A Case Study"</p>
+                                    <p class="text-slate-400">Target: IEEE Transactions on Education</p>
+                                    <p class="text-slate-500 text-xs mt-1">Status: Experimental validation ongoing</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </section>
 
@@ -289,7 +474,7 @@
             </div>
 
             <!-- Sidebar (Right) -->
-            <aside class="space-y-12">
+            <aside class="space-y-12 mb-16">
 
                 <!-- Research Interests Widget -->
                 <div class="glass p-6 rounded-xl">
@@ -377,6 +562,28 @@
                 </div>
 
             </aside>
+        </div>
+
+        <!-- Page Metadata -->
+        <div class="mt-20 pt-8 border-t border-gray-800">
+            <div class="flex flex-wrap justify-between items-center gap-4 text-sm text-slate-500">
+                <div class="flex items-center gap-2">
+                    <i data-feather="calendar" class="w-4 h-4"></i>
+                    <span>Last Updated: December 2025</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-feather="link" class="w-4 h-4"></i>
+                    <span class="font-mono">ahmedamin.research@voidlab.site</span>
+                </div>
+            </div>
+            <div class="mt-4 p-4 bg-gray-900/30 rounded border border-gray-800">
+                <p class="text-xs text-slate-500 mb-2 font-semibold">How to cite this page:</p>
+                <p class="text-xs text-slate-400 font-mono">
+                    A. M. Amin, "Research & Innovation," Personal Research Portfolio,
+                    Southern Utah University, 2025. [Online].
+                    Available: https://voidlab.site/research.html
+                </p>
+            </div>
         </div>
 
     </main>

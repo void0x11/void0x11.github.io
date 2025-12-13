@@ -177,14 +177,16 @@ function loadExperience() {
 
         return `
         <div class="glass p-6 w-[340px] md:w-[380px] h-[520px] snap-start flex-shrink-0 whitespace-normal hover:border-primary-500/30 transition-all flex flex-col">
-            <!-- Job Title Header -->
-            <h3 class="text-lg font-bold text-white mb-6 text-center leading-tight">${exp.title}</h3>
+            <!-- Job Title Header (Fixed Height) -->
+            <div class="h-14 flex items-center justify-center mb-6">
+                <h3 class="text-lg font-bold text-white text-center leading-tight">${exp.title}</h3>
+            </div>
 
-            <!-- Company Logo Container -->
-            <div class="relative mb-6 rounded-lg p-6 flex items-center justify-center" style="min-height: 140px;">
+            <!-- Company Logo Container (Fixed Height) -->
+            <div class="relative mb-6 rounded-lg p-6 flex items-center justify-center h-32">
                 ${logoPath ? `
                     <img src="${logoPath}" alt="${exp.company} logo" 
-                         class="max-w-full max-h-32 object-contain"
+                         class="max-w-full max-h-28 object-contain"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="text-5xl font-bold text-primary-500/20 hidden items-center justify-center">${exp.company.charAt(0)}</div>
                 ` : `
@@ -192,13 +194,13 @@ function loadExperience() {
                 `}
             </div>
             
-            <!-- Company Name & Period -->
-            <div class="mb-4 text-center">
+            <!-- Company Name & Period (Fixed Height) -->
+            <div class="mb-4 text-center h-14 flex flex-col justify-center">
                 <div class="text-slate-400 font-medium text-sm mb-1">${exp.company}</div>
                 <div class="text-slate-500 text-xs font-mono">${exp.period}</div>
             </div>
             
-            <!-- Description -->
+            <!-- Description (Flexible) -->
             <p class="text-slate-300 text-sm mb-4 leading-relaxed text-center flex-1">${exp.description}</p>
             
             <!-- Learn More Button -->
@@ -261,7 +263,10 @@ function loadEducation() {
                 </div>
                 <div class="text-left md:text-right">
                     <p class="text-primary-500 font-mono font-semibold">${edu.year}</p>
-                    <p class="text-slate-400 text-sm mt-1">${edu.gpa}</p>
+                    ${edu.gpa ? (edu.gpa.includes(',') ?
+            edu.gpa.split(',').map((gpa, index) => `<p class="text-slate-400 text-sm ${index === 0 ? 'mt-2' : 'mt-0.5'}">${gpa.trim()}</p>`).join('')
+            : `<p class="text-slate-400 text-sm mt-1">${edu.gpa}</p>`)
+            : ''}
                 </div>
             </div>
             ${edu.description ? `<p class="text-slate-300 text-sm leading-relaxed">${edu.description}</p>` : ''}
