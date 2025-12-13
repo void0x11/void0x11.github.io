@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research & Publications | Ahmed's Portfolio</title>
+    <title>Research & Innovation | Ahmed Mohamed Amin</title>
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <link rel="stylesheet" href="style.css">
 
@@ -40,164 +40,345 @@
     <custom-navbar></custom-navbar>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <main id="main-content" class="container mx-auto px-6 pt-32 pb-24 max-w-5xl">
-        <!-- Header -->
-        <section class="mb-16 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Research & <span class="text-primary-500">Publications</span>
-            </h1>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Academic research, publications, and technical contributions in signal processing, embedded systems, and
-                AI/ML.
-            </p>
-        </section>
+    <main id="main-content" class="container mx-auto px-6 pt-24 pb-24 max-w-6xl">
 
-        <!-- Current Research -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-feather="zap" class="text-primary-500"></i> Current Research
-            </h2>
-            <div
-                class="glass p-8 rounded-xl border-l-4 border-primary-500/50 hover:border-primary-500 transition-all duration-300">
-                <h3 class="text-2xl font-bold text-white mb-4">
-                    Decentralized Visual Localization for Swarm Robotics
-                </h3>
-                <p class="text-slate-300 leading-relaxed mb-6">
-                    Developing a lightweight CNN/ViT-based visual perception framework for autonomous swarm robots.
-                    The system enables real-time formation control without centralized infrastructure by implementing
-                    distributed SLAM and adaptive feature selection on edge hardware (Raspberry Pi 4).
+        <!-- Academic Header -->
+        <header class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+                Research & <span class="text-primary-500">Innovation</span>
+            </h1>
+            <div class="glass p-8 rounded-2xl border-l-4 border-primary-500">
+                <p class="text-lg text-slate-300 leading-relaxed max-w-4xl">
+                    My research focuses on the intersection of <strong class="text-white">Embedded Systems</strong>,
+                    <strong class="text-white">Signal Processing</strong>, and <strong class="text-white">Edge
+                        AI</strong>.
+                    I work on developing decentralized architectures for swarm robotics, optimizing deep learning models
+                    for resource-constrained hardware, and designing custom mixed-signal PCBs for autonomous systems.
                 </p>
-                <div class="flex flex-wrap gap-3">
-                    <span
-                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#Computer
-                        Vision</span>
-                    <span
-                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#Swarm
-                        Robotics</span>
-                    <span
-                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#Edge
-                        AI</span>
-                    <span
-                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#SLAM</span>
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <a href="assets/Ahmed_CV.pdf" target="_blank" class="btn-primary px-6 py-2 text-sm">
+                        <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Download CV
+                    </a>
+                    <a href="https://github.com/void0x11" target="_blank" class="btn-outline px-6 py-2 text-sm">
+                        <i data-feather="github" class="w-4 h-4 mr-2"></i> GitHub
+                    </a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Publications & Presentations -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-feather="book-open" class="text-secondary-500"></i> Publications & Presentations
-            </h2>
-            <div class="space-y-6">
+        <div class="grid lg:grid-cols-3 gap-12">
 
-                <!-- Publication Item -->
-                <article class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
-                    <div class="flex items-start gap-4">
+            <!-- Main Content Column (Left) -->
+            <div class="lg:col-span-2 space-y-16">
+
+                <!-- Active Research Section -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
+                        <i data-feather="activity" class="text-primary-500 w-6 h-6"></i>
+                        Ongoing Research
+                    </h2>
+
+                    <div class="space-y-8">
+                        <!-- Project 1: TurboPi Swarm -->
+                        <article class="glass p-8 rounded-2xl relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-4 opacity-50">
+                                <i data-feather="cpu" class="w-24 h-24 text-gray-800"></i>
+                            </div>
+
+                            <div class="relative z-10">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-500 text-xs font-mono border border-yellow-500/20">
+                                        ● In Progress
+                                    </span>
+                                    <span class="text-slate-400 text-sm font-mono">2025 - Present</span>
+                                </div>
+
+                                <h3
+                                    class="text-2xl font-bold text-white mb-4 group-hover:text-primary-500 transition-colors">
+                                    Decentralized Visual Localization for Swarm Robotics
+                                </h3>
+
+                                <p class="text-slate-300 mb-6 leading-relaxed">
+                                    Developing a distributed "Visual Compass" utilizing lightweight CNNs
+                                    (MobileNetV2/YOLO) on Raspberry Pi 4 edge nodes.
+                                    The system enables autonomous formation control without external motion capture or
+                                    centralized servers.
+                                </p>
+
+                                <div class="bg-gray-900/50 rounded-xl p-5 mb-6 border border-gray-800">
+                                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Key
+                                        Contributions</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start gap-3 text-slate-400 text-sm">
+                                            <i data-feather="check-circle"
+                                                class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0"></i>
+                                            <span>Designed a peer-to-peer relative pose estimation pipeline using visual
+                                                features.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-slate-400 text-sm">
+                                            <i data-feather="check-circle"
+                                                class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0"></i>
+                                            <span>Optimized inference latency to < 100ms on generic ARM CPUs.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-slate-400 text-sm">
+                                            <i data-feather="check-circle"
+                                                class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0"></i>
+                                            <span>Integrated with ROS2 DDS for robust inter-agent communication.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-2 py-1 bg-gray-800 rounded text-xs text-slate-400 font-mono">ROS2</span>
+                                    <span
+                                        class="px-2 py-1 bg-gray-800 rounded text-xs text-slate-400 font-mono">Computer
+                                        Vision</span>
+                                    <span class="px-2 py-1 bg-gray-800 rounded text-xs text-slate-400 font-mono">Edge
+                                        AI</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Project 2: SmartBot Core -->
+                        <article class="glass p-8 rounded-xl relative overflow-hidden group">
+                            <div class="relative z-10">
+                                <div class="flex flex-wrap items-center gap-3 mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-mono border border-green-500/20">
+                                        ● Prototyping Complete
+                                    </span>
+                                    <span class="text-slate-400 text-sm font-mono">2024 - 2025</span>
+                                </div>
+
+                                <h3
+                                    class="text-2xl font-bold text-white mb-4 group-hover:text-primary-500 transition-colors">
+                                    SmartBot Core V1.1: Modular Mixed-Signal Architecture
+                                </h3>
+
+                                <p class="text-slate-300 mb-6 leading-relaxed">
+                                    A custom 4-layer PCB platform designed to replace commercial motor drivers for
+                                    educational robotics.
+                                    Features integrated current sensing, high-efficiency buck-boost power stages, and
+                                    EMI-optimized layout for noise-sensitive sensors.
+                                </p>
+
+                                <div class="bg-gray-900/50 rounded-xl p-5 mb-6 border border-gray-800">
+                                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Key
+                                        Contributions</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start gap-3 text-slate-400 text-sm">
+                                            <i data-feather="check-circle"
+                                                class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0"></i>
+                                            <span>Engineered mixed-signal stackup achieving -40dB noise reduction on
+                                                analog rails.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-slate-400 text-sm">
+                                            <i data-feather="check-circle"
+                                                class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0"></i>
+                                            <span>Implemented active current limiting and reverse-polarity
+                                                protection.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 bg-gray-800 rounded text-xs text-slate-400 font-mono">Altium
+                                        Designer</span>
+                                    <span
+                                        class="px-2 py-1 bg-gray-800 rounded text-xs text-slate-400 font-mono">STM32</span>
+                                    <span class="px-2 py-1 bg-gray-800 rounded text-xs text-slate-400 font-mono">Power
+                                        Electronics</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Publications Section -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
+                        <i data-feather="book-open" class="text-secondary-500 w-6 h-6"></i>
+                        Publications & Presentations
+                    </h2>
+
+                    <div class="space-y-4">
+                        <!-- Pub 1 -->
                         <div
-                            class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center">
-                            <i data-feather="file-text" class="text-primary-500 w-6 h-6"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2">
+                            class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
+                            <h3 class="text-white font-semibold text-lg mb-2">
                                 SmartBot Core V1.1: A Modular PCB Platform for Educational Robotics
                             </h3>
-                            <p class="text-sm text-slate-500 mb-3 font-mono">
-                                Conference Presentation • SUU Research Symposium • May 2025
-                            </p>
-                            <p class="text-slate-300 leading-relaxed mb-4">
-                                Presented a 4-layer PCB design integrating STM32 control, dual H-bridge motor drivers,
-                                and efficient power management for autonomous mobile robots. Emphasized EMI mitigation
-                                and educational accessibility.
-                            </p>
-                            <div class="flex gap-3">
+                            <div class="flex flex-wrap gap-3 mb-3 text-sm">
                                 <span
-                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#PCB
-                                    Design</span>
-                                <span
-                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#Robotics</span>
+                                    class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">Conference
+                                    Presentation</span>
+                                <span class="text-slate-400">SUU Research Symposium</span>
+                                <span class="text-slate-500 font-mono">• May 2025</span>
                             </div>
+                            <p class="text-slate-400 text-sm">
+                                Presented the design methodology and pedagogical impact of a custom robotics control
+                                board compared to COTS solutions.
+                                Highlighted improved signal integrity and student power-budgeting capabilities.
+                            </p>
                         </div>
-                    </div>
-                </article>
 
-                <!-- Publication Item -->
-                <article class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
-                    <div class="flex items-start gap-4">
+                        <!-- Pub 2 -->
                         <div
-                            class="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary-500/10 flex items-center justify-center">
-                            <i data-feather="mic" class="text-secondary-500 w-6 h-6"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-white mb-2">
+                            class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
+                            <h3 class="text-white font-semibold text-lg mb-2">
                                 Low-Power SDR Radar for Automotive Applications
                             </h3>
-                            <p class="text-sm text-slate-500 mb-3 font-mono">
-                                Technical Presentation • Industry Challenge Lab • March 2025
-                            </p>
-                            <p class="text-slate-300 leading-relaxed mb-4">
-                                Demonstrated FMCW radar signal processing pipeline for range-Doppler analysis.
-                                Covered chirp generation, FFT-based processing, and CFAR detection algorithms.
-                            </p>
-                            <div class="flex gap-3">
+                            <div class="flex flex-wrap gap-3 mb-3 text-sm">
                                 <span
-                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#RF
-                                    Engineering</span>
-                                <span
-                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#Signal
-                                    Processing</span>
+                                    class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">Technical
+                                    Presentation</span>
+                                <span class="text-slate-400">Industry Challenge Lab</span>
+                                <span class="text-slate-500 font-mono">• March 2025</span>
+                            </div>
+                            <p class="text-slate-400 text-sm">
+                                Demonstrated a complete FMCW radar signal processing chain (Range-Doppler Maps, CFAR)
+                                using software-defined radio,
+                                focusing on automotive constraints.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Engineering Implementations -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
+                        <i data-feather="code" class="text-white w-6 h-6"></i>
+                        Engineering Implementations
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <a href="https://github.com/void0x11/OBSBOT-Tiny2-Intelligent-Security-Monitor" target="_blank"
+                            class="glass p-5 rounded-lg group hover:bg-gray-800/50 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-white font-bold group-hover:text-primary-500">OBSBOT Security AI</h4>
+                                <i data-feather="external-link" class="w-4 h-4 text-slate-500"></i>
+                            </div>
+                            <p class="text-sm text-slate-400 mb-3">Event-driven surveillance system using YOLOv8 for
+                                human detection and selective recording.</p>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-500 bg-black/30 px-2 py-1 rounded">Python</span>
+                                <span class="text-xs text-slate-500 bg-black/30 px-2 py-1 rounded">YOLOv8</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/void0x11/FMCW-Radar-MATLAB-Pipeline" target="_blank"
+                            class="glass p-5 rounded-lg group hover:bg-gray-800/50 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <h4 class="text-white font-bold group-hover:text-secondary-500">FMCW Radar DSP</h4>
+                                <i data-feather="external-link" class="w-4 h-4 text-slate-500"></i>
+                            </div>
+                            <p class="text-sm text-slate-400 mb-3">MATLAB implementation of a full radar processing
+                                pipeline: Chirp Gen → FFT → CFAR.</p>
+                            <div class="flex gap-2">
+                                <span class="text-xs text-slate-500 bg-black/30 px-2 py-1 rounded">MATLAB</span>
+                                <span class="text-xs text-slate-500 bg-black/30 px-2 py-1 rounded">DSP</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar (Right) -->
+            <aside class="space-y-12">
+
+                <!-- Research Interests Widget -->
+                <div class="glass p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-gray-800 pb-2">Focus Areas</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-3 rounded hover:bg-gray-800/30 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-feather="cpu" class="text-primary-500 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Embedded AI/ML</h4>
+                                <p class="text-sm text-slate-400 mt-1">Lightweight inference on Edge devices (RPi,
+                                    ESP32).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded hover:bg-gray-800/30 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded bg-secondary-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-feather="radio" class="text-secondary-500 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">RF & SDR Systems</h4>
+                                <p class="text-sm text-slate-400 mt-1">FMCW Radar, Wireless Localization, Spectrum
+                                    Analysis.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded hover:bg-gray-800/30 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-feather="layers" class="text-amber-500 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">PCB Design</h4>
+                                <p class="text-sm text-slate-400 mt-1">High-Speed Digital, EMI Optimization, Power
+                                    Integrity.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-3 rounded hover:bg-gray-800/30 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded bg-teal-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-feather="users" class="text-teal-500 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Swarm Intelligence</h4>
+                                <p class="text-sm text-slate-400 mt-1">Decentralized coordination & multi-agent systems.
+                                </p>
                             </div>
                         </div>
                     </div>
-                </article>
+                </div>
 
-            </div>
-        </section>
+                <!-- Academic Tools Widget -->
+                <div class="glass p-6 rounded-xl">
+                    <h3 class="text-xl font-bold text-white mb-6 border-b border-gray-800 pb-2">Toolbox</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-gray-800 text-slate-300 text-sm rounded border border-gray-700">MATLAB</span>
+                        <span
+                            class="px-3 py-1 bg-gray-800 text-slate-300 text-sm rounded border border-gray-700">PyTorch</span>
+                        <span
+                            class="px-3 py-1 bg-gray-800 text-slate-300 text-sm rounded border border-gray-700">Altium</span>
+                        <span
+                            class="px-3 py-1 bg-gray-800 text-slate-300 text-sm rounded border border-gray-700">OpenFOAM</span>
+                        <span
+                            class="px-3 py-1 bg-gray-800 text-slate-300 text-sm rounded border border-gray-700">KiCad</span>
+                        <span class="px-3 py-1 bg-gray-800 text-slate-300 text-sm rounded border border-gray-700">GNU
+                            Radio</span>
+                    </div>
+                </div>
 
-        <!-- Research Interests -->
-        <section>
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-feather="target" class="text-primary-500"></i> Research Interests
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                        <i data-feather="cpu" class="text-primary-500 w-5 h-5"></i>
-                        Embedded AI/ML
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Deploying lightweight deep learning models on resource-constrained hardware for real-time
-                        inference.
-                    </p>
+                <!-- Contact / Collaboration -->
+                <div
+                    class="glass p-8 rounded-xl bg-gradient-to-br from-gray-900 to-black border-primary-500/30 text-center">
+                    <i data-feather="message-circle" class="w-10 h-10 text-primary-500 mx-auto mb-4"></i>
+                    <h3 class="text-white font-bold mb-2">Interested in Collaboration?</h3>
+                    <p class="text-slate-400 text-sm mb-6">Open to research collaborations and academic discussions.</p>
+                    <a href="contact.html"
+                        class="inline-block w-full py-3 bg-primary-500/10 border border-primary-500 text-primary-500 rounded font-bold hover:bg-primary-500 hover:text-black transition-all">
+                        Get in Touch
+                    </a>
                 </div>
-                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                        <i data-feather="radio" class="text-secondary-500 w-5 h-5"></i>
-                        RF & SDR Systems
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Software-defined radio architectures, FMCW radar, and wireless localization systems.
-                    </p>
-                </div>
-                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                        <i data-feather="layers" class="text-primary-500 w-5 h-5"></i>
-                        PCB & Hardware Design
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Mixed-signal PCB design, power integrity, EMI/EMC optimization, and signal integrity analysis.
-                    </p>
-                </div>
-                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
-                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                        <i data-feather="users" class="text-secondary-500 w-5 h-5"></i>
-                        Swarm Intelligence
-                    </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Decentralized coordination algorithms and distributed sensing for multi-robot systems.
-                    </p>
-                </div>
-            </div>
-        </section>
+
+            </aside>
+        </div>
+
     </main>
 
     <custom-footer></custom-footer>
@@ -205,7 +386,9 @@
     <script src="data/config.js"></script>
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
-    <script>feather.replace();</script>
+    <script>
+        feather.replace();
+    </script>
 </body>
 
 </html>
