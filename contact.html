@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Ahmed's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/icon.ico">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00ff41' },
+                        secondary: { 500: '#00d9ff' }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen tech-grid pt-16 pb-12">
+    <custom-navbar></custom-navbar>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <main id="main-content" class="container mx-auto px-6 pt-32 pb-24">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Get In <span class="text-primary-500">Touch</span>
+            </h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                Have a question or want to work together? Feel free to reach out!
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <!-- Contact Form -->
+            <section class="glass p-8 rounded-xl">
+                <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <i data-feather="send" class="text-primary-500"></i> Send a Message
+                </h2>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full bg-gray-900/50 text-white px-4 py-3 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full bg-gray-900/50 text-white px-4 py-3 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" required
+                            class="w-full bg-gray-900/50 text-white px-4 py-3 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" required
+                            class="w-full bg-gray-900/50 text-white px-4 py-3 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="btn-primary px-6 py-3 rounded-lg font-medium w-full inline-flex items-center justify-center gap-2">
+                        <i data-feather="send" class="w-5 h-5"></i> Send Message
+                    </button>
+                    <div id="form-message" class="hidden"></div>
+                </form>
+            </section>
+
+            <!-- Contact Info -->
+            <section>
+                <div class="glass p-8 rounded-xl mb-6">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i data-feather="info" class="text-primary-500"></i> Contact Information
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-primary-500/10 rounded-lg border border-primary-500/20">
+                                <i data-feather="mail" class="text-primary-500 w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-1">Email</h3>
+                                <a href="#" id="contact-email"
+                                    class="text-slate-400 hover:text-primary-500 transition-colors">
+                                    your.email@example.com
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-secondary-500/10 rounded-lg border border-secondary-500/20">
+                                <i data-feather="map-pin" class="text-secondary-500 w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-1">Location</h3>
+                                <p class="text-slate-400" id="contact-location">Your City, Country</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-primary-500/10 rounded-lg border border-primary-500/20">
+                                <i data-feather="globe" class="text-primary-500 w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-white mb-1">Social Media</h3>
+                                <div class="flex gap-4 mt-2">
+                                    <a href="#" id="contact-github" target="_blank" rel="noopener noreferrer"
+                                        class="text-slate-400 hover:text-primary-500 transition-colors">
+                                        <i data-feather="github" class="w-6 h-6"></i>
+                                    </a>
+                                    <a href="#" id="contact-linkedin" target="_blank" rel="noopener noreferrer"
+                                        class="text-slate-400 hover:text-primary-500 transition-colors">
+                                        <i data-feather="linkedin" class="w-6 h-6"></i>
+                                    </a>
+                                    <a href="#" id="contact-twitter" target="_blank" rel="noopener noreferrer"
+                                        class="text-slate-400 hover:text-primary-500 transition-colors">
+                                        <i data-feather="twitter" class="w-6 h-6"></i>
+                                    </a>
+                                    <a href="#" id="contact-youtube" target="_blank" rel="noopener noreferrer"
+                                        class="text-slate-400 hover:text-primary-500 transition-colors">
+                                        <i data-feather="youtube" class="w-6 h-6"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    <div class="pt-12"></div>
+
+    <script src="data/config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="pages/contact.js"></script>
+    <script>feather.replace();</script>
+</body>
+
+</html>

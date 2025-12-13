@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Technical Insights</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00ff41' },
+                        secondary: { 500: '#00d9ff' }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen tech-grid text-slate-300">
+    <custom-navbar></custom-navbar>
+
+    <main class="container mx-auto px-6 pt-32 pb-24 max-w-4xl">
+
+        <!-- Breadcrumb -->
+        <div class="mb-12">
+            <a href="blog.html" class="text-sm font-mono text-slate-500 hover:text-primary-500 flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-4 h-4"></i> BACK_TO_ARTICLES
+            </a>
+        </div>
+
+        <div id="post-loading" class="text-center py-20 font-mono text-primary-500 animate-pulse">
+            [LOADING_ARTICLE]...
+        </div>
+
+        <article id="post-content" class="hidden">
+            <!-- Header -->
+            <header class="mb-12 pb-8 border-b border-gray-800">
+                <div class="flex items-center gap-3 mb-6 text-sm font-mono text-slate-500">
+                    <span id="post-category" class="text-primary-500">CATEGORY</span>
+                    <span>/</span>
+                    <span id="post-date">DATE</span>
+                    <span>/</span>
+                    <span id="post-readtime">READ_TIME</span>
+                </div>
+
+                <h1 id="post-title" class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Article Title
+                </h1>
+
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center font-bold text-black">
+                        AA
+                    </div>
+                    <div>
+                        <div class="font-medium text-white">Ahmed Mohamed Amin</div>
+                        <div class="text-sm text-slate-500">R&D Engineer</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div id="post-body" class="prose prose-invert prose-lg max-w-none">
+                <!-- Content injected here -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="mt-16 pt-8 border-t border-gray-800">
+                <div class="flex flex-wrap gap-3 mb-8">
+                    <span class="text-sm text-slate-500 font-mono">TAGS:</span>
+                    <div id="post-tags" class="flex flex-wrap gap-2">
+                        <!-- Tags injected -->
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Share Your Thoughts</h3>
+                    <p class="text-slate-400 text-sm mb-4">Found this helpful? Have questions or corrections? Reach out
+                        via email or LinkedIn.</p>
+                    <div class="flex gap-4">
+                        <a href="mailto:ahmedamin@suumail.net" class="btn-outline px-4 py-2 rounded text-sm">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i> Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/aminsignal/" target="_blank"
+                            class="btn-outline px-4 py-2 rounded text-sm">
+                            <i data-feather="linkedin" class="w-4 h-4 mr-2"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="data/config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="pages/blog-post.js"></script>
+    <script>feather.replace();</script>
+</body>
+
+</html>

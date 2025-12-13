@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | R&D Engineer</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00ff41' },
+                        secondary: { 500: '#00d9ff' }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen tech-grid text-slate-300">
+    <custom-navbar></custom-navbar>
+
+    <main class="container mx-auto px-6 pt-32 pb-24">
+
+        <!-- Breadcrumb & Back -->
+        <div class="mb-12">
+            <a href="index.html#projects"
+                class="text-sm font-mono text-slate-500 hover:text-primary-500 flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-4 h-4"></i> RETURN_TO_BASE
+            </a>
+        </div>
+
+        <div id="project-loading" class="text-center py-20 font-mono text-primary-500 animate-pulse">
+            [ACCESSING_CLASSIFIED_DATA]...
+        </div>
+
+        <div id="project-content" class="hidden">
+            <!-- Header -->
+            <header class="mb-16 border-b border-gray-800 pb-12">
+                <div class="flex flex-wrap items-start justify-between gap-6 mb-6">
+                    <div>
+                        <span id="p-category"
+                            class="inline-block px-3 py-1 mb-4 text-xs font-mono text-secondary-500 bg-secondary-500/5 border border-secondary-500/20 rounded-full">
+                            CATEGORY
+                        </span>
+                        <h1 id="p-title" class="text-4xl md:text-5xl font-bold text-white mb-4">Project Title</h1>
+                        <p id="p-tagline" class="text-xl text-slate-400 font-light max-w-3xl">Project short description
+                            goes here.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a id="link-github" href="#" target="_blank"
+                            class="btn-outline px-6 py-3 rounded text-sm font-medium hidden">
+                            <i data-feather="github" class="w-4 h-4 mr-2"></i> Source Code
+                        </a>
+                        <a id="link-demo" href="#" target="_blank"
+                            class="btn-primary px-6 py-3 rounded text-sm font-medium hidden">
+                            <i data-feather="play" class="w-4 h-4 mr-2"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-4" id="p-tags">
+                    <!-- Tags injected here -->
+                </div>
+            </header>
+
+            <!-- Main Content Grid -->
+            <div class="grid lg:grid-cols-3 gap-12">
+
+                <!-- Left Column: Technical Narrative -->
+                <div class="lg:col-span-2 space-y-16">
+
+                    <!-- Overview -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <i data-feather="activity" class="text-primary-500"></i> Executive Summary
+                        </h2>
+                        <div id="p-overview" class="prose prose-invert prose-lg text-slate-400">
+                            <!-- Detailed description -->
+                        </div>
+                    </section>
+
+                    <!-- Gallery / Illustrations -->
+                    <section id="p-gallery-section" class="hidden">
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <i data-feather="image" class="text-secondary-500"></i> Design Illustrations
+                        </h2>
+                        <div id="p-gallery" class="grid md:grid-cols-2 gap-4">
+                            <!-- Gallery images injected here -->
+                        </div>
+                    </section>
+
+                    <!-- Gallery / Illustrations -->
+                    <section id="p-gallery-section" class="hidden mt-12">
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <i data-feather="image" class="text-secondary-500"></i> Design Illustrations
+                        </h2>
+                        <div id="p-gallery" class="grid md:grid-cols-2 gap-4">
+                            <!-- Gallery images injected here -->
+                        </div>
+                    </section>
+
+                    <!-- Technical Specs / Architecture -->
+                    <section class="glass p-8 rounded-xl bg-gray-900/40">
+                        <h2 class="text-xl font-bold text-white mb-6 font-mono text-secondary-500">
+                            // SYSTEM_ARCHITECTURE
+                        </h2>
+                        <div id="p-technical" class="space-y-6">
+                            <!-- Technical details injected here -->
+                        </div>
+                    </section>
+
+                    <!-- Key Features -->
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mb-6">Key Engineering Features</h2>
+                        <div id="p-features" class="grid md:grid-cols-2 gap-6">
+                            <!-- Features list -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Column: Stats & Stack -->
+                <div class="space-y-8">
+
+                    <div class="glass p-6 rounded-xl">
+                        <h3 class="text-sm font-mono text-slate-500 mb-4 uppercase tracking-wider">Tech Stack</h3>
+                        <div id="p-stack" class="space-y-3">
+                            <!-- Stack items -->
+                        </div>
+                    </div>
+
+                    <div class="glass p-6 rounded-xl">
+                        <h3 class="text-sm font-mono text-slate-500 mb-4 uppercase tracking-wider">Project Stats</h3>
+                        <ul class="space-y-3 text-sm font-mono">
+                            <li class="flex justify-between">
+                                <span class="text-slate-400">Status</span>
+                                <span class="text-primary-500">Completed</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-slate-400">Role</span>
+                                <span class="text-white">Lead Engineer</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-slate-400">Year</span>
+                                <span class="text-white">2024</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="data/config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="pages/project-detail.js"></script>
+    <script>feather.replace();</script>
+</body>
+
+</html>

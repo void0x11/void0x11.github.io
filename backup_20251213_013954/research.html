@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Publications | Ahmed Amin</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00ff41' },
+                        secondary: { 500: '#00d9ff' }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen tech-grid pt-16 pb-12">
+    <custom-navbar></custom-navbar>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <main id="main-content" class="container mx-auto px-6 pt-16 pb-24 max-w-5xl">
+        <!-- Header -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Research & <span class="text-primary-500">Publications</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Academic research, publications, and technical contributions in signal processing, embedded systems, and
+                AI/ML.
+            </p>
+        </section>
+
+        <!-- Current Research -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i data-feather="zap" class="text-primary-500"></i> Current Research
+            </h2>
+            <div
+                class="glass p-8 rounded-xl border-l-4 border-primary-500/50 hover:border-primary-500 transition-all duration-300">
+                <h3 class="text-2xl font-bold text-white mb-4">
+                    Decentralized Visual Localization for Swarm Robotics
+                </h3>
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    Developing a lightweight CNN/ViT-based visual perception framework for autonomous swarm robots.
+                    The system enables real-time formation control without centralized infrastructure by implementing
+                    distributed SLAM and adaptive feature selection on edge hardware (Raspberry Pi 4).
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span
+                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#Computer
+                        Vision</span>
+                    <span
+                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#Swarm
+                        Robotics</span>
+                    <span
+                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#Edge
+                        AI</span>
+                    <span
+                        class="px-3 py-1 bg-primary-500/10 border border-primary-500/20 rounded-full text-primary-400 text-sm font-mono">#SLAM</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications & Presentations -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i data-feather="book-open" class="text-secondary-500"></i> Publications & Presentations
+            </h2>
+            <div class="space-y-6">
+
+                <!-- Publication Item -->
+                <article class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center">
+                            <i data-feather="file-text" class="text-primary-500 w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                SmartBot Core V1.1: A Modular PCB Platform for Educational Robotics
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3 font-mono">
+                                Conference Presentation • SUU Research Symposium • May 2025
+                            </p>
+                            <p class="text-slate-300 leading-relaxed mb-4">
+                                Presented a 4-layer PCB design integrating STM32 control, dual H-bridge motor drivers,
+                                and efficient power management for autonomous mobile robots. Emphasized EMI mitigation
+                                and educational accessibility.
+                            </p>
+                            <div class="flex gap-3">
+                                <span
+                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#PCB
+                                    Design</span>
+                                <span
+                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#Robotics</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Publication Item -->
+                <article class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary-500/10 flex items-center justify-center">
+                            <i data-feather="mic" class="text-secondary-500 w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Low-Power SDR Radar for Automotive Applications
+                            </h3>
+                            <p class="text-sm text-slate-500 mb-3 font-mono">
+                                Technical Presentation • Industry Challenge Lab • March 2025
+                            </p>
+                            <p class="text-slate-300 leading-relaxed mb-4">
+                                Demonstrated FMCW radar signal processing pipeline for range-Doppler analysis.
+                                Covered chirp generation, FFT-based processing, and CFAR detection algorithms.
+                            </p>
+                            <div class="flex gap-3">
+                                <span
+                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#RF
+                                    Engineering</span>
+                                <span
+                                    class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#Signal
+                                    Processing</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Research Interests -->
+        <section>
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                <i data-feather="target" class="text-primary-500"></i> Research Interests
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i data-feather="cpu" class="text-primary-500 w-5 h-5"></i>
+                        Embedded AI/ML
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Deploying lightweight deep learning models on resource-constrained hardware for real-time
+                        inference.
+                    </p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i data-feather="radio" class="text-secondary-500 w-5 h-5"></i>
+                        RF & SDR Systems
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Software-defined radio architectures, FMCW radar, and wireless localization systems.
+                    </p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i data-feather="layers" class="text-primary-500 w-5 h-5"></i>
+                        PCB & Hardware Design
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Mixed-signal PCB design, power integrity, EMI/EMC optimization, and signal integrity analysis.
+                    </p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i data-feather="users" class="text-secondary-500 w-5 h-5"></i>
+                        Swarm Intelligence
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Decentralized coordination algorithms and distributed sensing for multi-robot systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="data/config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script>feather.replace();</script>
+</body>
+
+</html>

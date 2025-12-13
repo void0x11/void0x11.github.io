@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Mohamed Amin | R&D Engineer</title>
+    <meta name="description" content="PhD Applicant specializing in Signal Processing, Embedded Systems, SDR & AI/ML">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00ff41' },
+                        secondary: { 500: '#00d9ff' }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen tech-grid">
+    <custom-navbar></custom-navbar>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <main id="main-content">
+
+        <!-- Unified Introductory Section -->
+        <section class="container mx-auto px-6 pt-32 pb-24 min-h-screen flex items-center relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-1/4 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary-500/5 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center relative z-10">
+
+                <!-- Left Column: Profile Image -->
+                <div class="lg:col-span-5 relative order-1">
+                    <div class="relative sticky top-32">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-2xl -rotate-3 blur-sm">
+                        </div>
+                        <!-- Random Image loaded here -->
+                        <img id="profile-image-random" src="assets/profile1.jpg" alt="Ahmed Amin"
+                            class="relative w-full aspect-[4/5] object-cover rounded-2xl border border-gray-800 shadow-2xl glass transform hover:scale-[1.02] transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x750/1a1a1a/00ff41?text=Ahmed+Amin'">
+                    </div>
+                </div>
+
+                <!-- Right Column: Content -->
+                <div class="lg:col-span-7 flex flex-col justify-center order-2 text-left">
+
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                            </span>
+                            <span class="text-primary-500 font-mono text-sm tracking-wide uppercase">Junior Electronics
+                                Engineer</span>
+                        </div>
+
+                        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                            Ahmed <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">Amin</span>
+                        </h1>
+
+                        <p
+                            class="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-2xl border-l-4 border-primary-500/50 pl-6 mb-8">
+                            Hardware Design, SDR & Signal Processing | RF & RADAR Enthusiast
+                        </p>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-4 mb-16">
+                        <a href="projects.html"
+                            class="btn-primary px-8 py-4 rounded-lg font-medium inline-flex items-center gap-2 text-lg group">
+                            View Projects <i data-feather="arrow-right"
+                                class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="assets/Ahmed_CV.pdf"
+                            class="btn-outline px-8 py-4 rounded-lg font-medium inline-flex items-center gap-2 text-lg hover:bg-white/5">
+                            <i data-feather="download" class="w-5 h-5"></i> Resume
+                        </a>
+                        <a href="contact.html"
+                            class="btn-outline px-8 py-4 rounded-lg font-medium inline-flex items-center gap-2 text-lg hover:bg-white/5">
+                            <i data-feather="mail" class="w-5 h-5"></i> Contact
+                        </a>
+                    </div>
+
+                    <!-- Bio -->
+                    <div class="mb-12">
+                        <p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+                            Passionate about RF systems, signal processing, and hardware design. Pursuing PhD
+                            opportunities in sensor fusion and intelligent embedded systems.
+                        </p>
+                    </div>
+
+                    <!-- Stats & Expertise -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-gray-800/50">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary-500 mb-1">5+</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase tracking-wider">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary-500 mb-1">3</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase tracking-wider">Publications</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary-500 mb-1">2+</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase tracking-wider">Years R&D</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary-500 mb-1">PhD</div>
+                            <div class="text-xs text-slate-500 font-mono uppercase tracking-wider">Applicant</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="container mx-auto px-6 py-24 bg-gray-900/30">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex justify-between items-end mb-12">
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                        <i data-feather="briefcase" class="text-primary-500"></i> Work Experience
+                    </h2>
+                    <!-- Scroll Controls -->
+                    <div class="flex gap-2">
+                        <button id="exp-scroll-left"
+                            class="p-2 border border-gray-700 hover:border-primary-500 rounded-lg text-gray-400 hover:text-primary-500 transition-colors bg-gray-900/50 backdrop-blur-sm">
+                            <i data-feather="chevron-left"></i>
+                        </button>
+                        <button id="exp-scroll-right"
+                            class="p-2 border border-gray-700 hover:border-primary-500 rounded-lg text-gray-400 hover:text-primary-500 transition-colors bg-gray-900/50 backdrop-blur-sm">
+                            <i data-feather="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <style>
+                    /* Custom Scrollbar for Experience Section */
+                    #experience-scroll-container::-webkit-scrollbar {
+                        height: 6px;
+                    }
+
+                    #experience-scroll-container::-webkit-scrollbar-track {
+                        background: rgba(10, 15, 25, 0.5);
+                        border-radius: 3px;
+                    }
+
+                    #experience-scroll-container::-webkit-scrollbar-thumb {
+                        background: rgba(0, 255, 65, 0.3);
+                        border-radius: 3px;
+                        transition: background 0.3s ease;
+                    }
+
+                    #experience-scroll-container::-webkit-scrollbar-thumb:hover {
+                        background: rgba(0, 255, 65, 0.6);
+                    }
+                </style>
+
+                <div id="experience-scroll-container"
+                    class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth">
+                    <!-- Experience cards loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Highlights -->
+        <section class="container mx-auto px-6 py-24 bg-gray-900/30">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-white mb-12 flex items-center gap-3">
+                    <i data-feather="star" class="text-primary-500"></i> Featured Work
+                </h2>
+
+                <!-- Featured Projects -->
+                <div class="mb-16">
+                    <h3 class="text-xl font-bold text-slate-400 mb-6 font-mono">Latest Projects</h3>
+                    <div id="featured-projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Loaded via JS -->
+                    </div>
+                    <div class="text-center mt-8">
+                        <a href="projects.html"
+                            class="inline-flex items-center gap-2 text-primary-500 hover:text-primary-400 font-mono">
+                            View All Projects <i data-feather="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Latest Blog Post -->
+                <div class="mb-16">
+                    <h3 class="text-xl font-bold text-slate-400 mb-6 font-mono">Latest Article</h3>
+                    <div id="latest-blog" class="max-w-3xl">
+                        <!-- Loaded via JS -->
+                    </div>
+                    <div class="text-center mt-8">
+                        <a href="blog.html"
+                            class="inline-flex items-center gap-2 text-primary-500 hover:text-primary-400 font-mono">
+                            View All Articles <i data-feather="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Current Research -->
+                <div>
+                    <h3 class="text-xl font-bold text-slate-400 mb-6 font-mono">Current Research</h3>
+                    <div class="glass p-8 rounded-xl border-l-4 border-secondary-500/50 max-w-3xl">
+                        <h4 class="text-2xl font-bold text-white mb-4">
+                            Decentralized Visual Localization for Swarm Robotics
+                        </h4>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            Developing a lightweight CNN/ViT-based framework for autonomous swarm robots with real-time
+                            formation control using distributed SLAM on Raspberry Pi 4.
+                        </p>
+                        <a href="research.html"
+                            class="inline-flex items-center gap-2 text-secondary-500 hover:text-secondary-400 font-mono text-sm">
+                            Learn More <i data-feather="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="data/config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Load featured content on homepage
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof config !== 'undefined') {
+                // Load featured projects (max 3)
+                const featuredProjects = config.projects.filter(p => p.featured).slice(0, 3);
+                const projectsContainer = document.getElementById('featured-projects');
+                if (projectsContainer && featuredProjects.length > 0) {
+                    projectsContainer.innerHTML = featuredProjects.map(project => `
+                        <a href="project-detail.html?id=${project.id}" class="glass p-6 rounded-xl hover:bg-gray-800/40 transition-all duration-300 block group">
+                            <div class="text-sm text-primary-500 mb-2 font-mono">${project.category}</div>
+                            <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary-500 transition-colors">${project.title}</h4>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2">${project.description}</p>
+                            <div class="flex flex-wrap gap-2">
+                                ${project.tags.slice(0, 3).map(tag => `
+                                    <span class="text-xs px-2 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#${tag}</span>
+                                `).join('')}
+                            </div>
+                        </a>
+                    `).join('');
+                }
+
+                // Load latest blog post
+                if (config.blogPosts && config.blogPosts.length > 0) {
+                    const latestPost = config.blogPosts[0];
+                    const blogContainer = document.getElementById('latest-blog');
+                    if (blogContainer) {
+                        blogContainer.innerHTML = `
+                            <a href="blog-post.html?post=${latestPost.slug}" class="glass p-8 rounded-xl hover:bg-gray-800/40 transition-all duration-300 block group">
+                                <div class="flex items-center gap-3 text-sm text-slate-500 mb-4 font-mono">
+                                    <span class="text-primary-500">${latestPost.category}</span>
+                                    <span>•</span>
+                                    <span>${latestPost.date}</span>
+                                    <span>•</span>
+                                    <span>${latestPost.readTime}</span>
+                                </div>
+                                <h4 class="text-2xl font-bold text-white mb-4 group-hover:text-primary-500 transition-colors">${latestPost.title}</h4>
+                                <p class="text-slate-300 leading-relaxed mb-4">${latestPost.excerpt}</p>
+                                <div class="inline-flex items-center gap-2 text-primary-500 font-mono text-sm">
+                                    Read Article <i data-feather="arrow-right" class="w-4 h-4"></i>
+                                </div>
+                            </a>
+                        `;
+                    }
+                }
+            }
+
+            if (typeof feather !== 'undefined') feather.replace();
+        });
+    </script>
+</body>
+
+</html>

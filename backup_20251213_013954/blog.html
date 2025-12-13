@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Blog | Ahmed Amin</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#00ff41' },
+                        secondary: { 500: '#00d9ff' }
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen tech-grid pt-16 pb-12">
+    <custom-navbar></custom-navbar>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <main id="main-content" class="container mx-auto px-6 pt-16 pb-24 max-w-5xl">
+        <!-- Header -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+                Technical <span class="text-primary-500">Blog</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                In-depth articles, tutorials, and insights on electronics, embedded systems, PCB design, and RF
+                technology.
+            </p>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="mb-12">
+            <div class="flex flex-wrap gap-3 justify-center">
+                <button class="filter-btn active px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                    data-category="all">All Posts</button>
+                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                    data-category="PCB Design">PCB Design</button>
+                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                    data-category="Embedded">Embedded</button>
+                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                    data-category="RF & SDR">RF & SDR</button>
+                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                    data-category="Robotics & AI">Robotics & AI</button>
+            </div>
+        </section>
+
+        <!-- Blog Posts List -->
+        <section id="blog-list" class="space-y-8">
+            <!-- Blog posts will be loaded via JavaScript -->
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="data/config.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script src="pages/blog.js"></script>
+    <script>feather.replace();</script>
+</body>
+
+</html>
