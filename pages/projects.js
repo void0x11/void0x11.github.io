@@ -33,8 +33,11 @@ function loadAllProjects(filter = 'all', searchTerm = '') {
     }
 
     grid.innerHTML = filteredProjects.map(project => {
-        const projectUrl = project.externalLink ? project.links.github : `project-detail.html?id=${project.id}`;
-        const targetAttr = project.externalLink ? 'target="_blank" rel="noopener noreferrer"' : '';
+        const hasGithub = project.links.github && project.links.github !== '#';
+        const projectUrl = hasGithub ? project.links.github : (project.externalLink ? project.links.github : `project-detail.html?id=${project.id}`);
+        const isExternal = hasGithub || project.externalLink;
+        const targetAttr = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+        const iconName = hasGithub ? 'github' : (project.externalLink ? 'external-link' : 'book-open');
 
         return `
             <div class="glass flex flex-col h-full group overflow-hidden relative">
@@ -66,16 +69,9 @@ function loadAllProjects(filter = 'all', searchTerm = '') {
                     <div class="flex items-center gap-4 mt-auto pt-4 border-t border-gray-800 pointer-events-auto">
                         <a href="${projectUrl}" ${targetAttr}
                            class="text-sm font-mono text-white hover:text-primary-500 flex items-center gap-2 transition-colors">
-                           <i data-feather="${project.externalLink ? 'external-link' : 'book-open'}" class="w-4 h-4"></i> 
-                           <span>${project.externalLink ? 'GitHub' : 'Details'}</span>
+                           <i data-feather="${iconName}" class="w-4 h-4"></i> 
+                           <span>Details</span>
                         </a>
-                        ${project.links.github && project.links.github !== '#' && !project.externalLink ? `
-                            <a href="${project.links.github}" target="_blank" rel="noopener noreferrer"
-                               class="text-sm text-gray-400 hover:text-white flex items-center gap-1.5 font-mono transition-colors">
-                                <i data-feather="github" class="w-4 h-4"></i>
-                                <span>Code</span>
-                            </a>
-                        ` : ''}
                     </div>
                 </div>
             </div>

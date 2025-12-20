@@ -45,50 +45,61 @@ function loadProjects() {
         return;
     }
 
-    projectsSection.innerHTML = featuredProjects.map(project => `
-        <div class="glass flex flex-col h-full group overflow-hidden relative">
-            <!-- Clickable Area for Detail Page -->
-            <a href="project-detail.html?id=${project.id}" class="absolute inset-0 z-0" aria-label="View Project Details"></a>
+    projectsSection.innerHTML = featuredProjects.map(project => {
+        const hasGithub = project.links.github && project.links.github !== '#';
+        const projectUrl = hasGithub ? project.links.github : (project.externalLink ? project.links.github : `project-detail.html?id=${project.id}`);
+        const isExternal = hasGithub || project.externalLink;
+        const targetAttr = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+        const iconName = hasGithub ? 'github' : (project.externalLink ? 'external-link' : 'book-open');
 
-            <div class="relative h-48 overflow-hidden bg-gray-900/50">
-               <div class="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-xs">
-                    [NO_IMAGE_DATA]
-               </div>
-               <img src="${project.image}" alt="${project.title}" 
-                    onerror="this.style.display='none'"
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10">
+        return `
+            <div class="glass flex flex-col h-full group overflow-hidden relative">
+                <!-- Clickable Area -->
+                <a href="${projectUrl}" ${targetAttr} class="absolute inset-0 z-0" aria-label="View Project Details"></a>
+
+                <div class="relative h-48 overflow-hidden bg-gray-900/50">
+                   <div class="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-xs select-none">
+                        [NO_IMAGE_DATA]
+                   </div>
+                   ${project.image ? `
+                        <img src="${project.image}" alt="${project.title}" 
+                             onerror="this.style.display='none'"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10">
+                   ` : ''}
+                </div>
+                
+                <div class="p-6 flex-1 flex flex-col relative z-10 pointer-events-none">
+                    <div class="flex justify-between items-start mb-3 pointer-events-auto">
+                        <span class="text-xs font-mono text-primary-500 bg-primary-500/10 px-2 py-1 rounded">
+                            ${project.category}
+                        </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary-500 transition-colors pointer-events-auto">
+                        <a href="${projectUrl}" ${targetAttr}>${project.title}</a>
+                    </h3>
+                    
+                    <p class="text-gray-400 text-sm mb-6 flex-1 leading-relaxed">
+                        ${project.description}
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6 pointer-events-auto">
+                        ${project.tags.slice(0, 4).map(tag => `
+                            <span class="text-xs text-gray-500 font-mono">#${tag}</span>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-800 mt-auto pointer-events-auto">
+                        <a href="${projectUrl}" ${targetAttr}
+                           class="text-sm font-mono text-white hover:text-primary-500 flex items-center gap-2 transition-colors">
+                           <i data-feather="${iconName}" class="w-4 h-4"></i> 
+                           <span>Details</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="p-6 flex-1 flex flex-col relative z-10 pointer-events-none">
-                <div class="flex justify-between items-start mb-3 pointer-events-auto">
-                    <span class="text-xs font-mono text-primary-500 bg-primary-500/10 px-2 py-1 rounded">
-                        ${project.category}
-                    </span>
-                </div>
-                
-                <h3 class="text-xl font-bold mb-3 group-hover:text-primary-500 transition-colors pointer-events-auto">
-                    <a href="project-detail.html?id=${project.id}">${project.title}</a>
-                </h3>
-                
-                <p class="text-gray-400 text-sm mb-6 flex-1 leading-relaxed">
-                    ${project.description}
-                </p>
-                
-                <div class="flex flex-wrap gap-2 mb-6 pointer-events-auto">
-                    ${project.tags.slice(0, 4).map(tag => `
-                        <span class="text-xs text-gray-500 font-mono">#${tag}</span>
-                    `).join('')}
-                </div>
-                
-                <div class="flex gap-4 pt-4 border-t border-gray-800 mt-auto pointer-events-auto">
-                    <a href="project-detail.html?id=${project.id}" 
-                       class="text-sm font-mono text-white hover:text-primary-500 flex items-center gap-2">
-                       <i data-feather="book-open" class="w-4 h-4"></i> Technical Details
-                    </a>
-                </div>
-            </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     if (typeof feather !== 'undefined') feather.replace();
 }

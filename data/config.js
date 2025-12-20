@@ -194,33 +194,7 @@ const config = {
                 github: "#",
                 demo: "#"
             },
-            featured: true,
-            details: {
-                problem: "Commercial motor driver shields lacked the power density and integrated sensing required for the 'SmartBot' platform. Existing solutions were also prone to EMI issues affecting sensor data.",
-                solution: "Designed a dedicated 4-layer stackup with separate analog/digital ground planes. Integrated dual H-bridge drivers with active current sensing and a 95% efficient buck-boost converter to extend battery life.",
-                features: [
-                    "4-Layer Stackup (Signal-GND-PWR-Signal)",
-                    "Integrated Buck/Boost Converters (5V@3A, 3.3V@1A)",
-                    "On-board Current & Voltage Sensing",
-                    "Reverse Polarity & Over-current Protection",
-                    "EMI-Optimized Layout for Motor Drivers"
-                ],
-                gallery: [
-                    { url: "https://placehold.co/600x400/111827/61dafb?text=Schematic+View", caption: "Power Stage Schematic" },
-                    { url: "https://placehold.co/600x400/111827/00ff41?text=3D+PCB+Layout", caption: "3D Rendering of Component Placement" },
-                    { url: "https://placehold.co/600x400/111827/ffb000?text=Thermal+Analysis", caption: "Thermal Relief & Plane Design" }
-                ],
-                techStack: {
-                    EDA: ["Altium Designer", "KiCad"],
-                    Hardware: ["STM32F407", "DRV8871", "TPS5430"],
-                    Fabrication: ["JLCPCB", "Voltera Nova"]
-                },
-                modules: [
-                    { name: "Power Management Unit", desc: "Handles LiPo battery input (7-12V) and provides stable rails for MCU and Motors." },
-                    { name: "Motor Driver Stage", desc: "Dual-channel H-bridge with protection diodes and fast-decay PWM control." },
-                    { name: "Sensor Interface", desc: "Filtered ADC inputs for IR and Ultrasonic sensors." }
-                ]
-            }
+            featured: true
         },
         {
             id: "turbo-pi-swarm",
@@ -233,32 +207,7 @@ const config = {
                 github: "#",
                 demo: "#"
             },
-            featured: true,
-            details: {
-                problem: "Traditional swarm robotics rely on external motion capture systems (like Vicon) or heavy centralized servers, making deployment in the wild unrestricted and expensive.",
-                solution: "Developed a distributed 'Visual Compass' system. Each robot runs a lightweight CNN to identify neighbors and estimate relative pose, enabling formation flying using only local on-board computation.",
-                features: [
-                    "Decentralized Leader-Follower Logic",
-                    "Lightweight CNN for Robot Identification",
-                    "Visual Odometry Fusion",
-                    "ROS2 Communication Backbone",
-                    "Real-time Path Planning"
-                ],
-                gallery: [
-                    { url: "https://placehold.co/600x400/111827/00d9ff?text=Swarm+Formation", caption: "Multi-Robot Formation Test" },
-                    { url: "https://placehold.co/600x400/111827/ff4444?text=Vision+Pipeline", caption: "CNN Detection Output" }
-                ],
-                techStack: {
-                    Hardware: ["Raspberry Pi 4", "TurboPi Kit"],
-                    Software: ["ROS2 Humble", "Python", "PyTorch"],
-                    AI: ["MobileNetV2", "YOLOv5-Nano"]
-                },
-                modules: [
-                    { name: "Perception Node", desc: "Captures camera frames and runs inference to detect neighbor IDs." },
-                    { name: "Control Node", desc: "Calculates velocity commands to maintain desired relative distance." },
-                    { name: "Communication Layer", desc: "ROS2 DDS for exchanging state data between units." }
-                ]
-            }
+            featured: true
         },
         {
             id: "obsbot-security",
@@ -271,27 +220,7 @@ const config = {
                 github: "https://github.com/void0x11/OBSBOT-Tiny2-Intelligent-Security-Monitor",
                 demo: "#"
             },
-            featured: true,
-            details: {
-                problem: "Continuous video recording consumes massive storage and makes reviewing footage tedious. Standard motion detection triggers too many false positives.",
-                solution: "Implemented a semantic detection pipeline using YOLOv8n (Nano) for real-time human classification. The system buffers video streams and only commits to disk when a person is detected.",
-                features: [
-                    "Real-time YOLOv8 Inference",
-                    "Circular Buffer Video Recording",
-                    "Automatic Snapshot Generation",
-                    "Discord Webhook Integration",
-                    "Robust Error Handling"
-                ],
-                techStack: {
-                    Core: ["Python 3.10", "OpenCV"],
-                    AI: ["YOLOv8", "Ultralytics"],
-                    System: ["Multithreading"]
-                },
-                modules: [
-                    { name: "Detection Engine", desc: "Runs the YOLOv8 model frame-by-frame." },
-                    { name: "Recorder Manager", desc: "Handles video writing IO in a separate thread." }
-                ]
-            }
+            featured: true
         },
         {
             id: "fmcw-radar",
@@ -304,28 +233,7 @@ const config = {
                 github: "https://github.com/void0x11/FMCW-Radar-MATLAB-Pipeline",
                 demo: "#"
             },
-            featured: true,
-            details: {
-                problem: "Understanding radar signal processing often stops at theoretical equations. Lack of clean code examples for the full raw-data-to-target pipeline.",
-                solution: "Built a modular MATLAB simulation that generates raw IQ data, mixes signals, and performs the classic processing chain to recover range and velocity.",
-                features: [
-                    "Chirp Waveform Generation",
-                    "Range & Doppler FFT",
-                    "2D Range-Doppler Map",
-                    "CA-CFAR Detection",
-                    "Physically Accurate Modeling"
-                ],
-                techStack: {
-                    Language: ["MATLAB", "Phased Array Toolbox"],
-                    Math: ["FFT", "Signal Processing"],
-                    Concepts: ["FMCW", "CFAR"]
-                },
-                modules: [
-                    { name: "Signal Generator", desc: "Synthesizes TX chirps and RX echoes." },
-                    { name: "Range Processor", desc: "Extracts beat frequencies." },
-                    { name: "Doppler Processor", desc: "Extracts velocity from phase shifts." }
-                ]
-            }
+            featured: true
         },
         {
             id: "embedded-drivers",
@@ -338,44 +246,21 @@ const config = {
                 github: "https://github.com/void0x11/Embedded-Drivers",
                 demo: "#"
             },
-            featured: false,
-            details: {
-                problem: "Vendor HALs are bloated and obscure hardware mechanics.",
-                solution: "Developed lightweight drivers accessing memory-mapped registers directly for deterministic behavior.",
-                features: ["Zero-Overhead GPIO", "Interrupt-Driven UART", "Systick Implementation"],
-                techStack: { Hardware: ["STM32F4"], Language: ["C", "Assembly"] },
-                modules: [{ name: "GPIO", desc: "Atomic bit-setting." }, { name: "UART", desc: "Serial comms." }]
-            }
+            featured: false
         },
         {
             id: "voidpwn",
             title: "VoidPWN",
             category: "Other",
             description: "A high-performance, mobile-optimized Command-and-Control (C2) framework engineered for Hardware Security Assessments and Enterprise Network Auditing.",
-            image: "",
+            image: "assets/projects/Pi-Isometricv2.jpg",
             tags: ["Security", "C2 Framework", "Raspberry Pi", "Hardware Audit"],
             links: {
                 github: "https://github.com/void0x11/VoidPWN",
                 demo: "#"
             },
-            externalLink: false,
-            featured: true,
-            details: {
-                problem: "Network discovery and wireless security assessments often require multiple disconnected tools and bulky hardware setups, making tactical audits difficult.",
-                solution: "VoidPWN streamlines complex assessments by consolidating advanced audit vectors into a unified Raspberry Pi platform with a mobile-optimized interface.",
-                features: [
-                    "Mobile-Optimized Dashboard",
-                    "Hardware Security Audit Vectors",
-                    "Enterprise Network Discovery",
-                    "Wireless Security Assessment Tools",
-                    "Raspberry Pi Based Hardware Platform"
-                ],
-                techStack: {
-                    Platform: ["Raspberry Pi"],
-                    Security: ["Nmap", "Aircrack-ng", "Custom C2"],
-                    UI: ["Mobile-Optimized Web Framework"]
-                }
-            }
+            externalLink: true,
+            featured: true
         }
     ],
 

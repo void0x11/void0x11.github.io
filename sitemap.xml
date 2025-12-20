@@ -49,12 +49,5 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Project Detail Page (template - add specific projects as needed) -->
-  <url>
-    <loc>https://voidlab.site/project-detail.html</loc>
-    <lastmod>2025-12-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
+  
 </urlset>
