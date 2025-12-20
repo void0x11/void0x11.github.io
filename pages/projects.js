@@ -42,12 +42,14 @@ function loadAllProjects(filter = 'all', searchTerm = '') {
                 <a href="${projectUrl}" ${targetAttr} class="absolute inset-0 z-0" aria-label="View ${project.title}"></a>
                 
                 <div class="relative h-48 overflow-hidden bg-gray-900/50">
-                    <div class="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-xs">
+                    <div class="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-xs select-none">
                         [NO_IMAGE_DATA]
                     </div>
-                    <img src="${project.image}" alt="${project.title}" 
-                         onerror="this.style.display='none'"
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10">
+                    ${project.image ? `
+                        <img src="${project.image}" alt="${project.title}" 
+                             onerror="this.style.display='none'"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10">
+                    ` : ''}
                 </div>
                 
                 <div class="p-6 flex-1 flex flex-col relative z-10 pointer-events-none">
@@ -61,15 +63,17 @@ function loadAllProjects(filter = 'all', searchTerm = '') {
                             <span class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#${tag}</span>
                         `).join('')}
                     </div>
-                    <div class="flex gap-3 mt-auto pt-4 border-t border-gray-800 pointer-events-auto">
+                    <div class="flex items-center gap-4 mt-auto pt-4 border-t border-gray-800 pointer-events-auto">
                         <a href="${projectUrl}" ${targetAttr}
-                           class="text-sm font-mono text-white hover:text-primary-500 flex items-center gap-2">
-                           <i data-feather="${project.externalLink ? 'external-link' : 'book-open'}" class="w-4 h-4"></i> ${project.externalLink ? 'GitHub' : 'Details'}
+                           class="text-sm font-mono text-white hover:text-primary-500 flex items-center gap-2 transition-colors">
+                           <i data-feather="${project.externalLink ? 'external-link' : 'book-open'}" class="w-4 h-4"></i> 
+                           <span>${project.externalLink ? 'GitHub' : 'Details'}</span>
                         </a>
                         ${project.links.github && project.links.github !== '#' && !project.externalLink ? `
                             <a href="${project.links.github}" target="_blank" rel="noopener noreferrer"
-                               class="text-sm text-gray-400 hover:text-secondary-500 flex items-center gap-1 font-mono">
-                                <i data-feather="github" class="w-4 h-4"></i> Code
+                               class="text-sm text-gray-400 hover:text-white flex items-center gap-1.5 font-mono transition-colors">
+                                <i data-feather="github" class="w-4 h-4"></i>
+                                <span>Code</span>
                             </a>
                         ` : ''}
                     </div>

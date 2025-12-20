@@ -352,13 +352,13 @@ const config = {
             title: "VoidPWN",
             category: "Other",
             description: "A high-performance, mobile-optimized Command-and-Control (C2) framework engineered for Hardware Security Assessments and Enterprise Network Auditing.",
-            image: "assets/projects/pi-isometricv2.jpg",
+            image: "",
             tags: ["Security", "C2 Framework", "Raspberry Pi", "Hardware Audit"],
             links: {
                 github: "https://github.com/void0x11/VoidPWN",
                 demo: "#"
             },
-            externalLink: true,
+            externalLink: false,
             featured: true,
             details: {
                 problem: "Network discovery and wireless security assessments often require multiple disconnected tools and bulky hardware setups, making tactical audits difficult.",
