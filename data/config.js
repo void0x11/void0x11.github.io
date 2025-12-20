@@ -186,7 +186,7 @@ const config = {
         {
             id: "smartbot-core",
             title: "SmartBot Core V1.1",
-            category: "Electronics & PCB",
+            category: "Electronics & Embedded",
             description: "Custom 4-layer PCB design serving as the central nervous system for autonomous mobile robots. Integrates STM32 control, high-power motor drivers, and efficient power management.",
             image: "https://placehold.co/800x500/1e293b/00ff41?text=SmartBot+PCB+Design",
             tags: ["Altium", "PCB Design", "Power Electronics", "STM32"],
@@ -330,7 +330,7 @@ const config = {
         {
             id: "embedded-drivers",
             title: "Modular STM32 Drivers",
-            category: "Embedded Systems",
+            category: "Electronics & Embedded",
             description: "A reusable HAL written in bare-metal C for STM32F1/F4 series. Bypasses vendor libraries to demonstrate register-level operations.",
             image: "https://placehold.co/800x500/1e293b/ffb000?text=Bare+Metal+Drivers",
             tags: ["C", "STM32", "Register Level"],
@@ -345,6 +345,36 @@ const config = {
                 features: ["Zero-Overhead GPIO", "Interrupt-Driven UART", "Systick Implementation"],
                 techStack: { Hardware: ["STM32F4"], Language: ["C", "Assembly"] },
                 modules: [{ name: "GPIO", desc: "Atomic bit-setting." }, { name: "UART", desc: "Serial comms." }]
+            }
+        },
+        {
+            id: "voidpwn",
+            title: "VoidPWN",
+            category: "Other",
+            description: "A high-performance, mobile-optimized Command-and-Control (C2) framework engineered for Hardware Security Assessments and Enterprise Network Auditing.",
+            image: "assets/projects/pi-isometricv2.jpg",
+            tags: ["Security", "C2 Framework", "Raspberry Pi", "Hardware Audit"],
+            links: {
+                github: "https://github.com/void0x11/VoidPWN",
+                demo: "#"
+            },
+            externalLink: true,
+            featured: true,
+            details: {
+                problem: "Network discovery and wireless security assessments often require multiple disconnected tools and bulky hardware setups, making tactical audits difficult.",
+                solution: "VoidPWN streamlines complex assessments by consolidating advanced audit vectors into a unified Raspberry Pi platform with a mobile-optimized interface.",
+                features: [
+                    "Mobile-Optimized Dashboard",
+                    "Hardware Security Audit Vectors",
+                    "Enterprise Network Discovery",
+                    "Wireless Security Assessment Tools",
+                    "Raspberry Pi Based Hardware Platform"
+                ],
+                techStack: {
+                    Platform: ["Raspberry Pi"],
+                    Security: ["Nmap", "Aircrack-ng", "Custom C2"],
+                    UI: ["Mobile-Optimized Web Framework"]
+                }
             }
         }
     ],
