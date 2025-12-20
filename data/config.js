@@ -223,32 +223,6 @@ const config = {
             featured: true
         },
         {
-            id: "fmcw-radar",
-            title: "FMCW Radar DSP",
-            category: "RF & Signal Processing",
-            description: "Complete FMCW radar signal-processing chain implemented in MATLAB. Walks through the practical DSP steps: chirp generation, RD-Map, and CFAR detection.",
-            image: "https://placehold.co/800x500/1e293b/00d9ff?text=Radar+DSP+Pipeline",
-            tags: ["MATLAB", "DSP", "Radar"],
-            links: {
-                github: "https://github.com/void0x11/FMCW-Radar-MATLAB-Pipeline",
-                demo: "#"
-            },
-            featured: true
-        },
-        {
-            id: "embedded-drivers",
-            title: "Modular STM32 Drivers",
-            category: "Electronics & Embedded",
-            description: "A reusable HAL written in bare-metal C for STM32F1/F4 series. Bypasses vendor libraries to demonstrate register-level operations.",
-            image: "https://placehold.co/800x500/1e293b/ffb000?text=Bare+Metal+Drivers",
-            tags: ["C", "STM32", "Register Level"],
-            links: {
-                github: "https://github.com/void0x11/Embedded-Drivers",
-                demo: "#"
-            },
-            featured: false
-        },
-        {
             id: "voidpwn",
             title: "VoidPWN",
             category: "Other",
