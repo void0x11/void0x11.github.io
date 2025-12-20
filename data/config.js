@@ -11,7 +11,8 @@ const config = {
         email: "ahmedamin@suumail.net",
         phone: "+1 (435) 233-4589",
         location: "Cedar City, UT",
-        resumeUrl: "assets/Ahmed_CV.pdf"
+        resumeUrl: "assets/Ahmed_CV.pdf",
+        researchVision: "I investigate the optimization of lightweight CNN architectures for Edge AI in swarm robotics, specifically addressing the trade-offs between latency and localization accuracy in GPS-denied environments. My work bridges the gap between hardware-level constraints (EMI, power integrity) and high-level algorithmic intelligence."
     },
 
     // Social Media Links
@@ -20,7 +21,10 @@ const config = {
         linkedin: "https://www.linkedin.com/in/aminsignal/",
         twitter: "https://twitter.com/ahmedamin",
         youtube: "https://www.youtube.com/@EWolfECE",
-        email: "mailto:ahmedamin@suumail.net"
+        email: "mailto:ahmedamin@suumail.net",
+        scholar: "#", // Google Scholar placeholder
+        orcid: "#", // ORCID placeholder
+        researchgate: "#" // ResearchGate placeholder
     },
 
     // YouTube Configuration
@@ -131,19 +135,6 @@ const config = {
             ]
         },
         {
-            title: "Undergraduate Teaching Assistant",
-            company: "Southern Utah University",
-            location: "Cedar City, UT",
-            period: "Aug 2024 - Dec 2025",
-            description: "Teaching ARM assembly, embedded systems, and communication circuits",
-            achievements: [
-                "Developed 8 bare-metal laboratories with STM32 drivers in ARM assembly (RCC, GPIO, SysTick, EXTI/NVIC, TIM-PWM, UART, SPI, ADC)",
-                "Delivered weekly lectures on ARMv7-M architecture and instruction cycles",
-                "Modernized Communication Circuits labs with calibrated Bode-plot and FFT analysis",
-                "Updated Applications of Microprocessors curriculum for reproducible experimentation"
-            ]
-        },
-        {
             title: "Laboratory Assistant",
             company: "Southern Utah University",
             location: "Cedar City, UT",
@@ -180,6 +171,62 @@ const config = {
             ]
         }
     ],
+
+    // Teaching Experience (Separated for Academic Style)
+    teaching: [
+        {
+            role: "Undergraduate Teaching Assistant",
+            institution: "Southern Utah University",
+            courses: [
+                {
+                    name: "Applications of Microprocessors",
+                    code: "EET 3780",
+                    tasks: "ARM Assembly (STM32), DMA, ADC, and RTOS integration."
+                },
+                {
+                    name: "Communication Circuits",
+                    code: "EET 4350",
+                    tasks: "RF Filter design, Bode analysis, and Signal Modulation."
+                }
+            ],
+            period: "Aug 2024 - Dec 2025",
+            description: "Developed 8 bare-metal laboratories with STM32 drivers in ARM assembly (RCC, GPIO, SysTick, EXTI/NVIC, TIM-PWM, UART, SPI, ADC). Delivered weekly lectures on ARMv7-M architecture and instruction cycles."
+        }
+    ],
+
+    // Research & Publications (Structured for Academic Style)
+    research: {
+        publications: [
+            {
+                type: "journal",
+                title: "Coherent Estimator and Non-Coherent Signal-Level Fusion in Dual-Band FMCW Radar under Single-Sweep IF Constraints: A Statistical Evaluation across SNR and Range Regimes",
+                authors: "Ahmed M. Amin, Gandhiraj R., and Rajagopalan Thiruvengadathan",
+                status: "Manuscript under review",
+                journal: "To be submitted",
+                bibtex: `@article{amin2025coherent,\n  title={Coherent Estimator and Non-Coherent Signal-Level Fusion in Dual-Band FMCW Radar under Single-Sweep IF Constraints},\n  author={Amin, Ahmed M. and Gandhiraj, R. and Thiruvengadathan, Rajagopalan},\n  journal={Under Review},\n  year={2025}\n}`
+            }
+        ],
+        conferences: [
+            {
+                id: "C1",
+                title: "Radar System for Drone Detection",
+                venue: "UCUR 2025",
+                description: "Utah Conference on Undergraduate Research – Introduced system concept and 5.8 GHz SDR architecture."
+            },
+            {
+                id: "C2",
+                title: "Low-Cost Dual-Band Radar System for Drone Detection and Tracking",
+                venue: "UASAL 2025",
+                description: "Utah Academy of Sciences, Arts & Letters – Demonstrated experimental validation of bistatic FMCW radar."
+            },
+            {
+                id: "C3",
+                title: "Low-Cost Dual-Band Radar System for Drone Detection and Tracking (Final Capstone Poster)",
+                venue: "FOE 2025",
+                description: "Festival of Excellence – Final capstone presentation outlining AI-driven prioritization phase."
+            }
+        ]
+    },
 
     // Global Projects
     projects: [

@@ -59,6 +59,14 @@
                     <a href="https://github.com/void0x11" target="_blank" class="btn-outline px-6 py-2 text-sm">
                         <i data-feather="github" class="w-4 h-4 mr-2"></i> GitHub
                     </a>
+                    <a href="#" target="_blank"
+                        class="link-scholar btn-outline px-6 py-2 text-sm border-secondary-500/50 text-secondary-500">
+                        <i data-feather="book" class="w-4 h-4 mr-2"></i> Scholar
+                    </a>
+                    <a href="#" target="_blank"
+                        class="link-orcid btn-outline px-6 py-2 text-sm border-primary-500/50 text-primary-500">
+                        <i data-feather="user" class="w-4 h-4 mr-2"></i> ORCID
+                    </a>
                 </div>
             </div>
         </header>
@@ -87,9 +95,10 @@
 
             <!-- Research Philosophy -->
             <div class="text-center mb-8">
-                <p class="text-lg md:text-xl font-light text-slate-300 italic max-w-2xl mx-auto leading-relaxed">
-                    "Bridging the gap between <span class="text-white font-medium">hardware constraints</span> and <span
-                        class="text-white font-medium">intelligent algorithms</span>."
+                <p
+                    class="text-xl md:text-2xl font-light text-slate-200 italic max-w-2xl mx-auto leading-relaxed font-serif">
+                    "Bridging the gap between <span class="text-primary-500 font-medium">hardware constraints</span> and
+                    <span class="text-secondary-500 font-medium">intelligent algorithms</span>."
                 </p>
             </div>
 
@@ -276,25 +285,11 @@
                     <h2
                         class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
                         <i data-feather="book-open" class="text-primary-500 w-6 h-6"></i>
-                        Journal Publications
+                        Publications
                     </h2>
 
-                    <div class="glass p-8 rounded-xl bg-blue-500/5 border border-blue-500/20">
-                        <div class="flex items-start gap-4">
-                            <i data-feather="file-text" class="text-blue-500 w-6 h-6 mt-1"></i>
-                            <div>
-                                <h3 class="text-blue-400 font-bold mb-2">Publications</h3>
-                                <div class="mb-4">
-                                    <p class="text-white font-semibold mb-1">“Coherent Estimator and Non-Coherent
-                                        Signal-Level Fusion in Dual-Band FMCW Radar under Single-Sweep IF Constraints: A
-                                        Statistical Evaluation across SNR and Range Regimes”</p>
-                                    <p class="text-slate-400 text-sm">Ahmed M. Amin, Gandhiraj R., and Rajagopalan
-                                        Thiruvengadathan</p>
-                                    <p class="text-slate-500 text-xs mt-1 italic">Manuscript under mentor review, to be
-                                        submitted.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="publications-container" class="space-y-6">
+                        <!-- Loaded via JS -->
                     </div>
                 </section>
 
@@ -303,69 +298,10 @@
                     <h2
                         class="text-2xl font-bold text-white mb-8 flex items-center gap-3 border-b border-gray-800 pb-4">
                         <i data-feather="mic" class="text-secondary-500 w-6 h-6"></i>
-                        Conference Presentations
+                        Conferences & Presentations
                     </h2>
-                    <div class="space-y-6">
-                        <!-- UCUR 2025 -->
-                        <div
-                            class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
-                            <div class="flex items-start justify-between gap-4 mb-3">
-                                <span class="text-secondary-500 font-mono text-sm">[C1]</span>
-                                <div class="flex-1">
-                                    <h3 class="text-white font-semibold text-lg mb-2">Radar System for Drone Detection
-                                    </h3>
-                                    <div class="flex flex-wrap gap-3 mb-3 text-sm">
-                                        <span
-                                            class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">UCUR
-                                            2025</span>
-                                        <span class="text-slate-400">Utah Conference on Undergraduate Research</span>
-                                    </div>
-                                    <p class="text-slate-400 text-sm">Introduced the system concept, research
-                                        motivation, and design architecture integrating 5.8 GHz SDR-based FMCW radar and
-                                        24 GHz radar modules.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- UASAL 2025 -->
-                        <div
-                            class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
-                            <div class="flex items-start justify-between gap-4 mb-3">
-                                <span class="text-secondary-500 font-mono text-sm">[C2]</span>
-                                <div class="flex-1">
-                                    <h3 class="text-white font-semibold text-lg mb-2">Low-Cost Dual-Band Radar System
-                                        for Drone Detection and Tracking</h3>
-                                    <div class="flex flex-wrap gap-3 mb-3 text-sm">
-                                        <span
-                                            class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">UASAL
-                                            2025</span>
-                                        <span class="text-slate-400">Utah Academy of Sciences, Arts & Letters</span>
-                                    </div>
-                                    <p class="text-slate-400 text-sm">Demonstrated experimental validation of bistatic
-                                        5.8 GHz FMCW radar using log-periodic antennas and showing the feasibility of
-                                        TDoA/AoA-based localization.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- FOE 2025 -->
-                        <div
-                            class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
-                            <div class="flex items-start justify-between gap-4 mb-3">
-                                <span class="text-secondary-500 font-mono text-sm">[C3]</span>
-                                <div class="flex-1">
-                                    <h3 class="text-white font-semibold text-lg mb-2">Low-Cost Dual-Band Radar System
-                                        for Drone Detection and Tracking (Final Capstone Poster)</h3>
-                                    <div class="flex flex-wrap gap-3 mb-3 text-sm">
-                                        <span
-                                            class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">FOE
-                                            2025</span>
-                                        <span class="text-slate-400">Festival of Excellence</span>
-                                    </div>
-                                    <p class="text-slate-400 text-sm">Summarized the integrated dual-band architecture
-                                        and outlined AI-driven prioritization and non-coherent fusion as the next
-                                        research phase.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="conferences-container" class="space-y-6">
+                        <!-- Loaded via JS -->
                     </div>
                 </section>
 

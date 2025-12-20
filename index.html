@@ -139,8 +139,8 @@
                         </p>
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div class="flex flex-wrap gap-4 mb-16">
+                    <!-- Action Buttons & Academic Links -->
+                    <div class="flex flex-wrap gap-4 mb-4">
                         <a href="projects.html"
                             class="btn-primary px-8 py-4 rounded-lg font-medium inline-flex items-center gap-2 text-lg group">
                             View Projects <i data-feather="arrow-right"
@@ -150,18 +150,42 @@
                             class="btn-outline px-8 py-4 rounded-lg font-medium inline-flex items-center gap-2 text-lg hover:bg-white/5">
                             <i data-feather="download" class="w-5 h-5"></i> Resume
                         </a>
-                        <a href="contact.html"
-                            class="btn-outline px-8 py-4 rounded-lg font-medium inline-flex items-center gap-2 text-lg hover:bg-white/5">
-                            <i data-feather="mail" class="w-5 h-5"></i> Contact
+                    </div>
+
+                    <!-- Academic Social Profiles -->
+                    <div class="flex flex-wrap gap-3 mb-12">
+                        <a href="#"
+                            class="link-scholar flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-800/50 border border-gray-700/50 text-xs text-gray-400 hover:text-primary-500 hover:border-primary-500/50 transition-all font-mono">
+                            <i data-feather="book-open" class="w-3.5 h-3.5"></i> Google Scholar
+                        </a>
+                        <a href="#"
+                            class="link-orcid flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-800/50 border border-gray-700/50 text-xs text-gray-400 hover:text-secondary-500 hover:border-secondary-500/50 transition-all font-mono">
+                            <i data-feather="user" class="w-3.5 h-3.5"></i> ORCID
+                        </a>
+                        <a href="#"
+                            class="link-researchgate flex items-center gap-2 px-3 py-1.5 rounded-md bg-gray-800/50 border border-gray-700/50 text-xs text-gray-400 hover:text-primary-500 hover:border-primary-500/50 transition-all font-mono">
+                            <i data-feather="award" class="w-3.5 h-3.5"></i> ResearchGate
                         </a>
                     </div>
 
-                    <!-- Bio -->
-                    <div class="mb-12">
-                        <p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+                    <!-- Bio & Research Vision -->
+                    <div class="mb-12 space-y-8">
+                        <p
+                            class="text-lg text-slate-300 leading-relaxed max-w-2xl border-l-2 border-primary-500/30 pl-6">
                             Passionate about RF systems, signal processing, and hardware design. Pursuing PhD
                             opportunities in sensor fusion and intelligent embedded systems.
                         </p>
+
+                        <div class="glass p-6 rounded-xl border-l-4 border-secondary-500 max-w-2xl">
+                            <h3 class="text-xs font-mono text-secondary-500 uppercase tracking-widest mb-3">Research
+                                Vision</h3>
+                            <p id="research-vision" class="text-sm md:text-base text-slate-300 leading-relaxed italic">
+                                <!-- Loaded via script.js -->
+                                "I investigate the optimization of lightweight CNN architectures for Edge AI in swarm
+                                robotics, specifically addressing the trade-offs between latency and localization
+                                accuracy in GPS-denied environments."
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Stats & Expertise -->
@@ -248,6 +272,21 @@
                 <div id="experience-scroll-container"
                     class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scroll-smooth">
                     <!-- Experience cards loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching & Mentorship Section -->
+        <section class="container mx-auto px-6 py-24">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center justify-between mb-12">
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                        <i data-feather="users" class="text-secondary-500"></i> Teaching & Mentorship
+                    </h2>
+                </div>
+
+                <div id="teaching-container" class="space-y-6">
+                    <!-- Teaching items loaded via JS -->
                 </div>
             </div>
         </section>

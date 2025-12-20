@@ -9,6 +9,38 @@ function getProjects() {
     return []; // Return empty if no config
 }
 
+// Load Research Vision (Home Page)
+function loadResearchVision() {
+    const visionEl = document.getElementById('research-vision');
+    if (visionEl && typeof config !== 'undefined' && config.personal.researchVision) {
+        visionEl.innerHTML = `"${config.personal.researchVision}"`;
+    }
+}
+
+// Load Academic Social Links
+function loadAcademicSocials() {
+    if (typeof config === 'undefined' || !config.social) return;
+
+    const mappings = {
+        'link-scholar': config.social.scholar,
+        'link-orcid': config.social.orcid,
+        'link-researchgate': config.social.researchgate
+    };
+
+    Object.entries(mappings).forEach(([id, url]) => {
+        const elements = document.querySelectorAll(`.${id}`);
+        elements.forEach(el => {
+            if (url && url !== '#') {
+                el.href = url;
+                el.style.display = 'inline-flex';
+            } else {
+                // Keep visible but with placeholder if needed, or hide
+                // el.style.display = 'none'; 
+            }
+        });
+    });
+}
+
 // Load Skills
 function loadSkills() {
     if (typeof config === 'undefined') return;
@@ -239,6 +271,36 @@ function loadExperience() {
     if (typeof feather !== 'undefined') feather.replace();
 }
 
+// Load Teaching Experience (Academic Style)
+function loadTeaching() {
+    const container = document.getElementById('teaching-container');
+    if (!container || typeof config === 'undefined' || !config.teaching) return;
+
+    container.innerHTML = config.teaching.map(t => `
+        <div class="glass p-8 rounded-xl border-t-4 border-secondary-500">
+            <div class="flex flex-col md:flex-row justify-between mb-6">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-1">${t.role}</h3>
+                    <p class="text-secondary-400 font-mono text-sm">${t.institution}</p>
+                </div>
+                <div class="text-slate-500 font-mono text-sm">${t.period}</div>
+            </div>
+            
+            <p class="text-slate-300 mb-6 italic">"${t.description}"</p>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                ${t.courses.map(course => `
+                    <div class="bg-gray-800/30 p-4 rounded border border-gray-700/50">
+                        <div class="text-xs text-primary-500 font-mono mb-1">${course.code}</div>
+                        <div class="text-white font-bold mb-1">${course.name}</div>
+                        <div class="text-slate-400 text-xs">${course.tasks}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
 // Load Random Profile Image - DISABLED (using fixed profile.jpeg now)
 function loadRandomProfileImage() {
     // No longer needed - using fixed profile.jpeg
@@ -287,14 +349,79 @@ function loadEducation() {
     if (typeof feather !== 'undefined') feather.replace();
 }
 
+// Load Research Data (Publications & Conferences)
+function loadResearch() {
+    const pubContainer = document.getElementById('publications-container');
+    const confContainer = document.getElementById('conferences-container');
+    if (typeof config === 'undefined' || !config.research) return;
+
+    if (pubContainer) {
+        pubContainer.innerHTML = config.research.publications.map((pref, index) => `
+            <div class="glass p-6 rounded-xl relative group">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                        <i data-feather="file-text" class="text-primary-500 w-5 h-5"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-xs font-mono text-primary-500 mb-2 uppercase">${pref.status}</div>
+                        <h3 class="text-lg font-bold text-white mb-2 leading-tight">${pref.title}</h3>
+                        <p class="text-slate-400 text-sm mb-4">${pref.authors}</p>
+                        
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs font-mono text-slate-500">${pref.journal}</span>
+                            <button onclick="toggleBibtex(${index})" class="text-xs font-mono text-secondary-500 hover:text-white transition-colors flex items-center gap-1">
+                                <i data-feather="terminal" class="w-3 h-3"></i> Cite (BibTeX)
+                            </button>
+                        </div>
+
+                        <!-- BibTeX Modal/Block -->
+                        <div id="bibtex-${index}" class="hidden mt-4 p-4 bg-black/40 rounded border border-gray-800 font-mono text-[10px] text-slate-400 overflow-x-auto whitespace-pre">
+${pref.bibtex}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    if (confContainer) {
+        confContainer.innerHTML = config.research.conferences.map(c => `
+            <div class="glass p-6 rounded-lg hover:border-l-4 hover:border-l-secondary-500 transition-all duration-300">
+                <div class="flex items-start justify-between gap-4">
+                    <span class="text-secondary-500 font-mono text-sm">[${c.id}]</span>
+                    <div class="flex-1">
+                        <h3 class="text-white font-semibold text-lg mb-2">${c.title}</h3>
+                        <div class="flex flex-wrap gap-3 mb-3 text-sm">
+                            <span class="bg-secondary-500/10 text-secondary-500 px-2 py-0.5 rounded border border-secondary-500/20">${c.venue}</span>
+                        </div>
+                        <p class="text-slate-400 text-sm">${c.description}</p>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    if (typeof feather !== 'undefined') feather.replace();
+}
+
+// BibTeX Toggle Helper
+window.toggleBibtex = function (index) {
+    const el = document.getElementById(`bibtex-${index}`);
+    if (el) el.classList.toggle('hidden');
+}
+
 
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
     loadSkills();
     loadProjects();
+    loadResearchVision();
+    loadAcademicSocials();
     loadBlogPosts();
     loadYouTubeVideos();
     loadExperience();
+    loadTeaching();
+    loadResearch();
     loadEducation();
     loadRandomProfileImage();
 
