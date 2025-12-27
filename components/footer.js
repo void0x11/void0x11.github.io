@@ -11,18 +11,18 @@ class CustomFooter extends HTMLElement {
                                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">Amin</span>
                             </h3>
                             <p class="text-gray-400 mb-6 leading-relaxed text-sm">
-                                Junior Electronics Engineer | Hardware Design, SDR & Signal Processing | RF & RADAR Enthusiast
+                                R&D Engineer | PhD Applicant | Embedded Systems & RF
                             </p>
                             <div class="flex gap-3">
                                 <a href="https://github.com/void0x11" target="_blank" rel="noopener noreferrer" 
                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-800/50 border border-gray-700/50 text-gray-400 hover:text-primary-500 hover:border-primary-500/50 transition-all">
                                     <i data-feather="github" class="w-5 h-5"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/in/aminsignal/" target="_blank" rel="noopener noreferrer"
+                                <a href="https://linkedin.com/in/ahmedewolf" target="_blank" rel="noopener noreferrer"
                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-800/50 border border-gray-700/50 text-gray-400 hover:text-primary-500 hover:border-primary-500/50 transition-all">
                                     <i data-feather="linkedin" class="w-5 h-5"></i>
                                 </a>
-                                <a href="https://youtube.com/@e-wolf" target="_blank" rel="noopener noreferrer"
+                                <a href="https://youtube.com/@EWolfECE" target="_blank" rel="noopener noreferrer"
                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-800/50 border border-gray-700/50 text-gray-400 hover:text-primary-500 hover:border-primary-500/50 transition-all">
                                     <i data-feather="youtube" class="w-5 h-5"></i>
                                 </a>

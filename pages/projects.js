@@ -77,6 +77,12 @@ function loadAllProjects(filter = 'all', searchTerm = '') {
         `;
     }).join('');
 
+    // Update project count
+    const countEl = document.getElementById('project-count');
+    if (countEl) {
+        countEl.textContent = `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''}`;
+    }
+
     // Re-initialize feather icons
     if (typeof feather !== 'undefined') {
         feather.replace();

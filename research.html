@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research & Innovation | Ahmed Mohamed Amin</title>
+    <title>Research & Innovation | Ahmed M. Amin</title>
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <link rel="stylesheet" href="style.css">
 
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@400;700&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,7 +28,8 @@
                     },
                     fontFamily: {
                         mono: ['JetBrains Mono', 'monospace'],
-                        sans: ['Inter', 'sans-serif']
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
                     }
                 }
             }
@@ -48,23 +49,25 @@
             <aside class="md:col-span-1 md:sticky md:top-24 space-y-8">
                 <!-- Profile Image & Info -->
                 <div class="text-center md:text-left">
-                    <img src="assets/profile.jpeg" alt="Ahmed Amin"
-                        class="w-48 h-48 rounded-xl object-cover mx-auto md:mx-0 shadow-2xl border-2 border-gray-800 mb-6">
+                    <img src="assets/profile.jpeg" alt="Ahmed M. Amin"
+                        class="w-48 h-48 rounded-xl object-cover mx-auto md:mx-0 shadow-2xl border-2 border-gray-800 mb-6"
+                        style="object-position: center 20%;">
 
-                    <h1 class="text-2xl font-bold text-white mb-1 font-serif">Ahmed Amin</h1>
-                    <p class="text-primary-500 font-medium mb-4">Researcher & Engineer</p>
+                    <h1 class="text-2xl font-bold text-white mb-1 font-serif">Ahmed M. Amin</h1>
+                    <p class="text-primary-500 font-medium mb-2">Research Scholar</p>
+                    <p class="text-slate-500 text-sm mb-4">B.S. Candidate, Engineering</p>
 
                     <div class="space-y-2 text-sm text-slate-400 mb-6">
                         <p class="flex items-center justify-center md:justify-start gap-2">
                             <i data-feather="map-pin" class="w-4 h-4"></i> Department of Engineering
                         </p>
                         <p class="flex items-center justify-center md:justify-start gap-2">
-                            <i data-feather="briefcase" class="w-4 h-4"></i> Southern Utah Univ.
+                            <i data-feather="home" class="w-4 h-4"></i> Southern Utah University
                         </p>
                     </div>
 
-                    <!-- Social Links -->
-                    <div class="flex justify-center md:justify-start gap-3">
+                    <!-- Academic & Professional Links -->
+                    <div class="flex justify-center md:justify-start gap-2 flex-wrap">
                         <a href="mailto:ahmedamin@suumail.net"
                             class="p-2 bg-gray-800 rounded text-slate-400 hover:text-primary-500 hover:bg-gray-700 transition-colors"
                             title="Email">
@@ -72,7 +75,7 @@
                         </a>
                         <a href="assets/Ahmed_CV.pdf" target="_blank"
                             class="p-2 bg-gray-800 rounded text-slate-400 hover:text-primary-500 hover:bg-gray-700 transition-colors"
-                            title="CV / Resume">
+                            title="Curriculum Vitae">
                             <i data-feather="file-text" class="w-5 h-5"></i>
                         </a>
                         <a href="https://github.com/void0x11" target="_blank"
@@ -80,12 +83,14 @@
                             title="GitHub">
                             <i data-feather="github" class="w-5 h-5"></i>
                         </a>
-                        <a href="#"
+                        <a href="https://linkedin.com/in/ahmedewolf" target="_blank"
                             class="p-2 bg-gray-800 rounded text-slate-400 hover:text-secondary-500 hover:bg-gray-700 transition-colors"
-                            title="Google Scholar">
-                            <i data-feather="book" class="w-5 h-5"></i>
+                            title="LinkedIn">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
                         </a>
                     </div>
+                    <!-- Academic Profiles Note -->
+                    <p class="text-xs text-slate-600 mt-3 italic">ORCID & Google Scholar available upon request</p>
                 </div>
 
                 <!-- Research Interests Sidebar -->
@@ -111,27 +116,74 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Skills & Tools Sidebar -->
+                <div class="hidden md:block">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Technical Skills</h3>
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <p class="text-slate-500 mb-1">Languages</p>
+                            <p class="text-slate-300">C/C++, Python, MATLAB, Verilog</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-500 mb-1">MCUs</p>
+                            <p class="text-slate-300">STM32, ESP32, Arduino, Raspberry Pi</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-500 mb-1">Protocols</p>
+                            <p class="text-slate-300">I2C, SPI, UART, CAN, Wi-Fi, BLE</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-500 mb-1">Tools</p>
+                            <p class="text-slate-300">KiCad, Altium, GNU Radio, Git</p>
+                        </div>
+                    </div>
+                </div>
             </aside>
 
             <!-- RIGHT COLUMN: Main Content -->
             <main class="md:col-span-3 space-y-16">
 
-                <!-- About / Bio -->
+                <!-- About / Research Statement -->
                 <section>
-                    <div class="prose prose-invert max-w-none">
+                    <h2 class="text-xl font-bold text-white mb-4 font-serif flex items-center gap-2">
+                        <i data-feather="user" class="w-5 h-5 text-primary-500"></i> About
+                    </h2>
+                    <div class="prose prose-invert max-w-2xl">
                         <p class="text-lg text-slate-300 leading-relaxed font-serif">
-                            I am a researcher and engineer working at the intersection of <strong
-                                class="text-white">low-level hardware constraints</strong> and <strong
-                                class="text-white">intelligent algorithms</strong>.
+                            I am a research scholar working at the intersection of <strong class="text-white">low-level
+                                hardware constraints</strong> and <strong class="text-white">intelligent
+                                algorithms</strong>.
                         </p>
                         <p class="text-slate-400 leading-relaxed">
-                            My current work investigates decentralized architectures for swarm robotics and the
-                            optimization of deep learning models for resource-constrained edge devices. I am passionate
-                            about building systems that are not only theoretically sound but also robust and deployable
-                            in the real world.
+                            My research investigates decentralized coordination mechanisms for multi-robot systems
+                            and the optimization of deep learning architectures for resource-constrained edge devices.
+                            I am committed to developing systems that are theoretically rigorous,
+                            empirically validated, and deployable in real-world environments.
                         </p>
                     </div>
                 </section>
+
+                <!-- Research Metrics -->
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 px-4 bg-gray-900/30 rounded-lg border border-gray-800">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-primary-500">5+</div>
+                        <div class="text-xs text-slate-500">Research Projects</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-secondary-500">3</div>
+                        <div class="text-xs text-slate-500">Manuscripts</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white">2</div>
+                        <div class="text-xs text-slate-500">Presentations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-amber-500">$1K+</div>
+                        <div class="text-xs text-slate-500">Grant Funding</div>
+                    </div>
+                </div>
 
                 <hr class="border-gray-800">
 
@@ -206,30 +258,118 @@
                     </div>
                 </section>
 
+                <!-- Honors & Grants -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-6 font-serif border-b border-gray-800 pb-2 flex items-center gap-2">
+                        <i data-feather="award" class="w-5 h-5 text-amber-500"></i> Honors & Grants
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <span class="text-amber-500 mt-1">★</span>
+                            <div>
+                                <p class="text-white font-medium">CONNECT Grant</p>
+                                <p class="text-slate-500 text-sm">Undergraduate Research Funding Award ($1,000) • 2025
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-amber-500 mt-1">★</span>
+                            <div>
+                                <p class="text-white font-medium">Dean's List</p>
+                                <p class="text-slate-500 text-sm">Recognition of Academic Excellence • 4 Semesters</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-teal-500 mt-1">●</span>
+                            <div>
+                                <p class="text-white font-medium">RECR Workshop</p>
+                                <p class="text-slate-500 text-sm">NSF-funded training on responsible research practices
+                                    • Mar 2025</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Professional Development -->
+                <section>
+                    <h2
+                        class="text-2xl font-bold text-white mb-6 font-serif border-b border-gray-800 pb-2 flex items-center gap-2">
+                        <i data-feather="bookmark" class="w-5 h-5 text-secondary-500"></i> Professional Development
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4">
+                            <span class="text-secondary-500 mt-1">◆</span>
+                            <div>
+                                <p class="text-white font-medium">Embedded Systems Essentials</p>
+                                <p class="text-slate-500 text-sm">ARM Cortex-M Architecture & Real-Time Programming</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-secondary-500 mt-1">◆</span>
+                            <div>
+                                <p class="text-white font-medium">PCB Design Fundamentals</p>
+                                <p class="text-slate-500 text-sm">KiCad, Altium Designer • Signal Integrity & EMC</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-secondary-500 mt-1">◆</span>
+                            <div>
+                                <p class="text-white font-medium">RF Engineering Basics</p>
+                                <p class="text-slate-500 text-sm">SDR, Antenna Design, S-Parameters</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Contact CTA -->
+                <section class="mt-12 pt-8 border-t border-gray-800">
+                    <div class="flex items-center gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-white font-bold font-serif">Open to Collaboration</h3>
+                            <p class="text-slate-500 text-sm">I welcome inquiries regarding research collaborations,
+                                graduate supervision, and academic partnerships.
+                            </p>
+                        </div>
+                        <a href="contact.html"
+                            class="px-6 py-3 border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-black transition-colors font-medium text-sm">
+                            Contact
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Letters of Support -->
+                <section class="mt-12">
+                    <h2
+                        class="text-2xl font-bold text-white mb-6 font-serif border-b border-gray-800 pb-2 flex items-center gap-2">
+                        <i data-feather="message-circle" class="w-5 h-5 text-slate-400"></i> Letters of Support
+                    </h2>
+                    <p class="text-xs text-slate-600 mb-4 italic">Representative endorsements (available upon request):
+                    </p>
+                    <div class="space-y-6">
+                        <blockquote class="border-l-2 border-primary-500 pl-6 py-2">
+                            <p class="text-slate-300 italic mb-3">"Mr. Amin demonstrates exceptional dedication to
+                                understanding complex systems. His work on the dual-band radar project showed both
+                                technical rigor and creative problem-solving."</p>
+                            <footer class="text-slate-500 text-sm">
+                                — <span class="text-white">Faculty Advisor</span>, Department of Engineering
+                            </footer>
+                        </blockquote>
+                        <blockquote class="border-l-2 border-secondary-500 pl-6 py-2">
+                            <p class="text-slate-300 italic mb-3">"A highly motivated researcher with strong laboratory
+                                skills. His ability to bridge hardware design and software implementation is
+                                notable."</p>
+                            <footer class="text-slate-500 text-sm">
+                                — <span class="text-white">Research Supervisor</span>, Robotics Laboratory
+                            </footer>
+                        </blockquote>
+                    </div>
+                </section>
+
             </main>
         </div>
 
-        <!-- Page Metadata -->
-        <div class="mt-20 pt-8 border-t border-gray-800">
-            <div class="flex flex-wrap justify-between items-center gap-4 text-sm text-slate-500">
-                <div class="flex items-center gap-2">
-                    <i data-feather="calendar" class="w-4 h-4"></i>
-                    <span>Last Updated: December 2025</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-feather="link" class="w-4 h-4"></i>
-                    <span class="font-mono">ahmedamin.research@voidlab.site</span>
-                </div>
-            </div>
-            <div class="mt-4 p-4 bg-gray-900/30 rounded border border-gray-800">
-                <p class="text-xs text-slate-500 mb-2 font-semibold">How to cite this page:</p>
-                <p class="text-xs text-slate-400 font-mono">
-                    A. M. Amin, "Research & Innovation," Personal Research Portfolio,
-                    Southern Utah University, 2025. [Online].
-                    Available: https://voidlab.site/research.html
-                </p>
-            </div>
-        </div>
+
 
     </main>
 

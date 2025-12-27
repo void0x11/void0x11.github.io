@@ -18,7 +18,7 @@ const config = {
     // Social Media Links
     social: {
         github: "https://github.com/void0x11",
-        linkedin: "https://www.linkedin.com/in/aminsignal/",
+        linkedin: "https://linkedin.com/in/ahmedewolf",
         twitter: "https://twitter.com/ahmedamin",
         youtube: "https://www.youtube.com/@EWolfECE",
         email: "mailto:ahmedamin@suumail.net",

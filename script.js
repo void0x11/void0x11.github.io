@@ -204,8 +204,14 @@ function loadBlogPosts() {
 
 // Load Work Experience
 function loadExperience() {
-    const container = document.getElementById('experience-scroll-container');
+    // Support both timeline (vertical) and scroll (horizontal) containers
+    const verticalContainer = document.getElementById('experience-container');
+    const horizontalContainer = document.getElementById('experience-scroll-container');
+    const container = verticalContainer || horizontalContainer;
+
     if (!container || typeof config === 'undefined' || !config.experience) return;
+
+    const isVertical = !!verticalContainer;
 
     // Company logo mapping
     const companyLogos = {
@@ -215,57 +221,64 @@ function loadExperience() {
         'Freelancer': 'assets/companies/freelancer.png'
     };
 
-    container.innerHTML = config.experience.map(exp => {
-        const logoPath = companyLogos[exp.company] || '';
-
-        return `
-        <div class="glass p-6 w-[340px] md:w-[380px] h-[520px] snap-start flex-shrink-0 whitespace-normal hover:border-primary-500/30 transition-all flex flex-col">
-            <!-- Job Title Header (Fixed Height) -->
-            <div class="h-14 flex items-center justify-center mb-6">
-                <h3 class="text-lg font-bold text-white text-center leading-tight">${exp.title}</h3>
+    if (isVertical) {
+        // Timeline-style vertical layout
+        container.innerHTML = config.experience.map(exp => {
+            return `
+            <div class="border-l-2 border-gray-700 pl-6 pb-4 hover:border-primary-500 transition-colors">
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                    <h3 class="text-white font-medium">${exp.title}</h3>
+                    <span class="text-xs font-mono text-slate-500">${exp.period}</span>
+                </div>
+                <p class="text-primary-500 text-sm mb-2">${exp.company}</p>
+                <p class="text-slate-400 text-sm leading-relaxed">${exp.description}</p>
             </div>
+        `}).join('');
+    } else {
+        // Horizontal scroll layout (legacy)
+        container.innerHTML = config.experience.map(exp => {
+            const logoPath = companyLogos[exp.company] || '';
 
-            <!-- Company Logo Container (Fixed Height) -->
-            <div class="relative mb-6 rounded-lg p-6 flex items-center justify-center h-32">
-                ${logoPath ? `
-                    <img src="${logoPath}" alt="${exp.company} logo" 
-                         class="max-w-full max-h-28 object-contain"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="text-5xl font-bold text-primary-500/20 hidden items-center justify-center">${exp.company.charAt(0)}</div>
-                ` : `
-                    <div class="text-5xl font-bold text-primary-500/20">${exp.company.charAt(0)}</div>
-                `}
+            return `
+            <div class="glass p-6 w-[340px] md:w-[380px] h-[520px] snap-start flex-shrink-0 whitespace-normal hover:border-primary-500/30 transition-all flex flex-col">
+                <div class="h-14 flex items-center justify-center mb-6">
+                    <h3 class="text-lg font-bold text-white text-center leading-tight">${exp.title}</h3>
+                </div>
+                <div class="relative mb-6 rounded-lg p-6 flex items-center justify-center h-32">
+                    ${logoPath ? `
+                        <img src="${logoPath}" alt="${exp.company} logo" 
+                             class="max-w-full max-h-28 object-contain"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="text-5xl font-bold text-primary-500/20 hidden items-center justify-center">${exp.company.charAt(0)}</div>
+                    ` : `
+                        <div class="text-5xl font-bold text-primary-500/20">${exp.company.charAt(0)}</div>
+                    `}
+                </div>
+                <div class="mb-4 text-center h-14 flex flex-col justify-center">
+                    <div class="text-slate-400 font-medium text-sm mb-1">${exp.company}</div>
+                    <div class="text-slate-500 text-xs font-mono">${exp.period}</div>
+                </div>
+                <p class="text-slate-300 text-sm mb-4 leading-relaxed text-center flex-1">${exp.description}</p>
+                <div class="pt-4 border-t border-gray-800">
+                    <button class="w-full py-2.5 px-4 bg-gray-800/50 hover:bg-gray-800 text-slate-300 hover:text-primary-500 rounded-lg text-sm font-medium transition-all">
+                        Learn More
+                    </button>
+                </div>
             </div>
-            
-            <!-- Company Name & Period (Fixed Height) -->
-            <div class="mb-4 text-center h-14 flex flex-col justify-center">
-                <div class="text-slate-400 font-medium text-sm mb-1">${exp.company}</div>
-                <div class="text-slate-500 text-xs font-mono">${exp.period}</div>
-            </div>
-            
-            <!-- Description (Flexible) -->
-            <p class="text-slate-300 text-sm mb-4 leading-relaxed text-center flex-1">${exp.description}</p>
-            
-            <!-- Learn More Button -->
-            <div class="pt-4 border-t border-gray-800">
-                <button class="w-full py-2.5 px-4 bg-gray-800/50 hover:bg-gray-800 text-slate-300 hover:text-primary-500 rounded-lg text-sm font-medium transition-all">
-                    Learn More
-                </button>
-            </div>
-        </div>
-    `}).join('');
+        `}).join('');
 
-    // Carousel controls
-    const scrollLeft = document.getElementById('exp-scroll-left');
-    const scrollRight = document.getElementById('exp-scroll-right');
+        // Carousel controls (only for horizontal)
+        const scrollLeft = document.getElementById('exp-scroll-left');
+        const scrollRight = document.getElementById('exp-scroll-right');
 
-    if (scrollLeft && scrollRight) {
-        scrollLeft.addEventListener('click', () => {
-            container.scrollBy({ left: -380, behavior: 'smooth' });
-        });
-        scrollRight.addEventListener('click', () => {
-            container.scrollBy({ left: 380, behavior: 'smooth' });
-        });
+        if (scrollLeft && scrollRight) {
+            scrollLeft.addEventListener('click', () => {
+                container.scrollBy({ left: -380, behavior: 'smooth' });
+            });
+            scrollRight.addEventListener('click', () => {
+                container.scrollBy({ left: 380, behavior: 'smooth' });
+            });
+        }
     }
 
     if (typeof feather !== 'undefined') feather.replace();
