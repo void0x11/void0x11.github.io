@@ -7,12 +7,13 @@
     <title>Projects | Ahmed's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-article.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,8 +24,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: { 500: '#00ff41' },
-                        secondary: { 500: '#00d9ff' }
+                        primary: { 500: '#3fb950' },
+                        secondary: { 500: '#58a6ff' }
                     },
                     fontFamily: {
                         mono: ['JetBrains Mono', 'monospace'],
@@ -40,40 +41,45 @@
     <custom-navbar></custom-navbar>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <main id="main-content" class="container mx-auto px-6 pt-32 pb-32 max-w-6xl">
+    <main id="main-content" class="container mx-auto px-6 pt-32 pb-24 max-w-5xl">
         <!-- Header -->
-        <section class="mb-16 text-center">
+        <section class="mb-8 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                <i data-feather="folder" class="w-4 h-4 text-primary-500"></i>
+                <span class="text-primary-500 font-medium text-sm">Portfolio</span>
+            </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Technical <span class="text-primary-500">Portfolio</span>
+                Technical <span class="text-primary-500">Projects</span>
             </h1>
             <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Explore my portfolio of electronics, embedded systems, PCB design, and robotics projects.
+                Electronics, embedded systems, PCB design, and robotics projects.
             </p>
         </section>
 
         <!-- Filter Section -->
-        <section class="mb-12">
+        <section class="mb-8">
             <div class="flex flex-wrap gap-3 justify-center items-center">
-                <button class="filter-btn active px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn active px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="all">All Projects</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
-                    data-category="Electronics & Embedded">Electronics & Embedded</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
+                    data-category="Electronics & Embedded">Electronics</button>
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="RF & SDR">RF & SDR</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="Robotics & AI">Robotics & AI</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="Other">Other</button>
-                <div class="relative ml-4">
-                    <input type="text" id="project-search" placeholder="Search projects..."
-                        class="bg-gray-800/50 text-white px-4 py-2 pl-10 rounded-lg border border-gray-700 focus:border-primary-500 focus:outline-none transition-colors">
-                    <i data-feather="search" class="absolute left-3 top-3 text-gray-400 w-4 h-4"></i>
-                </div>
             </div>
         </section>
 
+        <!-- Project Count -->
+        <div class="flex items-center justify-between mb-6 text-sm text-slate-500">
+            <span id="project-count" class="font-mono">Loading projects...</span>
+        </div>
+
         <!-- Projects Grid -->
-        <section id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section id="projects-grid" class="blog-grid">
             <!-- Projects will be loaded via JavaScript -->
         </section>
     </main>

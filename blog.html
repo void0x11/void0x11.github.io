@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Blog | Ahmed's Portfolio</title>
+    <meta name="description"
+        content="In-depth articles, tutorials, and insights on electronics, embedded systems, PCB design, and RF technology.">
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-article.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,8 +26,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: { 500: '#00ff41' },
-                        secondary: { 500: '#00d9ff' }
+                        primary: { 500: '#3fb950' },
+                        secondary: { 500: '#58a6ff' }
                     },
                     fontFamily: {
                         mono: ['JetBrains Mono', 'monospace'],
@@ -42,36 +45,54 @@
 
     <main id="main-content" class="container mx-auto px-6 pt-32 pb-24 max-w-5xl">
         <!-- Header -->
-        <section class="mb-16 text-center">
+        <section class="mb-8 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                <i data-feather="file-text" class="w-4 h-4 text-primary-500"></i>
+                <span class="text-primary-500 font-medium text-sm">Technical Articles</span>
+            </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Technical <span class="text-primary-500">Blog</span>
             </h1>
             <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
                 In-depth articles, tutorials, and insights on electronics, embedded systems, PCB design, and RF
-                technology.
             </p>
         </section>
 
         <!-- Filter Section -->
-        <section class="mb-12">
-            <div class="flex flex-wrap gap-3 justify-center">
-                <button class="filter-btn active px-6 py-2 rounded-lg font-mono text-sm transition-all"
+        <section class="mb-8">
+            <div class="flex flex-wrap gap-3 justify-center items-center">
+                <button class="filter-btn active px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="all">All Posts</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="PCB Design">PCB Design</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="Embedded">Embedded</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="RF & SDR">RF & SDR</button>
-                <button class="filter-btn px-6 py-2 rounded-lg font-mono text-sm transition-all"
+                <button class="filter-btn px-5 py-2.5 rounded-lg font-medium text-sm transition-all"
                     data-category="Robotics & AI">Robotics & AI</button>
             </div>
         </section>
 
-        <!-- Blog Posts List -->
-        <section id="blog-list" class="space-y-8">
-            <!-- Blog posts will be loaded via JavaScript -->
+        <!-- Article Count -->
+        <div class="flex items-center justify-between mb-6 text-sm text-slate-500">
+            <span id="article-count" class="font-mono">Loading articles...</span>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <section id="blog-grid" class="blog-grid">
+            <!-- All posts will be loaded here as grid cards via JS -->
         </section>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-16">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-500/10 flex items-center justify-center">
+                <i data-feather="file-text" class="w-8 h-8 text-primary-500"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">No articles found</h3>
+            <p class="text-slate-400">Try adjusting your filter or check back later for new content.</p>
+        </div>
     </main>
 
     <custom-footer></custom-footer>

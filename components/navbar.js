@@ -17,8 +17,8 @@ class CustomNavbar extends HTMLElement {
                         </a>
                         <div class="hidden md:flex items-center gap-8">
                             <a href="${this.getBasePath()}index.html" class="text-gray-300 hover:text-primary-500 transition-colors">Home</a>
-                            <a href="${this.getBasePath()}projects.html" class="text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
                             <a href="${this.getBasePath()}research.html" class="text-gray-300 hover:text-primary-500 transition-colors">Research</a>
+                            <a href="${this.getBasePath()}projects.html" class="text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
                             <a href="${this.getBasePath()}blog.html" class="text-gray-300 hover:text-primary-500 transition-colors">Blog</a>
                             <a href="${this.getBasePath()}contact.html" class="text-gray-300 hover:text-primary-500 transition-colors">Contact</a>
                         </div>
@@ -29,8 +29,8 @@ class CustomNavbar extends HTMLElement {
                     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                         <div class="flex flex-col gap-4">
                             <a href="${this.getBasePath()}index.html" class="text-gray-300 hover:text-primary-500 transition-colors">Home</a>
-                            <a href="${this.getBasePath()}projects.html" class="text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
                             <a href="${this.getBasePath()}research.html" class="text-gray-300 hover:text-primary-500 transition-colors">Research</a>
+                            <a href="${this.getBasePath()}projects.html" class="text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
                             <a href="${this.getBasePath()}blog.html" class="text-gray-300 hover:text-primary-500 transition-colors">Blog</a>
                             <a href="${this.getBasePath()}contact.html" class="text-gray-300 hover:text-primary-500 transition-colors">Contact</a>
                         </div>

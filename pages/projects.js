@@ -34,47 +34,46 @@ function loadAllProjects(filter = 'all', searchTerm = '') {
 
     grid.innerHTML = filteredProjects.map(project => {
         const hasGithub = project.links.github && project.links.github !== '#';
-        const projectUrl = hasGithub ? project.links.github : (project.externalLink ? project.links.github : `project-detail.html?id=${project.id}`);
-        const isExternal = hasGithub || project.externalLink;
+        // Prefer GitHub link or external link; valid fallback if neither exists
+        const projectUrl = hasGithub ? project.links.github : (project.externalLink || '#');
+        const isExternal = true; // Always open projects in new tab usually, or check URL
         const targetAttr = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
-        const iconName = hasGithub ? 'github' : (project.externalLink ? 'external-link' : 'book-open');
+        const iconName = hasGithub ? 'github' : 'external-link';
 
         return `
-            <div class="glass flex flex-col h-full group overflow-hidden relative">
-                <!-- Clickable Area -->
-                <a href="${projectUrl}" ${targetAttr} class="absolute inset-0 z-0" aria-label="View ${project.title}"></a>
-                
-                <div class="relative h-48 overflow-hidden bg-gray-900/50">
-                    <div class="absolute inset-0 flex items-center justify-center text-gray-700 font-mono text-xs select-none">
-                        [NO_IMAGE_DATA]
-                    </div>
-                    ${project.image ? `
-                        <img src="${project.image}" alt="${project.title}" 
-                             onerror="this.style.display='none'"
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 relative z-10">
-                    ` : ''}
+        <article class="blog-grid-card group h-full">
+            ${project.image ? `
+                <a href="${projectUrl}" ${targetAttr} class="blog-grid-card-image">
+                    <img src="${project.image}" alt="${project.title}" loading="lazy">
+                </a>
+            ` : `
+                <a href="${projectUrl}" ${targetAttr} class="blog-grid-card-image blog-grid-card-placeholder">
+                    <i data-feather="folder" class="w-8 h-8 opacity-50"></i>
+                </a>
+            `}
+            <div class="blog-grid-card-content">
+                <div class="blog-grid-card-meta">
+                    <span class="blog-grid-card-category">${project.category}</span>
                 </div>
+                <h3 class="blog-grid-card-title">
+                    <a href="${projectUrl}" ${targetAttr}>${project.title}</a>
+                </h3>
+                <p class="blog-grid-card-excerpt">${project.description}</p>
                 
-                <div class="p-6 flex-1 flex flex-col relative z-10 pointer-events-none">
-                    <div class="text-sm text-primary-500 mb-2 font-mono pointer-events-auto">${project.category}</div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary-500 transition-colors pointer-events-auto">
-                        <a href="${projectUrl}" ${targetAttr}>${project.title}</a>
-                    </h3>
-                    <p class="text-gray-400 mb-4 flex-1 text-sm leading-relaxed">${project.description}</p>
-                    <div class="flex flex-wrap gap-2 mb-4 pointer-events-auto">
-                        ${project.tags.slice(0, 5).map(tag => `
-                            <span class="text-xs px-3 py-1 bg-gray-800/50 border border-gray-700/50 rounded text-gray-300 font-mono">#${tag}</span>
-                        `).join('')}
-                    </div>
-                    <div class="flex items-center gap-4 mt-auto pt-4 border-t border-gray-800 pointer-events-auto">
-                        <a href="${projectUrl}" ${targetAttr}
-                           class="text-sm font-mono text-white hover:text-primary-500 flex items-center gap-2 transition-colors">
-                           <i data-feather="${iconName}" class="w-4 h-4"></i> 
-                           <span>Details</span>
-                        </a>
-                    </div>
+                <div class="flex flex-wrap gap-2 mb-4 mt-2">
+                    ${project.tags.slice(0, 3).map(tag => `
+                        <span class="text-xs px-2 py-0.5 bg-gray-800/50 border border-gray-700/50 rounded text-gray-400 font-mono">#${tag}</span>
+                    `).join('')}
+                </div>
+
+                <div class="blog-grid-card-footer mt-auto">
+                     <a href="${projectUrl}" ${targetAttr} class="inline-flex items-center gap-2 text-sm text-primary-500 hover:text-primary-400 font-medium transition-colors">
+                        <i data-feather="${iconName}" class="w-4 h-4"></i>
+                        <span>View Project</span>
+                    </a>
                 </div>
             </div>
+        </article>
         `;
     }).join('');
 

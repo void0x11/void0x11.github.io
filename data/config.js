@@ -293,6 +293,7 @@ const config = {
             category: "PCB Design",
             date: "December 2024",
             readTime: "8 min read",
+            coverImage: "assets/blog/pcb-quality-cover.png",
             tags: ["PCB", "Hardware", "Design Review", "Best Practices"],
             excerpt: "A practical checklist for evaluating PCB design quality, even if you're not an expert. Learn to spot common fatal mistakes in minutes.",
             content: `
