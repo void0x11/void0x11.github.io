@@ -17,7 +17,7 @@ const config = {
 
     // Social Media Links
     social: {
-        github: "https://github.com/void0x11",
+        github: "https://github.com/amnxlab",
         linkedin: "https://www.linkedin.com/in/aminsignal/",
         twitter: "https://twitter.com/ahmedamin",
         youtube: "https://www.youtube.com/@EWolfECE",
@@ -264,7 +264,7 @@ const config = {
             image: "https://placehold.co/800x500/1e293b/00ff41?text=OBSBOT+Monitor+AI",
             tags: ["Python", "YOLOv8", "OpenCV", "Multithreading"],
             links: {
-                github: "https://github.com/void0x11/OBSBOT-Tiny2-Intelligent-Security-Monitor",
+                github: "https://github.com/amnxlab/OBSBOT-Tiny2-Intelligent-Security-Monitor",
                 demo: "#"
             },
             featured: true
@@ -277,7 +277,7 @@ const config = {
             image: "assets/projects/Pi-Isometricv2.jpg",
             tags: ["Security", "C2 Framework", "Raspberry Pi", "Hardware Audit"],
             links: {
-                github: "https://github.com/void0x11/VoidPWN",
+                github: "https://github.com/amnxlab/VoidPWN",
                 demo: "#"
             },
             externalLink: true,

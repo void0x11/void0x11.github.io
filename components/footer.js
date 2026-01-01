@@ -14,7 +14,7 @@ class CustomFooter extends HTMLElement {
                                 R&D Engineer | PhD Applicant | Embedded Systems & RF
                             </p>
                             <div class="flex gap-3">
-                                <a href="https://github.com/void0x11" target="_blank" rel="noopener noreferrer" 
+                                <a href="https://github.com/amnxlab" target="_blank" rel="noopener noreferrer" 
                                    class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-800/50 border border-gray-700/50 text-gray-400 hover:text-primary-500 hover:border-primary-500/50 transition-all">
                                     <i data-feather="github" class="w-5 h-5"></i>
                                 </a>
