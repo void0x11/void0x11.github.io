@@ -1,0 +1,7 @@
+# Security Policy for amnxlab.site
+# Ahmed Mohamed Amin - Electronics & RF Engineer
+
+Contact: mailto:ahmedamin@suumail.net
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en, ar
+Canonical: https://amnxlab.site/.well-known/security.txt
