@@ -18,13 +18,13 @@ const config = {
     // Social Media Links
     social: {
         github: "https://github.com/amnxlab",
-        linkedin: "https://www.linkedin.com/in/aminsignal/",
-        twitter: "https://twitter.com/ahmedamin",
-        youtube: "https://www.youtube.com/@EWolfECE",
+        linkedin: "https://www.linkedin.com/in/amnxlab/",
+        twitter: "https://x.com/AMNxlab",
+        youtube: "https://www.youtube.com/@AMNxLab",
         email: "mailto:ahmedamin@suumail.net",
         scholar: "#", // Google Scholar placeholder
-        orcid: "#", // ORCID placeholder
-        researchgate: "#" // ResearchGate placeholder
+        orcid: "https://orcid.org/0009-0000-5211-709X",
+        researchgate: "https://www.researchgate.net/profile/Ahmed-Amin-97"
     },
 
     // YouTube Configuration
