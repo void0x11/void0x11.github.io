@@ -1,24 +1,29 @@
-/* Blog Article Styles - Medium-Inspired Design */
-/* Redesigned for optimal reading experience */
+/* Blog Article Styles - Authentic Medium Design */
+/* Based on Medium's 2024 design system */
 
 /* ============================================
-   CSS VARIABLES (Medium-style colors)
+   MEDIUM COLOR PALETTE
    ============================================ */
 :root {
-    --medium-text: #292929;
-    --medium-text-light: #757575;
-    --medium-green: #1a8917;
-    --medium-bg: #ffffff;
-    --medium-border: #e6e6e6;
+    /* Light mode (Medium default) - overridden for dark mode below */
+    --m-bg: #ffffff;
+    --m-text: #191919;
+    --m-text-secondary: #6b6b6b;
+    --m-text-muted: #757575;
+    --m-border: #e6e6e6;
+    --m-accent: #1a8917;
+    --m-accent-hover: #156d12;
+    --m-code-bg: #f2f2f2;
+    --m-link: #1a8917;
 
-    /* Dark mode overrides */
-    --article-bg: #0d1117;
-    --article-text: rgba(255, 255, 255, 0.92);
-    --article-text-muted: rgba(255, 255, 255, 0.6);
-    --article-text-secondary: rgba(255, 255, 255, 0.75);
-    --article-border: rgba(255, 255, 255, 0.1);
-    --article-accent: #3fb950;
-    --article-link: #58a6ff;
+    /* Dark mode overrides for your site */
+    --m-bg: #0d1117;
+    --m-text: rgba(255, 255, 255, 0.95);
+    --m-text-secondary: rgba(255, 255, 255, 0.7);
+    --m-text-muted: rgba(255, 255, 255, 0.5);
+    --m-border: rgba(255, 255, 255, 0.1);
+    --m-code-bg: #161b22;
+    --m-link: #3fb950;
 }
 
 /* ============================================
@@ -30,42 +35,57 @@
     left: 0;
     width: 0%;
     height: 3px;
-    background: var(--article-accent);
+    background: var(--m-accent);
     z-index: 9999;
     transition: width 0.1s ease-out;
 }
 
 /* ============================================
-   ARTICLE LAYOUT - Medium Style (Centered)
+   ARTICLE LAYOUT - Medium's CSS Grid System
    ============================================ */
 .article-container {
-    display: block;
-    max-width: 680px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr min(700px, 100%) 1fr;
+    padding: 0;
+}
+
+.article-container>* {
+    grid-column: 2;
     padding: 0 24px;
 }
 
+/* Full-bleed for images */
+.article-container>figure.full-bleed,
+.article-content figure {
+    grid-column: 1 / -1;
+    padding: 0;
+}
+
+/* Sidebar for TOC on large screens */
 @media (min-width: 1200px) {
     .article-container {
-        display: grid;
-        grid-template-columns: 1fr 680px 1fr;
-        max-width: 1200px;
-        gap: 0;
+        grid-template-columns: 220px 1fr 700px 1fr 220px;
     }
 
-    .article-container>article {
-        grid-column: 2;
+    .article-container>* {
+        grid-column: 3;
+        padding: 0;
     }
 
     .toc-sidebar {
         grid-column: 1;
+        grid-row: 1 / 100;
         justify-self: end;
-        padding-right: 40px;
+        padding-right: 32px;
+    }
+
+    .article-content figure {
+        grid-column: 2 / 5;
     }
 }
 
 /* ============================================
-   TABLE OF CONTENTS - Minimal Style
+   TABLE OF CONTENTS - Minimal
    ============================================ */
 .toc-sidebar {
     display: none;
@@ -75,20 +95,21 @@
     .toc-sidebar {
         display: block;
         position: sticky;
-        top: 120px;
+        top: 100px;
         height: fit-content;
-        max-height: calc(100vh - 150px);
+        max-height: calc(100vh - 120px);
         overflow-y: auto;
-        width: 200px;
+        width: 180px;
     }
 }
 
 .toc-title {
-    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--article-text-muted);
+    letter-spacing: 0.08em;
+    color: var(--m-text-muted);
     margin-bottom: 16px;
 }
 
@@ -99,38 +120,38 @@
 }
 
 .toc-list li {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .toc-link {
     display: block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 13px;
-    color: var(--article-text-muted);
+    color: var(--m-text-muted);
     text-decoration: none;
-    padding: 4px 0;
+    padding: 6px 0;
     padding-left: 12px;
     border-left: 2px solid transparent;
     transition: all 0.15s ease;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .toc-link:hover {
-    color: var(--article-text);
+    color: var(--m-text-secondary);
 }
 
 .toc-link.active {
-    color: var(--article-accent);
-    border-left-color: var(--article-accent);
+    color: var(--m-text);
+    border-left-color: var(--m-text);
 }
 
 /* Mobile TOC */
 .toc-mobile {
     display: block;
-    margin-bottom: 32px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--article-border);
-    border-radius: 8px;
-    overflow: hidden;
+    margin-bottom: 24px;
+    background: var(--m-bg);
+    border: 1px solid var(--m-border);
+    border-radius: 4px;
 }
 
 @media (min-width: 1200px) {
@@ -143,14 +164,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
-    cursor: pointer;
+    padding: 14px 16px;
     background: transparent;
     border: none;
     width: 100%;
-    color: var(--article-text);
+    color: var(--m-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .toc-mobile-content {
@@ -164,61 +186,59 @@
 }
 
 .toc-mobile-content .toc-list {
-    padding: 0 20px 16px;
+    padding: 0 16px 12px;
 }
 
 /* ============================================
    ARTICLE HEADER - Medium Style
    ============================================ */
 .article-header {
-    margin-bottom: 40px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--article-border);
+    margin-bottom: 32px;
 }
 
 .article-meta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
-    color: var(--article-text-muted);
-    margin-bottom: 24px;
+    color: var(--m-text-muted);
+    margin-bottom: 16px;
 }
 
 .article-category {
     display: inline-flex;
-    align-items: center;
-    padding: 4px 12px;
-    background: rgba(63, 185, 80, 0.1);
-    color: var(--article-accent);
+    padding: 4px 10px;
+    background: transparent;
+    color: var(--m-accent);
+    border: 1px solid var(--m-accent);
     border-radius: 100px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
 }
 
 .article-title {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 40px;
+    font-family: 'Georgia', 'Times New Roman', 'Charter', serif;
+    font-size: 42px;
     font-weight: 700;
-    color: var(--article-text);
+    color: var(--m-text);
     line-height: 1.2;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
     .article-title {
         font-size: 48px;
-        letter-spacing: -1px;
     }
 }
 
 .article-excerpt {
     font-family: 'Georgia', serif;
     font-size: 21px;
-    color: var(--article-text-secondary);
-    line-height: 1.6;
+    color: var(--m-text-secondary);
+    line-height: 1.52;
     margin-bottom: 32px;
 }
 
@@ -227,11 +247,13 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--m-border);
 }
 
 .author-avatar {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -243,9 +265,10 @@
 }
 
 .author-name {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 500;
-    color: var(--article-text);
-    font-size: 15px;
+    color: var(--m-text);
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -254,75 +277,88 @@
 }
 
 .author-role {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 13px;
-    color: var(--article-text-muted);
+    color: var(--m-text-muted);
 }
 
 /* ============================================
-   ARTICLE CONTENT - Medium Typography
+   ARTICLE CONTENT - Medium's Famous Typography
    ============================================ */
 .article-content {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 20px;
-    line-height: 1.8;
-    color: var(--article-text);
+    font-family: 'Georgia', 'Times New Roman', 'Charter', serif;
+    font-size: 21px;
+    line-height: 1.58;
+    color: var(--m-text);
     letter-spacing: -0.003em;
 }
 
+@media (max-width: 767px) {
+    .article-content {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+}
+
 .article-content h2 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 28px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 26px;
     font-weight: 700;
-    color: var(--article-text);
+    color: var(--m-text);
     margin-top: 56px;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     scroll-margin-top: 100px;
 }
 
 .article-content h3 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--article-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--m-text);
     margin-top: 40px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
+    line-height: 1.3;
     scroll-margin-top: 100px;
 }
 
 .article-content h4 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 18px;
     font-weight: 600;
-    color: var(--article-text);
+    color: var(--m-text);
     margin-top: 32px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .article-content p {
-    margin-bottom: 28px;
+    margin-bottom: 32px;
 }
 
 .article-content a {
-    color: var(--article-link);
+    color: inherit;
     text-decoration: underline;
-    text-decoration-color: rgba(88, 166, 255, 0.4);
-    text-underline-offset: 2px;
-    transition: text-decoration-color 0.15s;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
 }
 
 .article-content a:hover {
-    text-decoration-color: var(--article-link);
+    text-decoration-thickness: 2px;
 }
 
 .article-content ul,
 .article-content ol {
-    margin-bottom: 28px;
-    padding-left: 28px;
+    margin-bottom: 32px;
+    padding-left: 24px;
 }
 
 .article-content li {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.article-content li::marker {
+    color: var(--m-text-muted);
 }
 
 .article-content strong {
@@ -333,13 +369,26 @@
     font-style: italic;
 }
 
+/* Blockquotes - Medium Pull Quote Style */
+.article-content blockquote {
+    margin: 40px 0;
+    padding: 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--m-text);
+    font-style: italic;
+}
+
+.article-content blockquote p {
+    margin-bottom: 0;
+}
+
 /* ============================================
-   CALLOUT BOXES - Medium Style (Minimal)
+   CALLOUT BOXES - Medium Note Style
    ============================================ */
 .callout {
-    padding: 20px 24px;
-    border-radius: 4px;
+    padding: 16px 20px;
     margin: 32px 0;
+    border-radius: 4px;
     border-left: 3px solid;
     background: rgba(255, 255, 255, 0.02);
 }
@@ -348,61 +397,50 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
 }
 
 .callout-content {
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
-.callout-content p:last-child {
+.callout-content p:last-child,
+.callout-content ul:last-child {
     margin-bottom: 0;
 }
 
-.callout-content ul {
-    margin-bottom: 0;
-}
-
-/* Note - Blue */
 .callout-note {
     border-left-color: #58a6ff;
-    background: rgba(88, 166, 255, 0.05);
 }
 
 .callout-note .callout-title {
     color: #58a6ff;
 }
 
-/* Tip - Green */
 .callout-tip {
     border-left-color: #3fb950;
-    background: rgba(63, 185, 80, 0.05);
 }
 
 .callout-tip .callout-title {
     color: #3fb950;
 }
 
-/* Warning - Yellow */
 .callout-warning {
     border-left-color: #d29922;
-    background: rgba(210, 153, 34, 0.05);
 }
 
 .callout-warning .callout-title {
     color: #d29922;
 }
 
-/* Caution - Red */
 .callout-caution {
     border-left-color: #f85149;
-    background: rgba(248, 81, 73, 0.05);
 }
 
 .callout-caution .callout-title {
@@ -410,87 +448,80 @@
 }
 
 /* ============================================
-   CODE BLOCKS - Clean Style
+   CODE BLOCKS - Clean Technical Style
    ============================================ */
 .article-content code {
     font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2px 6px;
-    border-radius: 4px;
+    background: var(--m-code-bg);
+    padding: 2px 5px;
+    border-radius: 3px;
     font-size: 0.85em;
     color: #f0883e;
 }
 
 .article-content pre {
-    background: #161b22;
-    border-radius: 8px;
-    padding: 20px 24px;
+    background: var(--m-code-bg);
+    border-radius: 6px;
+    padding: 20px;
     overflow-x: auto;
     margin: 32px 0;
-    border: 1px solid var(--article-border);
+    border: 1px solid var(--m-border);
 }
 
 .article-content pre code {
     background: transparent;
     padding: 0;
-    color: var(--article-text);
+    color: var(--m-text);
     font-size: 14px;
     line-height: 1.6;
 }
 
 /* ============================================
-   FIGURES & IMAGES - Full Width
+   FIGURES & IMAGES - Full Bleed
    ============================================ */
 .article-content figure {
-    margin: 40px -24px;
-}
-
-@media (min-width: 768px) {
-    .article-content figure {
-        margin: 48px -60px;
-    }
+    margin: 48px 0;
 }
 
 .article-content figure img {
     width: 100%;
-    border-radius: 0;
+    display: block;
 }
 
 .article-content figcaption {
     text-align: center;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
-    color: var(--article-text-muted);
+    color: var(--m-text-muted);
     margin-top: 12px;
     padding: 0 24px;
 }
 
 /* ============================================
-   TABLES - Clean Style
+   TABLES
    ============================================ */
 .article-content table {
     width: 100%;
     border-collapse: collapse;
     margin: 32px 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
 }
 
 .article-content thead {
-    border-bottom: 2px solid var(--article-border);
+    border-bottom: 2px solid var(--m-border);
 }
 
 .article-content th {
     text-align: left;
-    padding: 12px 16px;
+    padding: 12px;
     font-weight: 600;
-    color: var(--article-text);
-    font-size: 14px;
+    color: var(--m-text);
 }
 
 .article-content td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--article-border);
+    padding: 12px;
+    border-bottom: 1px solid var(--m-border);
 }
 
 .article-content tbody tr:hover {
@@ -498,12 +529,12 @@
 }
 
 /* ============================================
-   ARTICLE FOOTER - Medium Style
+   ARTICLE FOOTER
    ============================================ */
 .article-footer {
     margin-top: 56px;
     padding-top: 32px;
-    border-top: 1px solid var(--article-border);
+    border-top: 1px solid var(--m-border);
 }
 
 .article-tags {
@@ -515,123 +546,78 @@
 
 .article-tag {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 6px 14px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 100px;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 13px;
-    color: var(--article-text-secondary);
+    color: var(--m-text-secondary);
     text-decoration: none;
     transition: background 0.15s;
 }
 
 .article-tag:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: var(--article-text);
 }
 
-/* Share Section - Clean */
+/* Share Section */
 .share-section {
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--article-border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-top: 32px;
+    border: 1px solid var(--m-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 24px;
 }
 
 .share-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
     font-weight: 600;
-    color: var(--article-text);
-    margin-bottom: 16px;
+    color: var(--m-text);
+    margin-bottom: 12px;
 }
 
 .share-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .share-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--article-border);
+    gap: 6px;
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid var(--m-border);
     border-radius: 100px;
-    color: var(--article-text-secondary);
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    color: var(--m-text-secondary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
     text-decoration: none;
     transition: all 0.15s;
 }
 
 .share-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--article-text);
-    border-color: var(--article-text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--m-text);
 }
 
 /* ============================================
-   CLAP BUTTON (Medium-style interaction)
-   ============================================ */
-.clap-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 40px 0;
-    padding: 24px 0;
-    border-top: 1px solid var(--article-border);
-    border-bottom: 1px solid var(--article-border);
-}
-
-.clap-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 1px solid var(--article-border);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--article-text-muted);
-}
-
-.clap-button:hover {
-    border-color: var(--article-accent);
-    color: var(--article-accent);
-    transform: scale(1.1);
-}
-
-.clap-button:active {
-    transform: scale(0.95);
-}
-
-.clap-count {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: var(--article-text-muted);
-}
-
-/* ============================================
-   BLOG CARDS (Listing page) - Medium Style
+   BLOG CARDS - Medium List Style
    ============================================ */
 .blog-card {
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--article-border);
+    border-bottom: 1px solid var(--m-border);
     border-radius: 0;
-    padding: 32px 0;
+    padding: 24px 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .blog-card {
         grid-template-columns: 1fr 200px;
         align-items: start;
@@ -647,11 +633,11 @@
     width: 100%;
     height: 134px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 2px;
     order: -1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .blog-card-image {
         order: 1;
         height: 107px;
@@ -665,20 +651,21 @@
 .blog-card-meta {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 13px;
-    color: var(--article-text-muted);
-    margin-bottom: 8px;
+    color: var(--m-text-muted);
+    margin-bottom: 6px;
 }
 
 .blog-card-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
     font-weight: 700;
-    color: var(--article-text);
-    margin-bottom: 8px;
+    color: var(--m-text);
+    margin-bottom: 6px;
     line-height: 1.3;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.01em;
 }
 
 .blog-card-title a {
@@ -692,41 +679,41 @@
 
 .blog-card-excerpt {
     font-family: 'Georgia', serif;
-    font-size: 16px;
-    color: var(--article-text-secondary);
+    font-size: 15px;
+    color: var(--m-text-secondary);
     line-height: 1.5;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* Featured Post - Medium Hero Style */
+/* Featured Post - Medium Hero */
 .featured-post {
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--article-border);
+    border-bottom: 1px solid var(--m-border);
     border-radius: 0;
-    padding: 48px 0;
+    padding: 40px 0;
     margin-bottom: 0;
 }
 
 .featured-post-inner {
     display: grid;
-    gap: 32px;
+    gap: 24px;
 }
 
 @media (min-width: 768px) {
     .featured-post-inner {
         grid-template-columns: 1fr 1fr;
-        gap: 48px;
+        gap: 40px;
     }
 }
 
 .featured-post-image {
-    height: 280px;
-    border-radius: 8px;
+    height: 250px;
+    border-radius: 4px;
     overflow: hidden;
 }
 
@@ -746,84 +733,58 @@
 .featured-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    background: rgba(63, 185, 80, 0.1);
-    color: var(--article-accent);
+    gap: 4px;
+    padding: 4px 10px;
+    background: transparent;
+    color: var(--m-accent);
+    border: 1px solid var(--m-accent);
     border-radius: 100px;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
     width: fit-content;
 }
 
 .featured-post-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 28px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--article-text);
-    margin-bottom: 16px;
+    color: var(--m-text);
+    margin-bottom: 12px;
     line-height: 1.25;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.02em;
 }
 
 .featured-post-excerpt {
     font-family: 'Georgia', serif;
-    font-size: 18px;
-    color: var(--article-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 24px;
+    font-size: 16px;
+    color: var(--m-text-secondary);
+    line-height: 1.58;
+    margin-bottom: 16px;
 }
 
-/* ============================================
-   FILTER BUTTONS - Minimal Style
-   ============================================ */
+/* Filter Buttons */
 .filter-btn {
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: transparent;
     border: none;
-    color: var(--article-text-muted);
-    padding: 8px 16px;
+    color: var(--m-text-muted);
+    padding: 8px 0;
+    margin-right: 24px;
     cursor: pointer;
-    transition: color 0.15s;
+    border-bottom: 1px solid transparent;
     font-size: 14px;
+    transition: all 0.15s;
 }
 
 .filter-btn:hover {
-    color: var(--article-text);
+    color: var(--m-text);
 }
 
 .filter-btn.active {
-    color: var(--article-text);
-    font-weight: 600;
-    border-bottom: 2px solid var(--article-text);
-}
-
-/* ============================================
-   RESPONSIVE ADJUSTMENTS
-   ============================================ */
-@media (max-width: 767px) {
-    .article-title {
-        font-size: 32px;
-    }
-
-    .article-excerpt {
-        font-size: 18px;
-    }
-
-    .article-content {
-        font-size: 18px;
-    }
-
-    .article-content h2 {
-        font-size: 24px;
-        margin-top: 40px;
-    }
-
-    .article-content h3 {
-        font-size: 20px;
-    }
+    color: var(--m-text);
+    border-bottom-color: var(--m-text);
 }
