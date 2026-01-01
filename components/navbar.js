@@ -13,7 +13,7 @@ class CustomNavbar extends HTMLElement {
                     <div class="flex items-center justify-between">
                         <a href="${this.getBasePath()}index.html" class="flex items-center gap-3 text-2xl font-bold font-mono hover:scale-105 transition-transform">
                             <img src="${this.getBasePath()}assets/logo.png" alt="AMNx Lab Logo" class="w-10 h-10">
-                            <span class="text-white">AMNx <span class="text-primary-500">Lab</span></span>
+                            <span class="text-white font-bold tracking-tight">AMN<span class="text-primary-500">x</span><span class="text-slate-400 font-normal ml-1">Lab</span></span>
                         </a>
                         <div class="hidden md:flex items-center gap-8">
                             <a href="${this.getBasePath()}index.html" class="text-gray-300 hover:text-primary-500 transition-colors">Home</a>
