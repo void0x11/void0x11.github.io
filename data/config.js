@@ -5,14 +5,14 @@ const config = {
     // Personal Information
     personal: {
         name: "Ahmed Mohamed Amin",
-        title: "PhD Applicant – Signal Processing, Embedded Systems, SDR & AI/ML/DL",
-        tagline: "Multidisciplinary researcher bridging electronics, embedded systems, signal processing, and AI/ML/DL",
-        bio: "Experienced in PCB and RF hardware design, bare-metal ARM development, and SDR-based radar and communication systems. Focused on sensor fusion, lightweight deep-learning deployment on Edge hardware, and adaptive hardware–software architectures for smart systems.",
+        title: "Electronics & RF Engineer – Radar Systems, SDR & Electronic Warfare",
+        tagline: "Electronics & RF Engineer specializing in radar systems, SDR technology, and Electronic Warfare",
+        bio: "My current work involves FMCW radar modeling, dual-band radar fusion, and cyber-physical security for wireless communication systems. I am particularly interested in bridging the gap between signal processing, embedded systems, and cybersecurity to develop innovative solutions for modern defense challenges.",
         email: "ahmedamin@suumail.net",
         phone: "+1 (435) 233-4589",
         location: "Cedar City, UT",
         resumeUrl: "assets/Ahmed_CV.pdf",
-        researchVision: "I investigate the optimization of lightweight CNN architectures for Edge AI in swarm robotics, specifically addressing the trade-offs between latency and localization accuracy in GPS-denied environments. My work bridges the gap between hardware-level constraints (EMI, power integrity) and high-level algorithmic intelligence."
+        researchVision: "I investigate advanced radar signal processing techniques, including FMCW waveform design and dual-band fusion algorithms. My research bridges RF hardware design, digital signal processing, and cybersecurity to address challenges in drone detection, electronic warfare, and secure wireless communications."
     },
 
     // Social Media Links
