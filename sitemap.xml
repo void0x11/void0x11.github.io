@@ -3,7 +3,7 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://voidlab.site/</loc>
+    <loc>https://amnxlab.site/</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
   
   <!-- Projects Page -->
   <url>
-    <loc>https://voidlab.site/projects.html</loc>
+    <loc>https://amnxlab.site/projects.html</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -19,7 +19,7 @@
   
   <!-- Research Page -->
   <url>
-    <loc>https://voidlab.site/research.html</loc>
+    <loc>https://amnxlab.site/research.html</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -27,7 +27,7 @@
   
   <!-- Blog Page -->
   <url>
-    <loc>https://voidlab.site/blog.html</loc>
+    <loc>https://amnxlab.site/blog.html</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +35,7 @@
   
   <!-- Contact Page -->
   <url>
-    <loc>https://voidlab.site/contact.html</loc>
+    <loc>https://amnxlab.site/contact.html</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -43,7 +43,7 @@
   
   <!-- Blog Posts -->
   <url>
-    <loc>https://voidlab.site/blog-posts/pcb-design-quality-checklist.html</loc>
+    <loc>https://amnxlab.site/blog-posts/pcb-design-quality-checklist.html</loc>
     <lastmod>2025-12-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

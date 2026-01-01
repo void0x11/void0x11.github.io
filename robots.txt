@@ -1,4 +1,4 @@
-# robots.txt for voidlab.site
+# robots.txt for amnxlab.site
 # Ahmed Mohamed Amin - Portfolio Website
 
 User-agent: *
@@ -10,7 +10,7 @@ Disallow: /.git/
 Disallow: /.github/
 
 # Sitemap location
-Sitemap: https://voidlab.site/sitemap.xml
+Sitemap: https://amnxlab.site/sitemap.xml
 
 # Crawl-delay (optional, helps prevent server overload)
 Crawl-delay: 1
