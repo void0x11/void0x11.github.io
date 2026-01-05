@@ -218,13 +218,15 @@ const config = {
                 id: "C2",
                 title: "Low-Cost Dual-Band Radar System for Drone Detection and Tracking",
                 venue: "UASAL 2025",
-                description: "Utah Academy of Sciences, Arts & Letters – Demonstrated experimental validation of bistatic FMCW radar."
+                description: "Utah Academy of Sciences, Arts & Letters – Demonstrated experimental validation of bistatic FMCW radar.",
+                link: "https://www.utahacademy.org/wp-content/uploads/2025/03/2025-UASAL-Annual-Conference-Program-Final-1.pdf"
             },
             {
                 id: "C3",
                 title: "Low-Cost Dual-Band Radar System for Drone Detection and Tracking (Final Capstone Poster)",
                 venue: "FOE 2025",
-                description: "Festival of Excellence – Final capstone presentation outlining AI-driven prioritization phase."
+                description: "Festival of Excellence – Final capstone presentation outlining AI-driven prioritization phase.",
+                link: "https://www.suu.edu/excellence/archive/festival-of-excellence-2025.pdf"
             }
         ]
     },
