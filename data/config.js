@@ -212,7 +212,7 @@ const config = {
                 title: "Radar System for Drone Detection",
                 venue: "UCUR 2025",
                 description: "Utah Conference on Undergraduate Research – Introduced system concept and 5.8 GHz SDR architecture.",
-                link: "https://www.ucur.org/abstracts/2025-abstracts?q=Ahmed+Amin"
+                link: "https://www.ucur.org/abstracts/2025-abstracts/radar-system-for-drone-detection"
             },
             {
                 id: "C2",
