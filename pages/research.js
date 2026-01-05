@@ -77,7 +77,12 @@ function loadConferences() {
                 <div class="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-800 border-2 border-secondary-500 group-hover:bg-secondary-500 transition-colors"></div>
                 <h4 class="text-white font-bold text-lg mb-1 group-hover:text-secondary-500 transition-colors">${conf.title}</h4>
                 <p class="text-slate-400 text-sm mb-1 italic">${conf.venue}</p>
-                <p class="text-slate-500 text-sm">${conf.description}</p>
+                <p class="text-slate-500 text-sm mb-2">${conf.description}</p>
+                ${conf.link ? `
+                    <a href="${conf.link}" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-secondary-500 hover:text-white transition-colors uppercase tracking-wider">
+                        <i data-feather="external-link" class="w-3 h-3"></i> [View Abstract]
+                    </a>
+                ` : ''}
             </div>
         </div>
     `).join('');
