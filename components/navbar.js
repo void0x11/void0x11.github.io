@@ -20,7 +20,6 @@ class CustomNavbar extends HTMLElement {
                             <a href="${this.getBasePath()}research.html" class="text-gray-300 hover:text-primary-500 transition-colors">Research</a>
                             <a href="${this.getBasePath()}projects.html" class="text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
                             <a href="${this.getBasePath()}blog.html" class="text-gray-300 hover:text-primary-500 transition-colors">Blog</a>
-                            <a href="${this.getBasePath()}contact.html" class="text-gray-300 hover:text-primary-500 transition-colors">Contact</a>
                         </div>
                         <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
                             <i data-feather="menu"></i>
@@ -32,7 +31,6 @@ class CustomNavbar extends HTMLElement {
                             <a href="${this.getBasePath()}research.html" class="text-gray-300 hover:text-primary-500 transition-colors">Research</a>
                             <a href="${this.getBasePath()}projects.html" class="text-gray-300 hover:text-primary-500 transition-colors">Projects</a>
                             <a href="${this.getBasePath()}blog.html" class="text-gray-300 hover:text-primary-500 transition-colors">Blog</a>
-                            <a href="${this.getBasePath()}contact.html" class="text-gray-300 hover:text-primary-500 transition-colors">Contact</a>
                         </div>
                     </div>
                 </div>

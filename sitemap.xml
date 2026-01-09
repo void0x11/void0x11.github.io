@@ -33,14 +33,6 @@
     <priority>0.85</priority>
   </url>
   
-  <!-- Contact Page -->
-  <url>
-    <loc>https://amnxlab.site/contact.html</loc>
-    <lastmod>2026-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
   <!-- Blog Posts -->
   <url>
     <loc>https://amnxlab.site/blog-posts/pcb-design-quality-checklist.html</loc>

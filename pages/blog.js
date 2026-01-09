@@ -1,109 +1,8 @@
-// Blog page JavaScript - Modern Technical Blog
+// Blog page JavaScript - Compact Grid Layout
 
-// Newsletter form handler - Integrates with Buttondown (free for up to 100 subscribers)
-// To set up: 1) Create account at buttondown.email 2) Replace YOUR_USERNAME below
-function handleNewsletterSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const input = form.querySelector('.newsletter-input');
-    const btn = form.querySelector('.newsletter-btn');
-    const statusEl = form.querySelector('.newsletter-status');
-    const email = input.value.trim();
-
-    if (!email) return;
-
-    // Show loading state
-    btn.disabled = true;
-    btn.textContent = 'Subscribing...';
-
-    // Buttondown API (replace YOUR_USERNAME with your Buttondown username)
-    // For GitHub Pages, you can also use: Mailchimp, ConvertKit, or a simple Google Form
-    const BUTTONDOWN_USERNAME = 'ahmedamin'; // Change this to your username
-
-    fetch(`https://api.buttondown.email/v1/subscribers`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: email,
-            referrer_url: window.location.href
-        })
-    })
-        .then(response => {
-            if (response.ok || response.status === 201) {
-                // Success
-                input.value = '';
-                btn.textContent = '✓ Subscribed!';
-                btn.style.background = '#22c55e';
-                if (statusEl) statusEl.textContent = 'Check your email to confirm.';
-            } else {
-                throw new Error('Subscription failed');
-            }
-        })
-        .catch(error => {
-            // Fallback: Open Buttondown subscription page directly
-            window.open(`https://buttondown.email/${BUTTONDOWN_USERNAME}`, '_blank');
-            btn.textContent = 'Subscribe';
-            btn.disabled = false;
-        })
-        .finally(() => {
-            setTimeout(() => {
-                btn.textContent = 'Subscribe';
-                btn.style.background = '';
-                btn.disabled = false;
-                if (statusEl) statusEl.textContent = '';
-            }, 4000);
-        });
-}
-
-// Load featured posts (top 3 articles in a grid)
-function loadFeaturedPosts() {
-    const container = document.getElementById('featured-post-container');
-    if (!container) return;
-
-    const posts = (typeof config !== 'undefined' && config.blogPosts) ? config.blogPosts : [];
-    if (posts.length === 0) {
-        container.style.display = 'none';
-        return;
-    }
-
-    // Get top 3 posts (or fewer if not enough)
-    const featuredPosts = posts.slice(0, 3);
-
-    container.innerHTML = `
-        <div class="featured-grid">
-            ${featuredPosts.map((post, index) => `
-                <article class="featured-card ${index === 0 ? 'featured-card-main' : ''}">
-                    ${post.coverImage ? `
-                        <a href="blog-posts/${post.slug}.html" class="featured-card-image">
-                            <img src="${post.coverImage}" alt="${post.title}">
-                        </a>
-                    ` : ''}
-                    <div class="featured-card-content">
-                        <div class="featured-card-meta">
-                            <span class="featured-card-category">${post.category}</span>
-                            <span class="featured-card-date">${post.date}</span>
-                        </div>
-                        <h3 class="featured-card-title">
-                            <a href="blog-posts/${post.slug}.html">${post.title}</a>
-                        </h3>
-                        ${index === 0 ? `<p class="featured-card-excerpt">${post.excerpt}</p>` : ''}
-                    </div>
-                </article>
-            `).join('')}
-        </div>
-    `;
-
-    if (typeof feather !== 'undefined') {
-        feather.replace();
-    }
-}
-
-// Load all blog posts as a grid (unified display)
+// Load all blog posts
 function loadBlogPosts(filter = 'all') {
     const container = document.getElementById('blog-grid');
-    const countEl = document.getElementById('article-count');
     const emptyState = document.getElementById('empty-state');
 
     if (!container) return;
@@ -116,16 +15,6 @@ function loadBlogPosts(filter = 'all') {
         posts = posts.filter(p => p.category.includes(filter) || p.category === filter);
     }
 
-    // Update article count
-    if (countEl) {
-        const total = (typeof config !== 'undefined' && config.blogPosts) ? config.blogPosts.length : 0;
-        if (filter === 'all') {
-            countEl.textContent = `${total} article${total !== 1 ? 's' : ''} published`;
-        } else {
-            countEl.textContent = `${posts.length} of ${total} articles`;
-        }
-    }
-
     // Handle empty state
     if (posts.length === 0) {
         container.innerHTML = '';
@@ -135,36 +24,66 @@ function loadBlogPosts(filter = 'all') {
 
     if (emptyState) emptyState.classList.add('hidden');
 
-    // Render all posts as grid cards
-    container.innerHTML = posts.map((post, index) => `
-        <article class="blog-grid-card">
-            ${post.coverImage ? `
-                <a href="blog-posts/${post.slug}.html" class="blog-grid-card-image">
-                    <img src="${post.coverImage}" alt="${post.title}" loading="lazy">
+    // Render posts in compact grid cards
+    container.innerHTML = posts.map((post, index) => {
+        return `
+            <article class="blog-card rounded-lg overflow-hidden flex flex-col h-full">
+                <a href="blog-posts/${post.slug}.html" class="flex flex-col h-full">
+                    <!-- Image -->
+                    ${post.coverImage ? `
+                        <div class="card-image-wrapper h-48 flex-shrink-0">
+                            <img src="${post.coverImage}" alt="${post.title}" 
+                                class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    ` : `
+                        <div class="card-image-wrapper h-48 flex-shrink-0 flex items-center justify-center">
+                            <i data-feather="file-text" class="w-16 h-16 text-[#30363d]"></i>
+                        </div>
+                    `}
+                    
+                    <!-- Content -->
+                    <div class="p-5 flex flex-col flex-1">
+                        <!-- Category -->
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="category-tag px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wide">
+                                ${post.category}
+                            </span>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="card-title text-lg font-bold text-white mb-2 leading-snug line-clamp-2 flex-shrink-0">
+                            ${post.title}
+                        </h2>
+
+                        <!-- Excerpt -->
+                        <p class="text-[#8b949e] text-sm mb-4 leading-relaxed line-clamp-3 flex-1">
+                            ${post.excerpt}
+                        </p>
+
+                        <!-- Footer -->
+                        <div class="flex items-center justify-between pt-3 border-t border-[#21262d] mt-auto">
+                            <span class="text-xs text-[#6e7681] font-mono">${post.date}</span>
+                            <span class="flex items-center gap-1.5 text-xs text-[#6e7681]">
+                                <i data-feather="clock" class="w-3.5 h-3.5"></i>
+                                <span>${post.readTime}</span>
+                            </span>
+                        </div>
+
+                        <!-- Tags (optional) -->
+                        ${post.tags && post.tags.length > 0 ? `
+                            <div class="flex flex-wrap gap-1.5 mt-3">
+                                ${post.tags.slice(0, 2).map(tag => `
+                                    <span class="px-2 py-0.5 text-xs font-mono bg-[#0d1117] text-[#6e7681] rounded border border-[#30363d]">
+                                        ${tag}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
                 </a>
-            ` : `
-                <a href="blog-posts/${post.slug}.html" class="blog-grid-card-image blog-grid-card-placeholder">
-                    <i data-feather="file-text"></i>
-                </a>
-            `}
-            <div class="blog-grid-card-content">
-                <div class="blog-grid-card-meta">
-                    <span class="blog-grid-card-category">${post.category}</span>
-                    <span class="blog-grid-card-date">${post.date}</span>
-                </div>
-                <h3 class="blog-grid-card-title">
-                    <a href="blog-posts/${post.slug}.html">${post.title}</a>
-                </h3>
-                <p class="blog-grid-card-excerpt">${post.excerpt}</p>
-                <div class="blog-grid-card-footer">
-                    <span class="blog-grid-card-readtime">
-                        <i data-feather="clock"></i>
-                        ${post.readTime}
-                    </span>
-                </div>
-            </div>
-        </article>
-    `).join('');
+            </article>
+        `;
+    }).join('');
 
     // Re-initialize feather icons
     if (typeof feather !== 'undefined') {

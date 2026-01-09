@@ -41,7 +41,6 @@ class CustomFooter extends HTMLElement {
                                 <li><a href="projects.html" class="text-gray-400 hover:text-primary-500 transition-colors text-sm">Projects</a></li>
                                 <li><a href="research.html" class="text-gray-400 hover:text-primary-500 transition-colors text-sm">Research</a></li>
                                 <li><a href="blog.html" class="text-gray-400 hover:text-primary-500 transition-colors text-sm">Blog</a></li>
-                                <li><a href="contact.html" class="text-gray-400 hover:text-primary-500 transition-colors text-sm">Contact</a></li>
                             </ul>
                         </div>
                     </div>

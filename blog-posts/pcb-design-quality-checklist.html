@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6 Quick Ways to Judge PCB Design Quality | Ahmed M. Amin</title>
+    <title>6 Quick Ways to Judge PCB Design Quality | AMNx Lab Blog</title>
     <meta name="description"
         content="A practical checklist for evaluating PCB design quality, even if you're not an expert. Learn to spot common fatal mistakes in minutes.">
     <link rel="icon" type="image/x-icon" href="../assets/icon.ico">
@@ -14,9 +14,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
@@ -31,402 +29,707 @@
                     },
                     fontFamily: {
                         mono: ['JetBrains Mono', 'monospace'],
-                        sans: ['Inter', 'sans-serif']
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Lora', 'Georgia', 'serif']
                     }
                 }
             }
         }
     </script>
+    <style>
+        body {
+            font-family: 'Lora', Georgia, serif;
+            background: #0a0e14;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #c9d1d9;
+        }
+
+        .medium-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #3fb950, #58a6ff);
+            z-index: 9999;
+            transition: width 0.15s ease-out;
+            box-shadow: 0 0 10px rgba(63, 185, 80, 0.5);
+        }
+
+        /* Medium-style typography */
+        .article-title {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 42px;
+            line-height: 1.25;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5em;
+        }
+
+        .article-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            line-height: 1.6;
+            color: #8b949e;
+            font-weight: 400;
+            margin-bottom: 2em;
+        }
+
+        .article-content h2 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            letter-spacing: -0.02em;
+        }
+
+        .article-content h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: #e6edf3;
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        .article-content a {
+            color: #58a6ff;
+            text-decoration: underline;
+            text-decoration-color: rgba(88, 166, 255, 0.4);
+            text-underline-offset: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            text-decoration-color: #58a6ff;
+        }
+
+        /* Lists */
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content li::marker {
+            color: #3fb950;
+        }
+
+        /* Code */
+        .article-content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(110, 118, 129, 0.15);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.85em;
+            color: #79c0ff;
+        }
+
+        .article-content pre {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 2em 0;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+
+        .article-content pre code {
+            background: transparent;
+            padding: 0;
+            color: #c9d1d9;
+        }
+
+        /* Images */
+        .article-content figure {
+            margin: 2.5em 0;
+        }
+
+        .article-content figure img {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .article-content figcaption {
+            text-align: center;
+            font-size: 0.85em;
+            color: #6e7681;
+            margin-top: 1em;
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+        }
+
+        /* Callouts - Medium style */
+        .callout {
+            background: #161b22;
+            border-left: 3px solid;
+            padding: 20px 24px;
+            margin: 2em 0;
+            border-radius: 4px;
+        }
+
+        .callout-note {
+            border-left-color: #58a6ff;
+            background: rgba(88, 166, 255, 0.05);
+        }
+
+        .callout-tip {
+            border-left-color: #3fb950;
+            background: rgba(63, 185, 80, 0.05);
+        }
+
+        .callout-warning {
+            border-left-color: #d29922;
+            background: rgba(210, 153, 34, 0.05);
+        }
+
+        .callout-caution {
+            border-left-color: #f85149;
+            background: rgba(248, 81, 73, 0.05);
+        }
+
+        .callout-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .callout-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9em;
+            line-height: 1.7;
+        }
+
+        .callout-content p:last-child,
+        .callout-content ul:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2em 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85em;
+        }
+
+        .article-content thead {
+            border-bottom: 2px solid #30363d;
+        }
+
+        .article-content th {
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            color: #3fb950;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-content td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .article-content tbody tr:hover {
+            background: rgba(63, 185, 80, 0.03);
+        }
+
+        /* Author card */
+        .author-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid #30363d;
+            border-bottom: 1px solid #30363d;
+            margin: 2em 0;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e6edf3;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .author-name:hover {
+            color: #3fb950;
+        }
+
+        .author-meta {
+            font-size: 14px;
+            color: #6e7681;
+        }
+
+        /* Footer actions */
+        .article-footer {
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid #30363d;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2em;
+        }
+
+        .tag {
+            background: #161b22;
+            border: 1px solid #30363d;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            color: #8b949e;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .tag:hover {
+            border-color: #3fb950;
+            color: #3fb950;
+        }
+
+        .share-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 2em;
+        }
+
+        .share-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #e6edf3;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .share-btn:hover {
+            border-color: #3fb950;
+            color: #e6edf3;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+
+            .article-title {
+                font-size: 32px;
+            }
+
+            .article-subtitle {
+                font-size: 18px;
+            }
+
+            .article-content h2 {
+                font-size: 26px;
+            }
+
+            .article-content h3 {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
 
-<body class="min-h-screen tech-grid">
+<body class="bg-[#0a0e14]">
     <!-- Reading Progress Bar -->
     <div class="reading-progress" id="reading-progress"></div>
 
     <custom-navbar></custom-navbar>
 
-    <main class="container mx-auto px-6 pt-32 pb-24">
-        <!-- Breadcrumb -->
-        <nav class="mb-8">
-            <a href="../blog.html"
-                class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-primary-500 transition-colors">
+    <main class="pt-24 pb-20">
+        <!-- Back Link with Branding -->
+        <div class="medium-container mb-8">
+            <a href="../blog.html" class="inline-flex items-center gap-2 text-sm text-[#8b949e] hover:text-primary-500 transition-colors font-sans group">
                 <i data-feather="arrow-left" class="w-4 h-4"></i>
-                <span>Back to Articles</span>
+                <span>AMN<span style="color: #3fb950;">x</span> Lab Blog</span>
             </a>
-        </nav>
+        </div>
 
-        <div class="article-container">
-            <!-- Table of Contents Sidebar (Desktop) -->
-            <aside class="toc-sidebar">
-                <nav>
-                    <h2 class="toc-title">On This Page</h2>
-                    <ol class="toc-list">
-                        <li><a href="#routing-issues" class="toc-link">1. PCB Traces (Routing)</a></li>
-                        <li><a href="#decoupling-capacitors" class="toc-link">2. Decoupling Capacitors</a></li>
-                        <li><a href="#length-matching" class="toc-link">3. High-Speed Length Matching</a></li>
-                        <li><a href="#rf-feed-lines" class="toc-link">4. RF Feed Lines</a></li>
-                        <li><a href="#component-placement" class="toc-link">5. Component Placement</a></li>
-                        <li><a href="#grounding" class="toc-link">6. Poor Grounding</a></li>
-                        <li><a href="#summary" class="toc-link">Summary Checklist</a></li>
-                    </ol>
-                </nav>
-            </aside>
+        <article class="medium-container">
+            <!-- Title & Subtitle -->
+            <h1 class="article-title text-white">
+                6 Quick Ways to Judge PCB Design Quality
+            </h1>
+            
+            <p class="article-subtitle">
+                Whether you're reviewing a contractor's work, evaluating a product teardown, or learning PCB
+                design yourself, these six checkpoints will help you identify serious design flaws quickly.
+            </p>
+
+            <!-- Author Card -->
+            <div class="author-card">
+                <img src="../assets/profile.jpeg" alt="Ahmed Amin" class="author-avatar">
+                <div class="author-info">
+                    <a href="https://www.linkedin.com/in/amnxlab/" target="_blank" rel="noopener" class="author-name">
+                        Ahmed Amin
+                    </a>
+                    <div class="author-meta">
+                        <span>December 2024</span>
+                        <span class="mx-2">·</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </div>
 
             <!-- Article Content -->
-            <article>
-                <!-- Mobile TOC -->
-                <div class="toc-mobile">
-                    <button class="toc-mobile-header" onclick="toggleMobileToc()">
-                        <span class="flex items-center gap-2">
-                            <i data-feather="list" class="w-4 h-4"></i>
-                            Table of Contents
-                        </span>
-                        <i data-feather="chevron-down" class="w-4 h-4 toc-chevron"></i>
-                    </button>
-                    <div class="toc-mobile-content" id="toc-mobile-content">
-                        <ol class="toc-list">
-                            <li><a href="#routing-issues" class="toc-link">1. PCB Traces (Routing)</a></li>
-                            <li><a href="#decoupling-capacitors" class="toc-link">2. Decoupling Capacitors</a></li>
-                            <li><a href="#length-matching" class="toc-link">3. High-Speed Length Matching</a></li>
-                            <li><a href="#rf-feed-lines" class="toc-link">4. RF Feed Lines</a></li>
-                            <li><a href="#component-placement" class="toc-link">5. Component Placement</a></li>
-                            <li><a href="#grounding" class="toc-link">6. Poor Grounding</a></li>
-                            <li><a href="#summary" class="toc-link">Summary Checklist</a></li>
-                        </ol>
+            <div class="article-content">
+                <!-- Section 1 -->
+                <h2 id="routing-issues">1. Incorrect PCB Traces (Routing Issues)</h2>
+
+                <p>
+                    Trace routing is one of the most visible indicators of design quality. Well-routed traces show
+                    attention to detail and understanding of signal integrity principles.
+                </p>
+
+                <div class="callout callout-note">
+                    <div class="callout-title">
+                        <i data-feather="info" class="w-4 h-4"></i>
+                        Key Rules
+                    </div>
+                    <div class="callout-content">
+                        <ul>
+                            <li><strong>Avoid 90° sharp angles</strong> — Use 45° or curved bends. Sharp corners
+                                cause acid traps during manufacturing and impedance discontinuities.</li>
+                            <li><strong>High-current traces</strong> — Must be sufficiently wide to handle current
+                                without overheating.</li>
+                            <li><strong>Critical analog traces</strong> — Do NOT run parallel to digital or
+                                fast-switching traces to prevent noise coupling.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Article Header -->
-                <header class="article-header">
-                    <div class="article-meta">
-                        <span class="article-category">PCB Design</span>
-                        <span>December 2024</span>
-                        <span>•</span>
-                        <span class="flex items-center gap-1">
-                            <i data-feather="clock" class="w-4 h-4"></i>
-                            8 min read
-                        </span>
+                <p>
+                    <em>Note: If you see sharp 90° angles, it often means the designer didn't configure their CAD
+                        tools correctly.</em>
+                </p>
+
+                <!-- Section 2 -->
+                <h2 id="decoupling-capacitors">2. Incorrectly Placed Decoupling Capacitors</h2>
+
+                <div class="callout callout-caution">
+                    <div class="callout-title">
+                        <i data-feather="alert-triangle" class="w-4 h-4"></i>
+                        Critical Design Flaw
                     </div>
-
-                    <h1 class="article-title">6 Quick Ways to Judge PCB Design Quality</h1>
-
-                    <p class="article-excerpt">
-                        Whether you're reviewing a contractor's work, evaluating a product teardown, or learning PCB
-                        design yourself, these six checkpoints will help you identify serious design flaws quickly.
-                    </p>
-
-                    <div class="author-card">
-                        <img src="../assets/profile.jpeg" alt="Ahmed Amin" class="author-avatar"
-                            style="object-fit: cover;">
-                        <div class="author-info">
-                            <a href="https://www.linkedin.com/in/amnxlab/" target="_blank" rel="noopener"
-                                class="author-name hover:text-primary-500 transition-colors">Ahmed Amin</a>
-                            <span class="author-role">R&D Engineer • PCB Designer</span>
-                        </div>
+                    <div class="callout-content">
+                        <p><strong>Missing or poorly placed capacitors is a major red flag.</strong> This is the #1
+                            indicator of amateur or bad design. Decoupling capacitors filter high-frequency noise from power supplies and must be strategically placed.</p>
                     </div>
-                </header>
-
-                <!-- Article Body -->
-                <div class="article-content">
-
-                    <!-- Section 1 -->
-                    <h2 id="routing-issues">1. Incorrect PCB Traces (Routing Issues)</h2>
-
-                    <p>
-                        Trace routing is one of the most visible indicators of design quality. Well-routed traces show
-                        attention to detail and understanding of signal integrity principles.
-                    </p>
-
-                    <div class="callout callout-note">
-                        <div class="callout-title">
-                            <i data-feather="info" class="w-4 h-4"></i>
-                            Key Rules
-                        </div>
-                        <div class="callout-content">
-                            <ul>
-                                <li><strong>Avoid 90° sharp angles</strong> — Use 45° or curved bends. Sharp corners
-                                    cause acid traps during manufacturing and impedance discontinuities.</li>
-                                <li><strong>High-current traces</strong> — Must be sufficiently wide to handle current
-                                    without overheating.</li>
-                                <li><strong>Critical analog traces</strong> — Do NOT run parallel to digital or
-                                    fast-switching traces to prevent noise coupling.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <p>
-                        <em>Note: If you see sharp 90° angles, it often means the designer didn't configure their CAD
-                            tools correctly.</em>
-                    </p>
-
-                    <!-- Section 2 -->
-                    <h2 id="decoupling-capacitors">2. Incorrectly Placed Decoupling Capacitors</h2>
-
-                    <div class="callout callout-caution">
-                        <div class="callout-title">
-                            <i data-feather="alert-triangle" class="w-4 h-4"></i>
-                            Critical Rule
-                        </div>
-                        <div class="callout-content">
-                            <p><strong>Missing or poorly placed capacitors is a major red flag.</strong> This is the #1
-                                indicator of amateur or bad design.</p>
-                        </div>
-                    </div>
-
-                    <p>Every IC power pin needs proper decoupling. Here's what to look for:</p>
-
-                    <ul>
-                        <li>Every IC power pin needs at least one decoupling capacitor (usually 0.1 µF + 10 µF bulk)
-                        </li>
-                        <li>Capacitors <strong>MUST</strong> be placed as close as possible to the power pin</li>
-                        <li>If capacitors are placed far away, they become ineffective at high frequencies</li>
-                    </ul>
-
-                    <div class="callout callout-warning">
-                        <div class="callout-title">
-                            <i data-feather="alert-circle" class="w-4 h-4"></i>
-                            Warning
-                        </div>
-                        <div class="callout-content">
-                            <p>If an outsourced designer does this wrong — consider it a serious red flag for the entire
-                                design.</p>
-                        </div>
-                    </div>
-
-                    <figure>
-                        <img src="../assets/blog/pcb-trace-angle-comparison-minimal.png"
-                            alt="PCB Trace Angle Comparison">
-                        <figcaption>Figure 1: 90° bends (Left) vs 45° bends (Right)</figcaption>
-                    </figure>
-
-                    <!-- Section 3 -->
-                    <h2 id="length-matching">3. No Length Matching on High-Speed Signals</h2>
-
-                    <p>This is critical for clocks and parallel buses (like DDR memory). Traces must have equal length
-                        so signals arrive at the exact same time.</p>
-
-                    <div class="callout callout-tip">
-                        <div class="callout-title">
-                            <i data-feather="zap" class="w-4 h-4"></i>
-                            What to Look For
-                        </div>
-                        <div class="callout-content">
-                            <ul>
-                                <li>Look for <strong>serpentine traces</strong> (wiggles) used to add delay to shorter
-                                    lines</li>
-                                <li>Signals in the same group should have the same number of vias</li>
-                                <li>If high-speed lines lack length matching, timing errors are very likely</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Section 4 -->
-                    <h2 id="rf-feed-lines">4. Improper RF Feed Lines</h2>
-
-                    <p>For any wireless or RF design, the antenna feed line is critical for proper operation.</p>
-
-                    <div class="grid md:grid-cols-2 gap-6 my-6">
-                        <div class="callout callout-note" style="margin: 0;">
-                            <div class="callout-title">
-                                <i data-feather="radio" class="w-4 h-4"></i>
-                                Feed Lines
-                            </div>
-                            <div class="callout-content">
-                                <ul>
-                                    <li>Must use controlled impedance (typically 50 Ω)</li>
-                                    <li>Do not add series resistors unless calculated</li>
-                                    <li>Keep as short as possible</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="callout callout-note" style="margin: 0;">
-                            <div class="callout-title">
-                                <i data-feather="wifi" class="w-4 h-4"></i>
-                                PCB Antennas
-                            </div>
-                            <div class="callout-content">
-                                <ul>
-                                    <li>Place on the edge of the board</li>
-                                    <li><strong>NO ground plane</strong> under the antenna</li>
-                                    <li>Keep clear of other components</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <figure>
-                        <img src="../assets/blog/pcb-serpentine-trace-minimal.png" alt="Serpentine Trace Example">
-                        <figcaption>Figure 2: Serpentine traces used for length matching</figcaption>
-                    </figure>
-
-                    <!-- Section 5 -->
-                    <h2 id="component-placement">5. Non-Optimized Component Placement</h2>
-
-                    <p>Component placement affects thermal management, signal integrity, and manufacturing yield.</p>
-
-                    <h3>Inductors</h3>
-                    <p>Separate them to avoid magnetic coupling. If they must be close, orient them perpendicular (90°)
-                        to each other.</p>
-
-                    <h3>Heat Management</h3>
-                    <p>Keep hot components (regulators, power resistors) away from temperature-sensitive parts like
-                        crystals, TCXOs, or sensors.</p>
-
-                    <h3>Switching Regulators</h3>
-                    <p>Group switching components tightly together. Keep them isolated from sensitive analog circuits to
-                        reduce noise coupling.</p>
-
-                    <div class="callout callout-tip">
-                        <div class="callout-title">
-                            <i data-feather="cpu" class="w-4 h-4"></i>
-                            Pro Tip
-                        </div>
-                        <div class="callout-content">
-                            <p>For AC mains sections: physically isolate with a slot in the PCB and keep all
-                                high-voltage on one side.</p>
-                        </div>
-                    </div>
-
-                    <!-- Section 6 -->
-                    <h2 id="grounding">6. Poor Grounding</h2>
-
-                    <p>A solid ground plane is preferred for most designs. For 2-layer boards, use a star ground
-                        topology. Never daisy-chain grounds.</p>
-
-                    <div class="callout callout-caution">
-                        <div class="callout-title">
-                            <i data-feather="alert-triangle" class="w-4 h-4"></i>
-                            Common Fatal Mistake
-                        </div>
-                        <div class="callout-content">
-                            <p>Poor grounding causes voltage drops and signal noise. Ground traces have resistance —
-                                current causes voltage drops — distant ICs see a shifted/bouncing ground reference.</p>
-                        </div>
-                    </div>
-
-                    <h3>Best Practices</h3>
-                    <ul>
-                        <li><strong>4-layer boards:</strong> Use solid ground and power planes</li>
-                        <li><strong>Mixed analog/digital:</strong> Split ground planes, connect at one point (power
-                            supply)</li>
-                        <li><strong>2-layer boards:</strong> Each IC/subcircuit gets its own ground return trace → star
-                            topology back to power supply GND</li>
-                    </ul>
-
-                    <!-- Summary Table -->
-                    <h2 id="summary">Summary Checklist</h2>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Check Item</th>
-                                <th>Target</th>
-                                <th>Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Trace Angles</td>
-                                <td>No 90° bends</td>
-                                <td>Use 45° or curves</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Decoupling Caps</strong></td>
-                                <td>Close to Pins</td>
-                                <td>Biggest giveaway of bad design</td>
-                            </tr>
-                            <tr>
-                                <td>High-Speed Traces</td>
-                                <td>Length Matched</td>
-                                <td>Check for serpentines</td>
-                            </tr>
-                            <tr>
-                                <td>RF Lines</td>
-                                <td>50 Ω Impedance</td>
-                                <td>Specific width required</td>
-                            </tr>
-                            <tr>
-                                <td>Inductors</td>
-                                <td>Spaced & Perpendicular</td>
-                                <td>Avoid magnetic coupling</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Grounding</strong></td>
-                                <td>Solid / Star</td>
-                                <td>Never daisy-chain</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="callout callout-tip" style="margin-top: 2rem;">
-                        <div class="callout-title">
-                            <i data-feather="bookmark" class="w-4 h-4"></i>
-                            Keep This Handy
-                        </div>
-                        <div class="callout-content">
-                            <p>Use this checklist to quickly spot major design errors on any PCB — even if you're not an
-                                expert, you can identify serious problems in minutes on Gerbers or manufactured boards!
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
 
-                <!-- Article Footer -->
-                <footer class="article-footer">
-                    <!-- Tags -->
-                    <div class="mb-6">
-                        <span class="text-sm text-slate-500 font-medium mb-3 block">Tags</span>
-                        <div class="article-tags">
-                            <span class="article-tag">#PCB</span>
-                            <span class="article-tag">#Hardware</span>
-                            <span class="article-tag">#Design Review</span>
-                            <span class="article-tag">#Best Practices</span>
-                        </div>
-                    </div>
+                <p>Every IC power pin needs proper decoupling. The effectiveness of a decoupling capacitor decreases exponentially with distance due to parasitic inductance in the traces.</p>
 
-                    <!-- Share Section -->
-                    <div class="share-section">
-                        <h3 class="share-title">Share This Article</h3>
-                        <div class="share-buttons">
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"
-                                rel="noopener" class="share-btn">
-                                <i data-feather="linkedin" class="w-4 h-4"></i>
-                                LinkedIn
-                            </a>
-                            <a href="https://x.com/intent/tweet?url=" target="_blank" rel="noopener" class="share-btn">
-                                <i data-feather="twitter" class="w-4 h-4"></i>
-                                X
-                            </a>
-                            <button onclick="copyLink()" class="share-btn">
-                                <i data-feather="link" class="w-4 h-4"></i>
-                                Copy Link
-                            </button>
-                        </div>
-                    </div>
+                <h3>Requirements Checklist</h3>
 
-                    <!-- Contact -->
-                    <div class="share-section" style="margin-top: 1.5rem;">
-                        <h3 class="share-title">Questions or Feedback?</h3>
-                        <p class="text-slate-400 text-sm mb-4">Found this helpful? Have corrections or suggestions?
-                            Reach out!</p>
-                        <div class="share-buttons">
-                            <a href="mailto:ahmedamin@suumail.net" class="share-btn">
-                                <i data-feather="mail" class="w-4 h-4"></i>
-                                Email
-                            </a>
-                            <a href="https://www.linkedin.com/in/amnxlab/" target="_blank" rel="noopener"
-                                class="share-btn">
-                                <i data-feather="linkedin" class="w-4 h-4"></i>
-                                ```
-                                LinkedIn
-                            </a>
-                        </div>
-                    </div>
-                </footer>
+                <ul>
+                    <li>Every IC power pin needs at least one decoupling capacitor (typically 0.1 µF ceramic + 10 µF bulk electrolytic)</li>
+                    <li>Capacitors <strong>MUST</strong> be placed within 5mm of the power pin (closer is better)</li>
+                    <li>Via-in-pad or adjacent vias to ground plane are essential for low inductance</li>
+                    <li>Multiple capacitor values provide filtering across different frequency ranges</li>
+                </ul>
 
-            </article>
-        </div>
+                <div class="callout callout-warning">
+                    <div class="callout-title">
+                        <i data-feather="alert-circle" class="w-4 h-4"></i>
+                        Warning
+                    </div>
+                    <div class="callout-content">
+                        <p>If an outsourced designer does this wrong — consider it a serious red flag for the entire
+                            design.</p>
+                    </div>
+                </div>
+
+                <figure>
+                    <img src="../assets/blog/pcb-trace-angle-comparison-minimal.png"
+                        alt="PCB Trace Angle Comparison">
+                    <figcaption>Figure 1: 90° bends (Left) vs 45° bends (Right)</figcaption>
+                </figure>
+
+                <!-- Section 3 -->
+                <h2 id="length-matching">3. No Length Matching on High-Speed Signals</h2>
+
+                <p>Signal propagation delay is approximately 6 inches per nanosecond in FR-4. For multi-gigabit interfaces, even millimeter-level mismatches cause timing skew that leads to data corruption.</p>
+
+                <p>This is <em>critically important</em> for:</p>
+                <ul>
+                    <li>DDR memory interfaces (DDR3/DDR4/DDR5)</li>
+                    <li>Differential pairs (USB 3.0, PCIe, HDMI, DisplayPort)</li>
+                    <li>Clock distribution networks</li>
+                    <li>Parallel data buses above 50 MHz</li>
+                </ul>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">
+                        <i data-feather="zap" class="w-4 h-4"></i>
+                        Visual Inspection Guide
+                    </div>
+                    <div class="callout-content">
+                        <ul>
+                            <li>Look for <strong>serpentine traces</strong> (controlled meandering) to add precise delay</li>
+                            <li>All signals in the same timing group must have matched lengths (within ±5 mils typically)</li>
+                            <li>Equal number of vias per signal (each via adds ~50-100 ps delay)</li>
+                            <li>Differential pair traces should be tightly coupled and length-matched within the pair</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <h2 id="rf-feed-lines">4. Improper RF Feed Lines</h2>
+
+                <p>For any wireless or RF design, the antenna feed line is <strong>mission-critical</strong>. Impedance mismatches cause standing waves, signal reflections, and power loss—directly reducing transmission range and reception sensitivity.</p>
+
+                <p>At RF frequencies (above 100 MHz), traces behave as transmission lines and must maintain consistent <strong>characteristic impedance</strong> to prevent reflections.</p>
+
+                <figure>
+                    <img src="../assets/blog/pcb-serpentine-trace-minimal.png" alt="Serpentine Trace Example">
+                    <figcaption>Figure 2: Serpentine traces used for length matching</figcaption>
+                </figure>
+
+                <!-- Section 5 -->
+                <h2 id="component-placement">5. Non-Optimized Component Placement</h2>
+
+                <p>Component placement affects thermal management, signal integrity, and manufacturing yield.</p>
+
+                <h3>Inductors</h3>
+                <p>Separate them to avoid magnetic coupling. If they must be close, orient them perpendicular (90°)
+                    to each other.</p>
+
+                <h3>Heat Management</h3>
+                <p>Keep hot components (regulators, power resistors) away from temperature-sensitive parts like
+                    crystals, TCXOs, or sensors.</p>
+
+                <h3>Switching Regulators</h3>
+                <p>Group switching components tightly together. Keep them isolated from sensitive analog circuits to
+                    reduce noise coupling.</p>
+
+                <!-- Section 6 -->
+                <h2 id="grounding">6. Poor Grounding</h2>
+
+                <p>A solid ground plane is preferred for most designs. For 2-layer boards, use a star ground
+                    topology. Never daisy-chain grounds.</p>
+
+                <div class="callout callout-caution">
+                    <div class="callout-title">
+                        <i data-feather="alert-triangle" class="w-4 h-4"></i>
+                        Common Fatal Mistake
+                    </div>
+                    <div class="callout-content">
+                        <p>Poor grounding causes voltage drops and signal noise. Ground traces have resistance —
+                            current causes voltage drops — distant ICs see a shifted/bouncing ground reference.</p>
+                    </div>
+                </div>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li><strong>4-layer boards:</strong> Use solid ground and power planes</li>
+                    <li><strong>Mixed analog/digital:</strong> Split ground planes, connect at one point (power
+                        supply)</li>
+                    <li><strong>2-layer boards:</strong> Each IC/subcircuit gets its own ground return trace → star
+                        topology back to power supply GND</li>
+                </ul>
+
+                <!-- Summary Table -->
+                <h2 id="summary">Summary Checklist</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Check Item</th>
+                            <th>Target</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trace Angles</td>
+                            <td>No 90° bends</td>
+                            <td>Use 45° or curves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Decoupling Caps</strong></td>
+                            <td>Close to Pins</td>
+                            <td>Biggest giveaway of bad design</td>
+                        </tr>
+                        <tr>
+                            <td>High-Speed Traces</td>
+                            <td>Length Matched</td>
+                            <td>Check for serpentines</td>
+                        </tr>
+                        <tr>
+                            <td>RF Lines</td>
+                            <td>50 Ω Impedance</td>
+                            <td>Specific width required</td>
+                        </tr>
+                        <tr>
+                            <td>Inductors</td>
+                            <td>Spaced & Perpendicular</td>
+                            <td>Avoid magnetic coupling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Grounding</strong></td>
+                            <td>Solid / Star</td>
+                            <td>Never daisy-chain</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="callout callout-tip" style="margin-top: 3rem;">
+                    <div class="callout-title">
+                        <i data-feather="bookmark" class="w-4 h-4"></i>
+                        Keep This Handy
+                    </div>
+                    <div class="callout-content">
+                        <p>Use this checklist to quickly spot major design errors on any PCB — even if you're not an
+                            expert, you can identify serious problems in minutes on Gerbers or manufactured boards!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Footer -->
+            <footer class="article-footer">
+                <!-- Tags -->
+                <div class="tags">
+                    <span class="tag">#PCB</span>
+                    <span class="tag">#Hardware</span>
+                    <span class="tag">#Design Review</span>
+                    <span class="tag">#Best Practices</span>
+                </div>
+
+                <!-- Share Section -->
+                <div class="share-section">
+                    <h3 class="share-title">Share This Article</h3>
+                    <div class="share-buttons">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"
+                            rel="noopener" class="share-btn">
+                            <i data-feather="linkedin" class="w-4 h-4"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://x.com/intent/tweet?url=" target="_blank" rel="noopener" class="share-btn">
+                            <i data-feather="twitter" class="w-4 h-4"></i>
+                            X (Twitter)
+                        </a>
+                        <button onclick="copyLink()" class="share-btn">
+                            <i data-feather="link" class="w-4 h-4"></i>
+                            Copy Link
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="share-section">
+                    <h3 class="share-title">Questions or Feedback?</h3>
+                    <p style="color: #8b949e; font-size: 14px; margin-bottom: 16px;">Found this helpful? Have corrections or suggestions? Let's connect!</p>
+                    <div class="share-buttons">
+                        <a href="mailto:ahmedamin@suumail.net" class="share-btn">
+                            <i data-feather="mail" class="w-4 h-4"></i>
+                            Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/amnxlab/" target="_blank" rel="noopener"
+                            class="share-btn">
+                            <i data-feather="linkedin" class="w-4 h-4"></i>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Branding -->
+                <div style="margin-top: 3em; padding-top: 2em; border-top: 1px solid #30363d; text-align: center;">
+                    <a href="../blog.html" class="blog-brand-link" style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 24px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; text-decoration: none; transition: all 0.3s ease;">
+                        <img src="../assets/logo.png" alt="AMNx Lab" style="width: 32px; height: 32px; object-fit: contain;">
+                        <div style="text-align: left;">
+                            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: #e6edf3;">
+                                AMN<span style="color: #3fb950;">x</span> Lab Blog
+                            </div>
+                            <div style="font-size: 12px; color: #6e7681; font-family: 'JetBrains Mono', monospace;">More Hardware Engineering Articles →</div>
+                        </div>
+                    </a>
+                </div>
+                <style>
+                    .blog-brand-link:hover {
+                        border-color: #3fb950 !important;
+                        box-shadow: 0 0 20px rgba(63, 185, 80, 0.15);
+                        transform: translateY(-2px);
+                    }
+                </style>
+            </footer>
+        </article>
     </main>
 
     <custom-footer></custom-footer>
@@ -455,33 +758,6 @@
             progressBar.style.width = progress + '%';
         }
 
-        // TOC Active State
-        function updateTocActiveState() {
-            const headings = document.querySelectorAll('.article-content h2');
-            const tocLinks = document.querySelectorAll('.toc-link');
-
-            let current = '';
-            headings.forEach(heading => {
-                const top = heading.getBoundingClientRect().top;
-                if (top < 150) {
-                    current = heading.id;
-                }
-            });
-
-            tocLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Mobile TOC Toggle
-        function toggleMobileToc() {
-            const content = document.getElementById('toc-mobile-content');
-            content.classList.toggle('open');
-        }
-
         // Copy Link
         function copyLink() {
             navigator.clipboard.writeText(window.location.href).then(() => {
@@ -490,15 +766,11 @@
         }
 
         // Scroll event listeners
-        window.addEventListener('scroll', () => {
-            updateReadingProgress();
-            updateTocActiveState();
-        });
+        window.addEventListener('scroll', updateReadingProgress);
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             updateReadingProgress();
-            updateTocActiveState();
             feather.replace();
         });
     </script>
